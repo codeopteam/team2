@@ -1,15 +1,12 @@
 <template>
-  <NavBar/>
+  <h1>Hola Mundo</h1>
 </template>
 
 <script>
-import NavBar from "./components/NavBar"
 
 export default {
   name: "App",
-  components: {
-    NavBar
-  }
+
 }
 </script>
 
