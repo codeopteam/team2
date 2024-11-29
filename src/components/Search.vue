@@ -1,10 +1,25 @@
 <template>
-    <h1>Search</h1>
+ <div class="flex justify-center my-4">    
+    <div v-if="loading" class="loader"></div>
+ </div>
+    <h2 class="text-center mb-4 font-bold">Events</h2>
+    <div class="text-center mb-4 font-bold">
+    <Filters></Filters>
+    </div>
+
+<div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
+    <div v-for="event in search._embedded.events" :key="event.id" class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-40">
+    <div class="flex flex-col justify-between h-full">
+        {{ event.name }}
+    <p class="font-bold text-gray-500">More info</p>
+   </div>
+</div>
+</div>
   </template>
   
   <script>
   import axios from 'axios';
-  
+  import Filters from './Filters.vue';
   export default {
     name: "Search",
     data() {
@@ -14,6 +29,9 @@
         loading: false,
         events: []
       };
+    },
+    components: {
+      Filters,
     },
     methods: {
       searchData() {
@@ -40,5 +58,18 @@
   };
   </script>
   
-  <style></style>
-  
+<style>
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -webkit-mask:linear-gradient(0deg,#000 55%,#0000 0) bottom/100% 18.18%;
+  background:
+   linear-gradient(#f03355 0 0) bottom/100% 0% no-repeat
+   #ddd;
+  animation: l8 2s infinite steps(7);
+}
+@keyframes l8 {
+    100% {background-size:100% 115%}
+}
+</style>

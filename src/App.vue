@@ -1,5 +1,5 @@
 <template>
-  <h1>Hola Mundo</h1>
+  <!-- <h1>Hola Mundo</h1> -->
   <Search></Search>
   <!-- <RouterView></RouterView> -->
 </template>
