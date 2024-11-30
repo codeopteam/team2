@@ -7,7 +7,6 @@
 <script>
 
 import Search from './components/Search.vue';
-import axios from 'axios';
 export default {
   name: "App",
   components: {

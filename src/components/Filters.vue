@@ -8,6 +8,7 @@
  <option value="2">Movie</option>
  <option value="3">Music</option>
 </select>
+<button class="bg-slate-200 rounded px-2">Find</button>
   </div>
 </template>
 
