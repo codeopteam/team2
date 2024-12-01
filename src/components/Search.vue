@@ -4,17 +4,27 @@
  </div>
     <h2 class="text-center mb-4 font-bold">Events</h2>
     <div class="text-center mb-4 font-bold">
-    <Filters></Filters>
+    <Filters @search="searchData" />
     </div>
 
 <div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
     <div v-for="event in search._embedded.events" :key="event.id" class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-40">
     <div class="flex flex-col justify-between h-full">
-        {{ event.name }}
+       <h4> {{ event.name }} </h4> 
+
+       <div v-for="(city, index) in event._embedded.venues" :key="index">
+        <p>City: {{ city.city?.name }}<p>
+        </p>Country: {{ city.locale }}</p> 
+   </div> 
+       
     <p class="font-bold text-gray-500">More info</p>
    </div>
+
+  
 </div>
 </div>
+
+  
   </template>
   
   <script>
@@ -27,21 +37,35 @@
         search: null,
         error: "",
         loading: false,
-        events: []
+        cities: [],
+        eventsByCity: []
       };
     },
     components: {
       Filters,
     },
     methods: {
-      searchData() {
+      searchData() {    
+
         this.error = "";
         this.loading = true;
+
+        let url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t`;
+        //filtro de City
+        // if (this.city.city?.name === this.cityUser) {
+        //   eventsByCity.push(this.cityUser)   //push a events by cities
+        //   return this.search = eventsByCity
+
+        // } else {
+        //   alert("Esta ciudad no es válida")
+        // }   
   
-        axios('https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t')
+
+        axios(url)
           .then(resp => {
             this.search = resp.data 
-            console.log(this.search)
+            console.log(this.search)  
+
       })
           .catch(err => {
             console.error(err);
