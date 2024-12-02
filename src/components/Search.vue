@@ -16,7 +16,7 @@
 
           <div v-for="(venue, index) in event._embedded.venues" :key="index">
             <p>City: {{ venue.city?.name }}</p>
-            <p>Country: {{ venue.locale }}</p>         
+            <p>Country: {{ venue.locale }}</p>        
          </div>
 
           <!-- <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
@@ -70,7 +70,7 @@ export default {
       this.error = "";
       this.loading = true;
 
-      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t`;
+      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t&countryCode=ES`;
      
       axios(url)
         .then(resp => {
