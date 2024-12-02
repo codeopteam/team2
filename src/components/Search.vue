@@ -3,7 +3,7 @@
     <div v-if="loading" class="loader"></div>
   </div>
   <h2 class="text-center mb-4 font-bold">Events</h2>
-  <div class="text-center mb-4 font-bold">
+  <div class="text-center mb-4">
     <Filters @search="searchData" />
 
 
@@ -11,7 +11,7 @@
       <div v-for="event in search._embedded.events" :key="event.id"
         class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-40">
         <div class="flex flex-col justify-between h-full">
-          <h4> {{ event.name }} </h4>
+          <h4 class="font-bold"> {{ event.name }} </h4>
 
           <div v-for="(venue, index) in event._embedded.venues" :key="index">
             <p>City: {{ venue.city?.name }}</p>
