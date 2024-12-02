@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import Search from './components/Search.vue'
+import Search from './Views/Search.vue'
 //nuestros dos ficheros de vistas
 
 //creamos dos rutas, y especificamos cada ruta que fichero/vista irá a abrir

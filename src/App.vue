@@ -6,7 +6,7 @@
 
 <script>
 
-import Search from './components/Search.vue';
+import Search from './Views/Search.vue';
 export default {
   name: "App",
   components: {

@@ -49,7 +49,7 @@
 
 <script>
 import axios from 'axios';
-import Filters from './Filters.vue';
+import Filters from '../components/Filters.vue';
 export default {
   name: "Search",
   data() {
