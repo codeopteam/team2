@@ -5,7 +5,7 @@
         <router-link to="/" class="text-blue-600 hover:underline">Inicio</router-link>
       </li>
       <li>
-        <router-link to="/search" class="text-blue-600 hover:underline">Buscar</router-link>
+        <router-link to="/results" class="text-blue-600 hover:underline">Buscar</router-link>
       </li>
       <li>
         <router-link to="/login" class="text-blue-600 hover:underline">Iniciar Sesión</router-link>

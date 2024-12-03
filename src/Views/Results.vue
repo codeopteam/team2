@@ -1,10 +1,15 @@
+<template>
+  <h1 class="text-2xl font-bold">Aqui va el resultado del fetch</h1>
+</template>
+
+
 <!-- <template>
   <div class="flex justify-center my-4">
     <div v-if="loading" class="loader"></div>
   </div>
   <h2 class="text-center mb-4 font-bold">Events</h2>
   <div class="text-center mb-4">
-    <Filters @search="searchData" />
+    <Search @search="searchData" />
 
 
     <div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
@@ -17,15 +22,15 @@
           <div v-for="(venue, index) in event._embedded.venues" :key="index">
             <p>City: {{ venue.city?.name }}</p>
             <p>Country: {{ venue.locale }}</p>        
-         </div> -->
+         </div> 
 
-          <!-- <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
+           <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
           <p>Event type: {{ type[segment][name]}}</p>
           <p>Event genre: {{ type[genre][name]}}</p>
-          </div> -->
-             <!-- <p>Event type: {{ event[classifications][segment][name]}}</p>
+          </div>
+              <p>Event type: {{ event[classifications][segment][name]}}</p>
           <p>Event genre: {{ event[classifications][genre][name]}}</p>
-             "classifications": [
+              "classifications": [
                     {
                         "primary": true,
                         "segment": {
@@ -37,8 +42,8 @@
                             "name": "Basketball"
                         }, -->
           
-
-          <!-- <p class="font-bold text-gray-500">More info</p>
+<!-- 
+           <p class="font-bold text-gray-500">More info</p>
         </div>
 
 
@@ -49,7 +54,7 @@
 
 <script>
 import axios from 'axios';
-import Filters from '../components/Filters.vue';
+import Search from '../components/Search.vue';
 export default {
   name: "Search",
   data() {
@@ -61,7 +66,7 @@ export default {
     };
   },
   components: {
-    Filters,
+    Search,
   },
   methods: {
     searchData(city) {
@@ -103,9 +108,9 @@ export default {
     this.searchData();
   }
 };
-</script>
+</script> -->
 
-<style>
+<!-- <style>
 .loader {
   width: 60px;
   aspect-ratio: 1;
