@@ -9,7 +9,7 @@
     </div>
     <h2 class="text-center mb-4 font-bold">Events</h2>
     <div class="text-center mb-4">
-      <Search @search="searchData" />
+      <!-- <Search @search="searchData" /> -->
 
 
       <div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
@@ -18,34 +18,13 @@
           <div class="flex flex-col justify-between h-full">
             <h4 class="font-bold"> {{ event.name }} </h4>
 
-
             <div v-for="(venue, index) in event._embedded.venues" :key="index">
               <p>City: {{ venue.city?.name }}</p>
-              <p>Country: {{ venue.locale }}</p>
+              <p>Country: {{ venue.country?.name }}</p>
             </div>
-
-            <!-- <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
-            <p>Event type: {{ type[segment][name]}}</p>
-            <p>Event genre: {{ type[genre][name]}}</p>
-            </div> -->
-            <!-- <p>Event type: {{ event[classifications][segment][name]}}</p>
-            <p>Event genre: {{ event[classifications][genre][name]}}</p>
-               "classifications": [
-                      {
-                          "primary": true,
-                          "segment": {
-                              "id": "KZFzniwnSyZfZ7v7nE",
-                              "name": "Sports"
-                          },
-                          "genre": {
-                              "id": "KnvZfZ7vAde",
-                              "name": "Basketball"
-                          }, -->
-
 
             <p class="font-bold text-gray-500">More info</p>
           </div>
-
 
         </div>
       </div>

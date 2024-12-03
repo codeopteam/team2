@@ -1,129 +1,96 @@
 <template>
-  <h1 class="text-2xl font-bold">Aqui va el resultado del fetch</h1>
-</template>
+  <div class="results-page">
+    <h1 class="text-2xl font-bold text-center my-4">Search Results</h1>
 
+    <!-- Include Search -->
+    <Search @search="performSearch" />
 
-<!-- <template>
-  <div class="flex justify-center my-4">
-    <div v-if="loading" class="loader"></div>
-  </div>
-  <h2 class="text-center mb-4 font-bold">Events</h2>
-  <div class="text-center mb-4">
-    <Search @search="searchData" />
-
-
-    <div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
-      <div v-for="event in search._embedded.events" :key="event.id"
-        class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-60">
-        <div class="flex flex-col justify-between h-full">
-          <h4 class="font-bold"> {{ event.name }} </h4>
-        
-
-          <div v-for="(venue, index) in event._embedded.venues" :key="index">
-            <p>City: {{ venue.city?.name }}</p>
-            <p>Country: {{ venue.locale }}</p>        
-         </div> 
-
-           <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
-          <p>Event type: {{ type[segment][name]}}</p>
-          <p>Event genre: {{ type[genre][name]}}</p>
-          </div>
-              <p>Event type: {{ event[classifications][segment][name]}}</p>
-          <p>Event genre: {{ event[classifications][genre][name]}}</p>
-              "classifications": [
-                    {
-                        "primary": true,
-                        "segment": {
-                            "id": "KZFzniwnSyZfZ7v7nE",
-                            "name": "Sports"
-                        },
-                        "genre": {
-                            "id": "KnvZfZ7vAde",
-                            "name": "Basketball"
-                        }, -->
-          
-<!-- 
-           <p class="font-bold text-gray-500">More info</p>
-        </div>
-
-
-      </div>
+    <!-- Display results -->
+    <div v-if="loading" class="loader my-4 mx-auto"></div>
+    <div v-if="error" class="text-center text-red-500">{{ error }}</div>
+    <div v-else-if="results" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <EventCard 
+        v-for="event in results" 
+        :key="event.id" 
+        :event="event" 
+      />
     </div>
+    <div v-else class="text-center text-gray-500">No results found. Try a different search.</div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Search from '../components/Search.vue';
-export default {
-  name: "Search",
-  data() {
-    return {
-      search: null,
-      error: "",
-      loading: false,
+import Search from "../components/Search.vue";
+import EventCard from "../components/EventCard.vue";
+import axios from "axios";
 
-    };
-  },
+export default {
+  name: "Results",
   components: {
     Search,
+    EventCard,
+  },
+  data() {
+    return {
+      results: null,
+      loading: false,
+      error: "",
+    };
   },
   methods: {
-    searchData(city) {
-
-      this.error = "";
+    performSearch(city) {
       this.loading = true;
+      this.error = "";
 
       const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t&countryCode=ES`;
-     
+      
       axios(url)
-        .then(resp => {
-          this.search = resp.data
-          console.log(this.search)
-         
+        .then((response) => {
+          const events = response.data._embedded.events;
+
+          // Filter results by city if provided
           if (city) {
-            this.search._embedded.events = this.search._embedded.events.filter(event =>
-              event._embedded.venues.some(venue =>
+            this.results = events.filter((event) =>
+              event._embedded.venues.some((venue) =>
                 venue.city?.name.toLowerCase() === city.toLowerCase()
               )
             );
+          } else {
+            this.results = events;
           }
 
-          if (this.search._embedded.events.length === 0) {
-            this.error = "No se encontraron eventos para la ciudad ingresada.";
+          if (!this.results || this.results.length === 0) {
+            this.error = "No events found.";
           }
-        })     
-
-
-        .catch(err => {
+        })
+        .catch((err) => {
           console.error(err);
-          this.error = "Error fetching data";
+          this.error = "Failed to fetch results. Please try again.";
         })
         .finally(() => {
           this.loading = false;
         });
-    }
+    },
   },
   mounted() {
-    this.searchData();
-  }
+    this.performSearch(); // Fetch initial results
+  },
 };
-</script> -->
+</script>
 
-<!-- <style>
+<style scoped>
 .loader {
   width: 60px;
-  aspect-ratio: 1;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #f00;
   border-radius: 50%;
-  -webkit-mask: linear-gradient(0deg, #000 55%, #0000 0) bottom/100% 18.18%;
-  background:
-    linear-gradient(#f03355 0 0) bottom/100% 0% no-repeat #ddd;
-  animation: l8 2s infinite steps(7);
+  animation: spin 1s linear infinite;
 }
 
-@keyframes l8 {
-  100% {
-    background-size: 100% 115%
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
-</style> -->
+</style>
