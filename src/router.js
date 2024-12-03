@@ -1,16 +1,65 @@
-import { createWebHistory, createRouter } from 'vue-router'
-import Search from './Views/Search.vue'
-//nuestros dos ficheros de vistas
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from './views/Home.vue';
+import Search from './views/Search.vue';
+import Login from './views/Login.vue';
+import Register from './views/Register.vue';
+import EventDetail from './views/EventDetail.vue';
 
-//creamos dos rutas, y especificamos cada ruta que fichero/vista irá a abrir
+//creamos las rutas, y especificamos cada ruta que fichero/vista irá a abrir
 const routes = [
-  { path: "/", name: "Search", component: Search },
-]
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+  },
+  {
+    path: '/event/:id',
+    name: 'EventDetail',
+    component: EventDetail,
+  },
+];
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
-export default router
+});
+
+export default router;
+
+
+
+
+
+
+
+// import { createWebHistory, createRouter } from 'vue-router'
+// import Search from './views/Search.vue'
+//nuestros dos ficheros de vistas
+
+//creamos dos rutas, y especificamos cada ruta que fichero/vista irá a abrir
+// const routes = [
+//   { path: "/", name: "Search", component: Search },
+// ]
+// const router = createRouter({
+//   history: createWebHistory(),
+//   routes,
+// })
+// export default router
 
 // export const routes = [
 //   { path: "/", name: "home", component: Home },

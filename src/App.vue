@@ -1,12 +1,29 @@
 <template>
-  <!-- <h1>Hola Mundo</h1> -->
+  <div id="app">
+    <Layout />
+  </div>
+</template>
+
+<script>
+import Layout from "./views/Layout.vue";
+
+export default {
+  components: {
+    Layout,
+  },
+};
+</script>
+
+
+
+
+<!-- <template>
   <Search></Search>
-  <!-- <RouterView></RouterView> -->
 </template>
 
 <script>
 
-import Search from './Views/Search.vue';
+import Search from './views/Search.vue';
 export default {
   name: "App",
   components: {
@@ -16,4 +33,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style></style> -->
