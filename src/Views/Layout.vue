@@ -3,8 +3,6 @@
         <!-- Header -->
         <Header />
 
-        <!-- Navbar -->
-        <Navbar />
 
         <!-- Main Content -->
         <main class="flex-grow container mx-auto p-4">
@@ -19,13 +17,11 @@
 <script>
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
-import Navbar from "../components/Navbar.vue";
 
 export default {
     components: {
         Header,
         Footer,
-        Navbar,
     },
 };
 </script>

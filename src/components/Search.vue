@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "Filters",
+  name: "Search",
   data() {
     return {
       cityUser: "",
@@ -27,7 +27,7 @@ export default {
      
       if (this.cityUser.trim()) {
       this.$emit('search', this.cityUser) // Emitimos la ciudad al componente padre
-      console.log("City entered:", this.cityUser);
+      // console.log("City entered:", this.cityUser);
       
       } else {
         alert("Por favor, ingresa una ciudad válida.");

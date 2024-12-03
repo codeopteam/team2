@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="flex justify-center my-4">
     <div v-if="loading" class="loader"></div>
   </div>
@@ -17,7 +17,7 @@
           <div v-for="(venue, index) in event._embedded.venues" :key="index">
             <p>City: {{ venue.city?.name }}</p>
             <p>Country: {{ venue.locale }}</p>        
-         </div>
+         </div> -->
 
           <!-- <div v-for="(type, index) in type._embedded.events.classifications" :key="index">
           <p>Event type: {{ type[segment][name]}}</p>
@@ -38,7 +38,7 @@
                         }, -->
           
 
-          <p class="font-bold text-gray-500">More info</p>
+          <!-- <p class="font-bold text-gray-500">More info</p>
         </div>
 
 
@@ -57,8 +57,7 @@ export default {
       search: null,
       error: "",
       loading: false,
-      // cities: [],
-      // eventsByCity: []
+
     };
   },
   components: {
@@ -122,4 +121,4 @@ export default {
     background-size: 100% 115%
   }
 }
-</style>
+</style> -->

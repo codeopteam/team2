@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './views/Home.vue';
-import Search from './views/Search.vue';
+// import Results from './views/Results.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 import EventDetail from './views/EventDetail.vue';
@@ -12,11 +12,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  {
-    path: '/search',
-    name: 'Search',
-    component: Search,
-  },
+  // {
+  //   path: '/results',
+  //   name: 'Results',
+  //   component: Results,
+  // },
   {
     path: '/login',
     name: 'Login',
