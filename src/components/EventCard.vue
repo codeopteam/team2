@@ -7,6 +7,18 @@
             More Details
         </a>
     </div>
+
+
+    <!-- <div class="flex flex-col justify-between h-full">
+            <h4 class="font-bold"> {{ event.name }} </h4>
+
+            <div v-for="(venue, index) in event._embedded.venues" :key="index">
+            <p>City: {{ venue.city?.name }}</p>
+            <p>Country: {{ venue.country?.name }}</p>
+            </div>
+
+            <p class="font-bold text-gray-500">More info</p>
+            </div> -->
 </template>
 
 <script>
@@ -18,6 +30,7 @@ export default {
             required: true,
         },
     },
+
 };
 </script>
 

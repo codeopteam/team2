@@ -8,10 +8,15 @@
       <!-- <Search @search="searchData" /> -->
 
 
-      <div v-if="search" class="flex flex-wrap gap-4 justify-center mt-8">
-        <div v-for="event in search._embedded.events" :key="event.id"
-          class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-60">
-          <div class="flex flex-col justify-between h-full">
+      <div v-if="galleryDefault" 
+      class="flex flex-wrap gap-4 justify-center mt-8">
+        <div v-for="event in galleryDefault._embedded.events" 
+        :key="event.id">
+          <GalleryCard :event="event" />         
+
+
+
+          <!-- <div class="flex flex-col justify-between h-full">
             <h4 class="font-bold"> {{ event.name }} </h4>
 
             <div v-for="(venue, index) in event._embedded.venues" :key="index">
@@ -20,7 +25,7 @@
             </div>
 
             <p class="font-bold text-gray-500">More info</p>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -32,6 +37,8 @@ import axios from 'axios';
 import Header from '../components/Header.vue';
 import Search from '../components/Search.vue';
 import Hero from '../components/Hero.vue';
+import GalleryCard from '../components/GalleryCard.vue';
+
 export default {
   name: "Home",
   data() {
@@ -44,7 +51,7 @@ export default {
     };
   },
   components: {
-    Header, Search, Hero,
+    Header, Search, Hero, GalleryCard
   },
   methods: {
     searchData(city) {
@@ -52,22 +59,24 @@ export default {
       this.error = "";
       this.loading = true;
 
-      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t&countryCode=ES`;
+      const apiKey = import.meta.env.VITE_API_KEY;
+
+      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=ES`;
 
       axios(url)
         .then(resp => {
-          this.search = resp.data
-          // console.log(this.search)
+          this.galleryDefault = resp.data
+          // console.log(this.galleryDefault)
 
           if (city) {
-            this.search._embedded.events = this.search._embedded.events.filter(event =>
+            this.galleryDefault._embedded.events = this.galleryDefault._embedded.events.filter(event =>
               event._embedded.venues.some(venue =>
                 venue.city?.name.toLowerCase() === city.toLowerCase()
               )
             );
           }
 
-          if (this.search._embedded.events.length === 0) {
+          if (this.galleryDefault._embedded.events.length === 0) {
             this.error = "No se encontraron eventos para la ciudad ingresada.";
           }
         })
