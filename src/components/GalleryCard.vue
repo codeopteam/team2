@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[180px] h-60">
+<div class="text-center mb-4 card py-4 px-2 shadow-md rounded w-[270px] h-60">
         <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />  
         <h3 class="text-lg font-bold">{{ event.name }}</h3>
         <p>{{ event.date }}</p>

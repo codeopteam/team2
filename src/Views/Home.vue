@@ -5,14 +5,11 @@
     </div>
     <h2 class="text-center mb-4 font-bold">Events</h2>
     <div class="text-center mb-4">
-      <!-- <Search @search="searchData" /> -->
-
-
       <div v-if="galleryDefault" 
-      class="flex flex-wrap gap-4 justify-center mt-8">
+      class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-8">
         <div v-for="event in galleryDefault._embedded.events" 
         :key="event.id">
-          <GalleryCard :event="event" />         
+          <GalleryCard :event="event" />           
 
 
 
