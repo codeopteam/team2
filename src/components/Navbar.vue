@@ -1,5 +1,5 @@
 <template>
-  <nav class="p-4 flex space-x-60">
+  <nav class="p-4 flex space-x-20">
     <ul class="flex space-x-8">
       <li>
         <router-link to="/" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section1 }}</router-link>
