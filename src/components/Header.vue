@@ -1,8 +1,8 @@
 <template>
   <header class=" h-[65px] items-center bg-darkBlue text-white flex justify-around px-12
 ">
-<div class="flex items-center justify-center space-x-20 flex-grow ">
-  <img class="h[40px] pl-6" src="../../public/LogoRectangular.png" alt="Logo de la pagina">
+<div class="flex items-center justify-betwween space-x-32 flex-grow ">
+  <img class="h[40px]" src="/LogoRectangular.png" alt="Logo de la pagina">
     <Navbar section1="Home"
     section2="About"
     section3="Contact"/> 
