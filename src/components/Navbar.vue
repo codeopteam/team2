@@ -8,7 +8,7 @@
         <router-link to="/about" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section2 }}</router-link>
       </li>
       <li>
-        <router-link to="/" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section3 }}</router-link>
+        <router-link to="/contact" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section3 }}</router-link>
       </li>
     </ul>
     <ul class="flex space-x-8">
