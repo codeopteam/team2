@@ -1,9 +1,5 @@
   <template>
-
-    <div>
-      <h1 class="text-2xl font-bold">Página de Inicio</h1>
-      <p>Bienvenido a la plataforma de eventos.</p>
-    </div>
+    <Hero />
     <div class="flex justify-center my-4">
       <div v-if="loading" class="loader"></div>
     </div>
@@ -35,6 +31,7 @@
 import axios from 'axios';
 import Header from '../components/Header.vue';
 import Search from '../components/Search.vue';
+import Hero from '../components/Hero.vue';
 export default {
   name: "Home",
   data() {
@@ -47,7 +44,7 @@ export default {
     };
   },
   components: {
-    Header, Search,
+    Header, Search, Hero,
   },
   methods: {
     searchData(city) {
