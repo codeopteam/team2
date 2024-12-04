@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-gray-600 text-white p-4 flex justify-around">
-    <img src="../../public/LogoRectangular.png" alt="Logo de la pagina">
+  <header class=" h-[65px] items-center bg-darkBlue text-white flex justify-evenly">
+    <img class="h[40px]" src="../../public/LogoRectangular.png" alt="Logo de la pagina">
     <Navbar></Navbar> 
     <Button></Button> 
   </header>

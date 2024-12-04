@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "./Views/Home.vue";
 import Results from "./views/Results.vue";
 import EventDetail from "./views/EventDetail.vue";
+import About from "./Views/About.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/event/:id",
     name: "EventDetail",
     component: EventDetail,
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: About,
   },
   {
     path: "/login",

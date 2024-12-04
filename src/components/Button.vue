@@ -1,5 +1,5 @@
 <template>
-    <button class="p-4 flex bg-yellow-300 rounded  text-gray-800">Sing up</button>
+    <button class="w-[120px] h-[45px] bg-yellowApp font-montserrat rounded-xl text-darkBlue text-m fotn-medium">Sing up</button>
   </template>
   <!-- <script>
   export default {
