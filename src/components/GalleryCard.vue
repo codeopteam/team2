@@ -1,13 +1,21 @@
 <template>
-<div class="text-center items-center  py-4 px-2 rounded w-[300px] h-[300px]">
-        <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />  
-        <h3 class="text-lg font-bold">{{ event.name }}</h3>
-        <p>{{ event.date }}</p>
-        <p>{{ event.location }}</p>
-        <a :href="event.link" target="_blank" class="text-blue-500 underline mt-2 block">
-            More Details
-        </a>
+    <div class=" text-center items-center  py-4 px-2 rounded w-[300px] h-[300px]">
+        <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
+        <div class="flex flex-row">
+            <div class="p-2">
+                <p>MES</p>
+                <p>dia</p>
+                <h2>{{ event.date }}</h2>
+            </div>
+            <div class="text-left p-2">
+                <p class="font-bold">{{ event.name }}</p>
+                <p>{{ event.location }}</p>
+
+            </div>
+        </div>
     </div>
+
+
 </template>
 <!-- <div class="flex flex-col justify-between h-full">
     <h4 class="font-bold"> {{ event.name }} </h4>
