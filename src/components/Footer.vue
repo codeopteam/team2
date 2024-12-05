@@ -75,7 +75,7 @@
   <h3 class="text-white font-montserrat text-xl mb-4">Download the App</h3>
 
   <div class="flex items-center border border-gray-500 rounded p-2 mb-4">
-    <img src="/public/logo google play.png" alt="Google Play" class="w-12 h-auto ml-2 mr-4">
+    <img src="/logoGooglePlay.png" alt="Google Play" class="w-12 h-auto ml-2 mr-4">
     <div>
       <p class="text-white text-sm">Get it on</p>
       <p class="text-white text-lg font-monserrat">Google Play</p>
@@ -83,7 +83,7 @@
   </div>
 
   <div class="flex items-center border border-gray-500 rounded p-2">
-    <img src="/public/logo appel.png" alt="App Store" class="w-6 h-auto ml-4 mr-8">
+    <img src="/logoAppel.png" alt="App Store" class="w-6 h-auto ml-4 mr-8">
     <div>
       <p class="text-white text-sm">Download on the</p>
       <p class="text-white text-lg font-monserrat">App Store</p>
