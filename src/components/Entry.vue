@@ -42,8 +42,11 @@ export default {
             this.error = "";
             this.loading = true;
 
-            const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t&countryCode=ES`;
+            const apiKey = import.meta.env.VITE_API_KEY;
 
+            const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=ES`;
+
+            
             axios(url)
                 .then(resp => {
                     this.search = resp.data

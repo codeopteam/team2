@@ -1,18 +1,37 @@
 <template>
-  <nav class="bg-gray-100 p-4">
-    <ul class="flex justify-around">
+  <nav class="p-4 flex space-x-20">
+    <ul class="flex space-x-8">
       <li>
-        <router-link to="/" class="text-blue-600 hover:underline">Inicio</router-link>
+        <router-link to="/" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section1 }}</router-link>
       </li>
       <li>
-        <router-link to="/results" class="text-blue-600 hover:underline">Buscar</router-link>
+        <router-link to="/about" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section2 }}</router-link>
       </li>
       <li>
-        <router-link to="/login" class="text-blue-600 hover:underline">Iniciar Sesión</router-link>
+        <router-link to="/contact" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section3 }}</router-link>
+      </li>
+    </ul>
+    <ul class="flex space-x-8">
+      <li>
+        <router-link to="/register" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{  section4 }}</router-link>
       </li>
       <li>
-        <router-link to="/register" class="text-blue-600 hover:underline">Registro</router-link>
+        <router-link to="/login" class="text-whte-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section5 }}</router-link>
       </li>
     </ul>
   </nav>
 </template>
+<script>
+export default {
+  name: "NavBar",
+  props: {
+      section1: "",
+      section2: "",
+      section3: "",
+      section4: "",
+      section5: "",
+    }
+
+}
+
+</script>

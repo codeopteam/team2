@@ -5,7 +5,7 @@
 
 
         <!-- Main Content -->
-        <main class="flex-grow container mx-auto p-4">
+        <main class="flex-grow">
             <router-view />
         </main>
 

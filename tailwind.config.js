@@ -14,9 +14,7 @@ export default {
 
         montserrat:[ "Monserrat", "sans-serif"],
 
-      }
-
-
+      },
     },
   },
   plugins: [],

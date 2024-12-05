@@ -9,11 +9,10 @@
     <div v-if="loading" class="loader my-4 mx-auto"></div>
     <div v-if="error" class="text-center text-red-500">{{ error }}</div>
     <div v-else-if="results" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <EventCard 
-        v-for="event in results" 
-        :key="event.id" 
-        :event="event" 
-      />
+      <!-- <h4>{{$route.params.city}}</h4> -->
+      <EventCard v-for="event in results" :key="event.id" :event="event" />
+      <!-- <p>City: {{ event.city?.name }}</p>      -->
+      
     </div>
     <div v-else class="text-center text-gray-500">No results found. Try a different search.</div>
   </div>
@@ -42,8 +41,10 @@ export default {
       this.loading = true;
       this.error = "";
 
-      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=dnXP9GPEbiPAAeB7O61vBwuP1pp1MY1t&countryCode=ES`;
-      
+      const apiKey = import.meta.env.VITE_API_KEY;
+
+      const url = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=ES&city=${city}`;
+
       axios(url)
         .then((response) => {
           const events = response.data._embedded.events;
@@ -52,7 +53,7 @@ export default {
           if (city) {
             this.results = events.filter((event) =>
               event._embedded.venues.some((venue) =>
-                venue.city?.name.toLowerCase() === city.toLowerCase()
+                venue.city?.name.toLowerCase() === city.toLowerCase()               
               )
             );
           } else {
@@ -73,7 +74,7 @@ export default {
     },
   },
   mounted() {
-    this.performSearch(); // Fetch initial results
+    this.performSearch(this.$route.params.city); // Fetch initial results
   },
 };
 </script>
