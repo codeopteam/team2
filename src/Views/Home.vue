@@ -6,23 +6,10 @@
     <h2 class="text-center mb-4 font-bold">Events</h2>
     <div class="text-center mb-4">
       <div v-if="galleryDefault" 
-      class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center mt-8">
+      class="px-40 grid grid-cols-1 md:grid-cols-3 justify-center items-center mt-8 mx-auto">
         <div v-for="event in galleryDefault._embedded.events" 
-        :key="event.id">
+        :key="event.id" class="flex items-center justify-center py-2">
           <GalleryCard :event="event" />           
-
-
-
-          <!-- <div class="flex flex-col justify-between h-full">
-            <h4 class="font-bold"> {{ event.name }} </h4>
-
-            <div v-for="(venue, index) in event._embedded.venues" :key="index">
-              <p>City: {{ venue.city?.name }}</p>
-              <p>Country: {{ venue.country?.name }}</p>
-            </div>
-
-            <p class="font-bold text-gray-500">More info</p>
-          </div> -->
 
         </div>
       </div>
