@@ -3,6 +3,9 @@
         <h3 class="text-lg font-bold">{{ event.name }}</h3>
         <p>{{ event.date }}</p>
         <p>{{ event.location }}</p>
+        <!-- <p>{{ event.city.name }}</p> -->
+         <h4>{{ event._embedded.venues[0].city?.name }}</h4>
+
         <a :href="event.link" target="_blank" class="text-blue-500 underline mt-2 block">
             More Details
         </a>
@@ -29,8 +32,11 @@ export default {
             type: Object,
             required: true,
         },
+      
     },
-
+  mounted() {
+   console.log(this.event)
+  },
 };
 </script>
 
