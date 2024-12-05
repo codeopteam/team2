@@ -7,7 +7,7 @@
     </div>
 
     <div class="flex space-x-8 items-center">
-      <Navbar section4="Register" section5="Login" />
+      <Navbar section4="Register" section5="Login" section6="Cart" />
       <Button></Button>
     </div>
   </header>
