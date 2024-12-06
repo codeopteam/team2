@@ -12,7 +12,7 @@ export const useCartStore = defineStore('cart', {
             console.log(this.items)
             updateCart(this.items)
         },
-        async getItemFromFirebase() {
+        async getItemsFromFirebase() {
             this.items = await getCart()
 
         },
