@@ -75,7 +75,11 @@ export default {
   },
   mounted() {
     this.performSearch(this.$route.params.city); // Fetch initial results
+      // this.cartStore.getItemsFromFirebase();
   },
+
+
+
 };
 </script>
 
