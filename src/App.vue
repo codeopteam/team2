@@ -11,6 +11,12 @@ export default {
   components: {
     Layout,
   },
+
+  // mounted() {
+  //     this.cartStore.getItemsFromFirebase()
+
+  //   }
+
 };
 </script>
 

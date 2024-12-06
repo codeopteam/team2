@@ -42,8 +42,12 @@ export default {
     },
     computed: {
       ...mapStores(useCartStore)
-    }
+    },
+    // mounted() {
+    //   this.cartStore.getItemsFromFirebase()
 
-}
+    // }
+
+};
 
 </script> 

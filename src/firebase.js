@@ -6,13 +6,14 @@ import {getDatabase, ref, set, get, child} from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCF0hPnACeI6xbabM0v5LsAEnYmoAXZJuE",
-  authDomain: "eventop-codeop.firebaseapp.com",
-  projectId: "eventop-codeop",
-  storageBucket: "eventop-codeop.firebasestorage.app",
-  messagingSenderId: "262106920516",
-  appId: "1:262106920516:web:5d7bdab519dac1354d6e11"
-};
+    apiKey: "AIzaSyCF0hPnACeI6xbabM0v5LsAEnYmoAXZJuE",
+    authDomain: "eventop-codeop.firebaseapp.com",
+    databaseURL: "https://eventop-codeop-default-rtdb.europe-west1.firebasedatabase.app/",
+    projectId: "eventop-codeop",
+    storageBucket: "eventop-codeop.firebasestorage.app",
+    messagingSenderId: "262106920516",
+    appId: "1:262106920516:web:5d7bdab519dac1354d6e11"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -42,3 +43,5 @@ export async function getCart() {
         console.error(error);
     } 
 }
+
+
