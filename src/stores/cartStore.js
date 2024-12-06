@@ -13,7 +13,13 @@ export const useCartStore = defineStore('cart', {
             updateCart(this.items)
         },
         async getItemFromFirebase() {
-            this.items= await getCart()
+            this.items = await getCart()
+
+        },
+
+        deleteItem(index) {
+            this.items.splice(index, 1)
+            updateCart(this.items)
 
         }
     },
