@@ -20,13 +20,16 @@
       </li>
       <li>
         <button>
-          <router-link to="/cart" class=" font-montserrat text-yellowApp ">{{ section6 }}</router-link>
+          <router-link to="/cart" class=" font-montserrat text-yellowApp ">{{ cartStore.cartSize }}</router-link>
         </button>
       </li>
     </ul>
   </nav>
 </template>
 <script>
+import  { useCartStore } from "../stores/cartStore"
+import { mapStores } from "pinia";
+
 export default {
   name: "NavBar",
   props: {
@@ -35,7 +38,10 @@ export default {
       section3: "",
       section4: "",
       section5: "",
-      section6: "",
+     
+    },
+    computed: {
+      ...mapStores(useCartStore)
     }
 
 }

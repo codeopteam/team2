@@ -9,6 +9,7 @@
         <a :href="event.link" target="_blank" class="text-blue-500 underline mt-2 block">
             More Details
         </a>
+        <button class="border border-red-500 rounded" @click="cartStore.addItemToCart(event)">Add</button>  
     </div>
 
 
@@ -25,14 +26,21 @@
 </template>
 
 <script>
+import { useCartStore } from '../stores/cartStore';
+import { mapStores } from 'pinia';
+
+
 export default {
     name: "EventCard",
+    
     props: {
         event: {
             type: Object,
             required: true,
         },
-      
+    },
+    computed: {
+        ...mapStores(useCartStore)
     },
   mounted() {
    console.log(this.event)
