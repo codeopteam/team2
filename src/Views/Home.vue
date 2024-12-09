@@ -17,11 +17,15 @@
   </template>
 
 <script>
+import { useCartStore } from '../stores/cartStore';
+import { mapStores } from 'pinia';
+
 import axios from 'axios';
 import Header from '../components/Header.vue';
 import Search from '../components/Search.vue';
 import Hero from '../components/Hero.vue';
 import GalleryCard from '../components/GalleryCard.vue';
+
 
 export default {
   name: "Home",
@@ -34,6 +38,10 @@ export default {
       // eventsByCity: []
     };
   },
+  computed: {
+        ...mapStores(useCartStore)
+
+    },
   components: {
     Header, Search, Hero, GalleryCard
   },
@@ -77,6 +85,7 @@ export default {
   },
   mounted() {
     this.searchData();
+    this.cartStore.dontShow()
   }
 };
 </script>
