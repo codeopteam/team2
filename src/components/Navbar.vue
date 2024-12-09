@@ -1,26 +1,19 @@
 <template>
-  <nav class="p-4 flex space-x-20">
+  <nav class="p-4 flex space-x-80 ">
     <ul class="flex space-x-8">
-      <li>
-        <router-link to="/" class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section1 }}</router-link>
+      <li  v-for="link in navLeft" :key="link.path" >
+        <router-link :to="link.path" class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ link.sectionName }}</router-link>
       </li>
-      <li>
-        <router-link to="/about" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section2 }}</router-link>
-      </li>
-      <li>
-        <router-link to="/contact" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section3 }}</router-link>
-      </li>
+     
     </ul>
-    <ul class="flex space-x-8">
-      <li>
-        <router-link to="/register" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{  section4 }}</router-link>
+     <ul class="flex space-x-8">
+      <li v-for="link in navRight" :key="link.path">
+        <router-link :to="link.path" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{  link.sectionName }}</router-link>
       </li>
-      <li>
-        <router-link to="/login" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{ section5 }}</router-link>
-      </li>
-      <li>
+      
+      <li v-if="cartStore.showTickets">
         <button>
-          <router-link to="/cart" class=" font-montserrat text-yellowApp ">{{ cartStore.cartSize }}</router-link>
+          <router-link to="/cart" class="flex font-montserrat text-yellowApp "> <img src="/ion_ticket.png" alt="Ticket icon" class="h-6 w-6 mr-2">{{ cartStore.cartSize }}</router-link>
         </button>
       </li>
     </ul>
@@ -32,14 +25,14 @@ import { mapStores } from "pinia";
 
 export default {
   name: "NavBar",
-  props: {
-      section1: "",
-      section2: "",
-      section3: "",
-      section4: "",
-      section5: "",
+  props: 
+     ["navLeft", "navRight"],
+     data(){
+      return {
+
+      };
+     },
      
-    },
     computed: {
       ...mapStores(useCartStore)
     },
