@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { useCartStore } from '../stores/cartStore';
-import { mapStores } from 'pinia';
+// import { useCartStore } from '../stores/cartStore';
+// import { mapStores } from 'pinia';
 
 import Search from "../components/Search.vue";
 import EventCard from "../components/EventCard.vue";
@@ -48,10 +48,12 @@ export default {
       error: "",
     };
   },
-  computed: {
-    ...mapStores(useCartStore)
 
-  },
+  // computed: {
+  //       ...mapStores(useCartStore)
+
+  //   },
+
   methods: {
     performSearch(city) {
       this.loading = true;
@@ -91,12 +93,11 @@ export default {
   },
   mounted() {
     this.performSearch(this.$route.params.city); // Fetch initial results
-    // this.cartStore.getItemsFromFirebase();
-    this.cartStore.showCart()
+
+      // this.cartStore.getItemsFromFirebase();
+    // this.cartStore.showCart()
+
   },
-
-
-
 };
 </script>
 

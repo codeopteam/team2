@@ -21,8 +21,8 @@
   </template>
 
 <script>
-import { useCartStore } from '../stores/cartStore';
-import { mapStores } from 'pinia';
+// import { useCartStore } from '../stores/cartStore';
+// import { mapStores } from 'pinia';
 
 import axios from 'axios';
 import Header from '../components/Header.vue';
@@ -42,10 +42,12 @@ export default {
       // eventsByCity: []
     };
   },
-  computed: {
-    ...mapStores(useCartStore)
 
-  },
+  // computed: {
+  //       ...mapStores(useCartStore)
+
+  //   },
+
   components: {
     Header, Search, Hero, GalleryCard
   },
@@ -89,7 +91,7 @@ export default {
   },
   mounted() {
     this.searchData();
-    this.cartStore.dontShow()
+    // this.cartStore.dontShow()
   }
 };
 </script>

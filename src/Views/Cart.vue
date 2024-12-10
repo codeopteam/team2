@@ -21,10 +21,10 @@ export default {
         ...mapStores(useCartStore)
 
     },
-     mounted() {
-      this.cartStore.showCart()
+    //  mounted() {
+    //   this.cartStore.showCart()
 
-    },
+    // },
 };
 
 

@@ -11,7 +11,8 @@
         <router-link :to="link.path" class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">{{  link.sectionName }}</router-link>
       </li>
       
-      <li v-if="cartStore.showTickets">
+      <!-- <li v-if="cartStore.showTickets"> -->
+      <li>
         <button>
           <router-link to="/cart" class="flex font-montserrat text-yellowApp "> <img src="/ion_ticket.png" alt="Ticket icon" class="h-6 w-6 mr-2">{{ cartStore.cartSize }}</router-link>
         </button>

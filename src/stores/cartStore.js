@@ -5,7 +5,7 @@ import { updateCart, getCart } from "../firebase";
 export const useCartStore = defineStore('cart', {
     state: () => ({
         items: [],
-        showTickets: true,
+        // showTickets: true,
     }),
     actions: {
         addItemToCart(item) {
@@ -15,13 +15,13 @@ export const useCartStore = defineStore('cart', {
             // this.showCart()
         },
 
-        showCart(){
-            this.showTickets=this.showTickets;
-        },
+        // showCart(){
+        //     this.showTickets= true;
+        // },
 
-        dontShow(){
-            this.showTickets=!this.showTickets;
-        },
+        // dontShow(){
+        //     this.showTickets= false;
+        // },
 
         async getItemsFromFirebase() {
             this.items = await getCart()
