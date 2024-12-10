@@ -1,5 +1,5 @@
 <template>
-    <div class=" text-center items-center  py-4 px-2 rounded w-[300px] h-[300px]">
+    <div class=" text-center items-center  py-4 px-2 rounded w-[300px] h-[300px] font-opensanz">
         <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
         <div class="flex flex-row">
             <div class="p-2">
