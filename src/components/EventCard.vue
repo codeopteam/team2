@@ -1,6 +1,10 @@
 <template>
-    <div class="event-card shadow-md rounded p-4">
-        <h3 class="text-lg font-bold">{{ event.name }}</h3>
+    <div class=" gap-4 flex event-card shadow-md rounded p-4">
+        <div>
+            <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
+        </div>
+        <div>
+            <h3 class="text-lg font-bold">{{ event.name }}</h3>
         <p>{{ event.date }}</p>
         <p>{{ event.location }}</p>
         <!-- <p>{{ event.city.name }}</p> -->
@@ -10,6 +14,8 @@
             More Details
         </a>
         <button class="border border-red-500 rounded" @click="cartStore.addItemToCart(event)">Add</button>  
+        </div>
+        
     </div>
 
 
