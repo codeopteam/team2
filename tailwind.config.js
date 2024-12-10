@@ -13,7 +13,7 @@ export default {
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"], //para llamarlo dentro de la etiqueta de tailwind de debe colocar font-montserrat
-        openSans: ["Open Sans", "sans-serif"], //para llamarlo dentro de la etiqueta de tailwind  de debe colocar font-opensanz
+        openSans: ["Open Sans", "sans-serif"], //para llamarlo dentro de la etiqueta de tailwind  de debe colocar font-openSanz
         lalezar: ["Lalezar", "system-ui"], //para llamarlo dentro de la etiqueta de tailwind de debe colocar font-lalezar
       },
     },

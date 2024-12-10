@@ -5,8 +5,12 @@ import {getDatabase, ref, set, get, child} from "firebase/database";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+const fireBaseKey = import.meta.env.FIREBASE_api_key;
+
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCF0hPnACeI6xbabM0v5LsAEnYmoAXZJuE",
+    apiKey: "{fireBaseKey}",
     authDomain: "eventop-codeop.firebaseapp.com",
     databaseURL: "https://eventop-codeop-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "eventop-codeop",
