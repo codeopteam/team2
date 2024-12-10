@@ -91,10 +91,20 @@ export default {
         });
     },
   },
+  watch: {
+    '$route.params.city': {
+      immediate: true,
+      handler(newCity) {
+        if (newCity) {
+          this.performSearch(newCity);
+        }
+      },
+    },
+  },
   mounted() {
     this.performSearch(this.$route.params.city); // Fetch initial results
 
-      // this.cartStore.getItemsFromFirebase();
+    // this.cartStore.getItemsFromFirebase();
     // this.cartStore.showCart()
 
   },

@@ -16,20 +16,21 @@
     </div> -->
 
     <div class="text-center items-center py-4 px-2 rounded w-[300px] h-[300px] font-opensanz">
-  <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
-  <div class="flex flex-row">
-    <div class="p-2">
-      <p>{{ new Date(event.dates.start.localDate).toLocaleString('es-ES', { month: 'long' }).toUpperCase() }}</p>
-      <p>{{ new Date(event.dates.start.localDate).getDate() }}</p>
-      <h2>{{ event.dates.start.localTime }}</h2>
+        <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
+        <div class="flex flex-row">
+            <div class="p-2">
+                <p>{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', { month: 'long' }).toUpperCase() }}
+                </p>
+                <p>{{ new Date(event.dates.start.localDate).getDate() }}</p>
+            </div>
+            <div class="text-left p-2">
+                <p class="font-bold">{{ event.name }}</p>
+                <p>{{ event._embedded.venues[0]?.name }}</p>
+                <p>{{ event._embedded.attractions[0]?.name }}</p>
+                <h2>{{ event.dates.start.localTime }}</h2>
+            </div>
+        </div>
     </div>
-    <div class="text-left p-2">
-      <p class="font-bold">{{ event.name }}</p>
-      <p>{{ event._embedded.venues[0]?.name }}</p>
-      <p>{{ event._embedded.attractions[0]?.name }}</p>
-    </div>
-  </div>
-</div>
 
 
 </template>

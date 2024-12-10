@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     handleKeyDown() {
-      this.$router.push({ name: "Results", params: { city: this.inputCityUser } }); // Redirige a la ruta '/results'
+      this.$router.push({ name: "Results", params: { city: this.inputCityUser } }); // esto redirige a la ruta '/results'
     },
   },
 };
