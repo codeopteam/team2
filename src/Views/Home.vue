@@ -1,15 +1,19 @@
   <template>
-    <Hero />
+    <div>
+
+      <Hero class="pt-20" mainText="Don't miss out!" subTextBefore="Explore the" highlightedText="vibrant events"
+        subTextAfter="happening in Spain." imagePath="/Hero.png" heightClass="h-96" />
+    </div>
+
     <div class="flex justify-center my-4">
       <div v-if="loading" class="loader"></div>
     </div>
-    <h2 class="text-center mb-4 font-bold">Events</h2>
+    <h2 class="text-center mb-4 font-bold font-montserrat">Events</h2>
     <div class="text-center mb-4">
-      <div v-if="galleryDefault" 
-      class="px-40 grid grid-cols-1 md:grid-cols-3 justify-center items-center mt-8 mx-auto">
-        <div v-for="event in galleryDefault._embedded.events" 
-        :key="event.id" class="flex items-center justify-center py-2">
-          <GalleryCard :event="event" />           
+      <div v-if="galleryDefault" class="px-40 grid grid-cols-1 md:grid-cols-3 justify-center items-center mt-8 mx-auto">
+        <div v-for="event in galleryDefault._embedded.events" :key="event.id"
+          class="flex items-center justify-center py-2">
+          <GalleryCard :event="event" />
 
         </div>
       </div>
@@ -38,10 +42,12 @@ export default {
       // eventsByCity: []
     };
   },
+
   // computed: {
   //       ...mapStores(useCartStore)
 
   //   },
+
   components: {
     Header, Search, Hero, GalleryCard
   },

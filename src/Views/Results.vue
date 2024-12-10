@@ -1,6 +1,13 @@
 <template>
+  <!-- <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
+    imagePath="" /> -->
+
+  <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
+    imagePath="" heightClass="h-60" />
+
+
   <div class="results-page">
-    <h1 class="text-2xl font-bold text-center my-4">Search Results</h1>
+    <h2 class="text-2xl font-bold text-center my-4">Search Results</h2>
 
     <!-- Include Search -->
     <Search @search="performSearch" />
@@ -12,7 +19,7 @@
       <!-- <h4>{{$route.params.city}}</h4> -->
       <EventCard v-for="event in results" :key="event.id" :event="event" />
       <!-- <p>City: {{ event.city?.name }}</p>      -->
-      
+
     </div>
     <div v-else class="text-center text-gray-500">No results found. Try a different search.</div>
   </div>
@@ -25,12 +32,14 @@
 import Search from "../components/Search.vue";
 import EventCard from "../components/EventCard.vue";
 import axios from "axios";
+import Hero from '../components/Hero.vue';
 
 export default {
   name: "Results",
   components: {
     Search,
     EventCard,
+    Hero
   },
   data() {
     return {
@@ -39,10 +48,12 @@ export default {
       error: "",
     };
   },
+
   // computed: {
   //       ...mapStores(useCartStore)
 
   //   },
+
   methods: {
     performSearch(city) {
       this.loading = true;
@@ -60,7 +71,7 @@ export default {
           if (city) {
             this.results = events.filter((event) =>
               event._embedded.venues.some((venue) =>
-                venue.city?.name.toLowerCase() === city.toLowerCase()               
+                venue.city?.name.toLowerCase() === city.toLowerCase()
               )
             );
           } else {
@@ -82,12 +93,11 @@ export default {
   },
   mounted() {
     this.performSearch(this.$route.params.city); // Fetch initial results
+
       // this.cartStore.getItemsFromFirebase();
     // this.cartStore.showCart()
+
   },
-
-
-
 };
 </script>
 
