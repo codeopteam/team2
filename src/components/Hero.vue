@@ -1,5 +1,5 @@
 <template>
-  <div :class="[heightClass, 'bg-cover p-8 bg-[#2B293D] opacity-95']" :style="{ backgroundImage: `url(${imagePath})` }">
+  <div :class="['bg-cover p-8 bg-[#2B293D] opacity-95']" :style="{ backgroundImage: `url(${imagePath})` }">
     <div class="flex justify-center">
       <div>
         <h2 class="text-4xl font-bold text-white mt-20 font-montserrat">{{ mainText }}</h2>
@@ -10,7 +10,7 @@
         <input
           type="text"
           v-model="inputCityUser"
-          class="mt-4 rounded-md bg-[url('../../Lupa.png')] bg-no-repeat bg-[left_14px_center] bg-[length:25px_25px] pl-14 w-full p-3 placeholder:text-2xl placeholder:text-[#636363]"
+          class="mt-8 mb-8 rounded-md bg-[url('../../Lupa.png')] bg-no-repeat bg-[left_14px_center] bg-[length:25px_25px] pl-14 w-full p-3 placeholder:text-2xl placeholder:text-[#636363]"
           placeholder="City"
           @keydown.enter="handleKeyDown"
         />
@@ -48,10 +48,7 @@ export default {
       type: String,
       default: "",
     },
-    heightClass: {
-      type: String,
-      default: "h-80",
-    },
+   
   },
   data() {
     return {
