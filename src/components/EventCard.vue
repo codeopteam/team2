@@ -10,14 +10,14 @@
         <div class="flex gap-2">
             <div class="flex gap-2 text-darkGray text-sm">
                 <p>{{ new Date(event.dates.start.localDate).getDate() }}</p> <!--buscar q significa-->
-                <p>{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', {month: 'long'}) }}</p>
+                <p>{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', {month: 'short'}) }}</p>
             </div>
             <h4 class="font-openSans text-darkGray text-sm">{{ event._embedded.venues[0].city?.name }}</h4>
         </div>
         
         <!-- <p>{{ event.city.name }}</p> -->
         
-        <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime }}</h2>
+        <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime.substring(0, 5) }}</h2>
         <!-- <a :href="event.link" target="_blank" class="text-blue-500 underline mt-2 block">
             More Details
         </a> -->
