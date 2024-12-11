@@ -10,9 +10,9 @@
     </div>
     <h2 class="text-center mb-4 font-bold font-montserrat">Events</h2>
     <div class="text-center mb-4">
-      <div v-if="galleryDefault" class="px-40 grid grid-cols-1 md:grid-cols-3 justify-center items-center mt-8 mx-auto">
+      <div v-if="galleryDefault" class="px-48 grid grid-cols-1 md:grid-cols-3 justify-center items-center mt-8 mx-auto">
         <div v-for="event in galleryDefault._embedded.events" :key="event.id"
-          class="flex items-center justify-center py-2">
+          class="flex items-center justify-center py-4">
           <GalleryCard :event="event" />
 
         </div>
