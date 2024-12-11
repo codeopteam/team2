@@ -3,7 +3,22 @@ import { defineStore } from "pinia";
 
 export const useEventStore = defineStore('event', {
     state: () => ({
-        item: { },       
+        item: {
+            name: "",
+            sales: {
+                public: {
+                    startDateTime: "",
+                    endDateTime: ""
+                }
+            },
+            dates: {
+                start: {
+                    localDate: "",
+                    localTime: ""
+                }
+            },
+            images: []
+        },          
     }),
     actions: {
         eventDetail(item) {

@@ -61,7 +61,7 @@ export default {
         ...mapStores(useEventStore)
     },
   mounted() {
-   console.log(this.event)
+   //console.log(this.event)
   },
 };
 </script>
