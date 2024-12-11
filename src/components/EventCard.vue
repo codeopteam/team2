@@ -1,5 +1,7 @@
 <template>
-    <div class="gap-4 flex event-card shadow-md rounded p-4">
+   
+   <RouterLink :to = "`/event/${event.id}`">
+   <div class="gap-4 flex event-card shadow-md rounded p-4" @click="eventStore.eventDetail(event)">
         <div class="border w-3/5">
             <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
         </div>
@@ -26,6 +28,7 @@
         
     </div>
 
+</RouterLink> 
 
     <!-- <div class="flex flex-col justify-between h-full">
             <h4 class="font-bold"> {{ event.name }} </h4>
@@ -40,13 +43,14 @@
 </template>
 
 <script>
-import { useCartStore } from '../stores/cartStore';
+import { RouterLink } from 'vue-router';
+import { useEventStore } from '../stores/eventStore';
 import { mapStores } from 'pinia';
 
 
+
 export default {
-    name: "EventCard",
-    
+    name: "EventCard",        
     props: {
         event: {
             type: Object,
@@ -54,7 +58,7 @@ export default {
         },
     },
     computed: {
-        ...mapStores(useCartStore)
+        ...mapStores(useEventStore)
     },
   mounted() {
    console.log(this.event)
