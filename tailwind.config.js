@@ -10,6 +10,7 @@ export default {
         darkBlue: "#2B293D",
         yellowApp: "#FFE047",
         lightGray: "2B293D",
+        darkGray: "#5A5A5A",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"], //para llamarlo dentro de la etiqueta de tailwind de debe colocar font-montserrat
