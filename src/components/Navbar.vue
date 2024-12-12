@@ -1,6 +1,6 @@
 <template>
   <nav class="flex w-full justify-between">
-    <ul class="flex space-x-8">
+    <ul class="flex space-x-8 items-center">
       <li v-for="link in navLeft" :key="link.path">
         <router-link 
           :to="link.path" 
@@ -10,7 +10,7 @@
       </li>
     </ul>
 
-    <ul class="flex space-x-8 pr-8">
+    <ul class="flex space-x-8 pr-8 items-center">
       <li v-for="link in navRight" :key="link.path">
         <router-link 
           :to="link.path" 
@@ -20,20 +20,23 @@
       </li>
       
       <li>
-        <button class="flex flex-col items-center">
-          <router-link 
-            to="/cart" 
-            class="flex font-montserrat text-yellowApp items-center space-x-2">
-            <img 
-              src="/ion_ticket.png" 
-              alt="Ticket icon" 
-              class="h-6 w-6 mr-2"
-            >
-            <span>{{ cartStore.cartSize }}</span>
-          </router-link>
-        </button>
-      </li>
+  <button class="flex justify-center items-center text-xs">
+    <router-link 
+      to="/cart" 
+      class="flex flex-col items-center font-montserrat text-yellowApp text-center">
+      <img 
+        src="/ion_ticket.png" 
+        alt="Ticket icon" 
+        class="h-6 w-6 mb-1" 
+        <!-- mb-1 añade espacio entre la imagen y el texto -->
+      >
+      <span>{{ cartStore.cartSize }} tickets</span>
+    </router-link>
+  </button>
+</li>
+
     </ul>
+
   </nav>
 </template>
 
