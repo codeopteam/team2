@@ -1,6 +1,7 @@
 <template>
     <div class="not-found ">
-        <img src="" alt="">
+        <img src="/notFound.gif" alt="404" class="w-60">
+
         <h1>404 - Page Not Found</h1>
         <p>The page you're looking for doesn't exist.</p>
         <button @click="goHome">Go back Home</button>
@@ -20,12 +21,11 @@ export default {
 
 <style scoped>
 .not-found {
-    background-image: url();
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     text-align: center;
 }
 </style>
