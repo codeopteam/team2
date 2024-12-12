@@ -1,10 +1,7 @@
 <template>
-    <div class="not-found ">
-        <img src="/notFound.gif" alt="404" class="w-60">
+    <div class="not-found justify-start items-start">
 
-        <h1>404 - Page Not Found</h1>
-        <p>The page you're looking for doesn't exist.</p>
-        <button @click="goHome">Go back Home</button>
+        <button @click="goHome"><img src="/public/back.png" alt="" class="rounded-full m-8"></button>
     </div>
 </template>
 
@@ -21,11 +18,11 @@ export default {
 
 <style scoped>
 .not-found {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh; */
-    text-align: center;
+    height: 100vh;
+    background-image: url('/notFound.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* color: white; */
 }
 </style>
