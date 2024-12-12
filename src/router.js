@@ -8,7 +8,8 @@ import About from "./Views/About.vue";
 import Login from "./Views/Login.vue";
 import Register from "./Views/Register.vue";
 import Contact from "./Views/Contact.vue";
-import Cart from "./Views/Cart.vue"
+import Cart from "./Views/Cart.vue";
+import NotFound from "./Views/NotFound.vue"
 
 const routes = [
   {
@@ -51,6 +52,11 @@ const routes = [
     path: "/cart",
     name: "Cart",
     component: Cart,
+  },
+  {
+    path: "/:pathMatch(.*)*", 
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 
