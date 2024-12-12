@@ -80,11 +80,13 @@ export default {
 
           if (!this.results || this.results.length === 0) {
             this.error = "No events found.";
+            this.$router.push({ name: "NotFound" });
           }
         })
         .catch((err) => {
           console.error(err);
           this.error = "Failed to fetch results. Please try again.";
+          this.$router.push({ name: "NotFound" });
         })
         .finally(() => {
           this.loading = false;
