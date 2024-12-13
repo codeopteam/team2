@@ -97,15 +97,21 @@
 
     </div>
 
-    <div class="bg-white px-6 py-4 border-t shadow-xl mt-28">
-      <div class="mb-2 mt-9 flex justify-center gap-52 text-3xl">
-        <span>Sub Total:</span> <span>40€</span>
+    <div class="bg-white px-6 py-4 border-t shadow-xl mt-32">
+     
+      <div class=" flex justify-between font-montserrat text-3xl mb-8 ml-40 mr-40 mt-8">
+
+      <div> 
+        <p> Sub Total:</p>
+        <p> Tax:</p>
       </div>
 
-      <div class="mb-8 flex justify-center gap-52 text-3xl">
-        <span class="flex justify-between">Tax:</span> <span>10€</span>
-
+      <div>
+        <p> 40€</p>
+        <p> 10€</p>
       </div>
+
+    </div>
 
 
 
