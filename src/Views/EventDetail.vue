@@ -35,8 +35,13 @@
 
     <div class="flex items-center justify-center w-full py-12">
       <div class="w-11/12 border border-red-950 h-96">
-        <p>Location</p>
-        <iframe src="" frameborder="0" class="w-5/12 border border-orange-600 h-80"></iframe>
+        <div src="" frameborder="0" class="w-5/12 border border-orange-600 h-80">
+          <Map :longitude="longitude" :latitude="latitude"></Map>
+          <h3>{{ eventDetailresp._embedded.venues[0].address?.line1 }}</h3>
+          <h3>{{ eventDetailresp._embedded.venues[0].city?.name }}</h3>
+    
+        </div>
+
       </div>
     </div>
 
@@ -77,7 +82,7 @@
 <script>
 
 import axios from "axios";
-
+import Map from "../components/Map.vue";
 export default {
   name: "EventDetail",
 
@@ -88,6 +93,7 @@ export default {
       error: "",
     }
   },
+ 
   methods: {
     performSearch() {
 
@@ -103,6 +109,11 @@ export default {
           console.log(response)
           this.eventDetailresp = response.data
 
+          const location = response.data._embedded?.venues[0]?.location;
+          if (location) {
+            this.longitude = location.longitude;
+            this.latitude = location.latitude;
+          }
         })
         .catch((err) => {
           console.error(err);
@@ -112,6 +123,9 @@ export default {
           this.loading = false;
         });
     },
+  },
+  components: {
+    Map,
   },
   mounted() {
     this.performSearch()
