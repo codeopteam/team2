@@ -10,13 +10,13 @@
     </ul>
   </div>
 
-<div class="flex justify-between">
+<div class="flex justify-center gap-7">
   <!-- Modal init Proceed -->
 
   <div class="bg-gray-50 w-[882px] h-[860px] mb-44">
-    <div class="bg-white rounded-lg shadow-lg p-6">
-      <div class="flex justify-between items-center p-1 mt-4">
-        <h2 class="text-4xl font-montserrat">Select Tickets</h2>
+    <div class="bg-darkBlue rounded-lg shadow-lg p-6">
+      <div class="flex justify-between items-center p-1">
+        <h2 class="text-4xl font-montserrat text-yellowApp">Select Tickets</h2>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="bg-white mt-4 border-b flex justify-between shadow-lg rounded-lg">
-      <div class="flex items-center gap-2 border-l-8  border-green-700">
+      <div class="flex items-center gap-2 border-l-8 border-yellowApp">
       </div>
 
       <div class=" p-6 ">
@@ -43,17 +43,17 @@
       </div>
     </div>
 
-    <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl">
+    <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl font-montserrat">
       <div class="flex justify-between text-center mb-4">
-        <span class=" text-3xl font-montserrat">
+        <span class=" text-3xl">
           <span class=" ml-72">Qty:</span>
-          <span class="text-green-600 font-montserrat"> 1 </span>
+          <span class="text-darkBlue"> 1 </span>
         </span>
-        <p class="text-3xl">Total: <b class="text-green-600 mr-60"> 40€ </b> </p>
+        <p class="text-3xl">Total: <b class="text-darkBlue mr-60 font-montserrat">40€</b> </p>
       </div>
 
       <div class="flex justify-center">
-        <button class="bg-darkBlue text-white px-60 py-6 rounded-md text-4xl font-montserrat mt-7">Proceed ></button>
+        <button class="bg-darkBlue text-yellowApp px-60 py-6 rounded-md text-4xl font-montserrat mt-7">Proceed ></button>
       </div>
     </div>
   </div>
@@ -66,8 +66,8 @@
 
 
 <div class=" container bg-gray-50 w-[882px] h-[860px]">
-    <div class="bg-white rounded-lg shadow-lg p-6">
-      <div class="flex justify-between items-center p-1 mt-4">
+    <div class=" bg-yellowApp rounded-lg shadow-lg p-6">
+      <div class="flex justify-between items-center p-1">
         <h2 class="text-4xl font-montserrat"> < Order Sumary</h2>
       </div>
     </div>
