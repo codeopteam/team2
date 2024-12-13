@@ -10,10 +10,10 @@
     </ul>
   </div>
 
+<div class="flex justify-between">
+  <!-- Modal init Proceed -->
 
-  <!-- Modal init -->
-
-  <div class="bg-gray-50 w-[882px] h-[860px]">
+  <div class="bg-gray-50 w-[882px] h-[860px] mb-44">
     <div class="bg-white rounded-lg shadow-lg p-6">
       <div class="flex justify-between items-center p-1 mt-4">
         <h2 class="text-4xl font-montserrat">Select Tickets</h2>
@@ -46,10 +46,10 @@
     <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl">
       <div class="flex justify-between text-center mb-4">
         <span class=" text-3xl font-montserrat">
-          <span class="ml-72">Qty:</span>
+          <span class=" ml-72">Qty:</span>
           <span class="text-green-600 font-montserrat"> 1 </span>
         </span>
-        <p class="text-3xl">Total: <b class="text-green-600 mr-56"> 40€ </b> </p>
+        <p class="text-3xl">Total: <b class="text-green-600 mr-60"> 40€ </b> </p>
       </div>
 
       <div class="flex justify-center">
@@ -58,6 +58,82 @@
     </div>
   </div>
 
+   <!-- Fin modal Proceed  -->
+
+
+
+<!-- inicio modal Pay Now  -->
+
+
+<div class=" container bg-gray-50 w-[882px] h-[860px]">
+    <div class="bg-white rounded-lg shadow-lg p-6">
+      <div class="flex justify-between items-center p-1 mt-4">
+        <h2 class="text-4xl font-montserrat"> < Order Sumary</h2>
+      </div>
+    </div>
+
+    <!-- <div class="mt-14 grid grid-cols-2 gap-4">
+      <p class="text-md font-montserrat ml-8">Ticket Types</p>
+      <p class="text-md font-montserrat mr-10 text-right">Quantity</p>
+    </div> -->
+
+    <div class="bg-white mt-24 shadow-lg rounded-lg ml-40 mr-32">
+      <div class="border-t-8 border-yellowApp">
+
+      <div>
+        <p class="text-4xl font-montserrat text-center mt-8">Standard Ticket</p>
+        <div class="ml-5 mt-11">
+        <p class="text-2xl font-montserrat mt-2">EvenTop</p>
+
+        <div class="flex justify-between pb-12">
+        <p class="text-2xl font-montserrat">Your Ticket </p>
+         <p class="px-8 py-1 text-xl font-montserrat text-darkBlue bg-yellowApp">40€</p> 
+      </div>
+
+      </div>
+      </div>
+
+    </div>
+
+    </div>
+
+    <div class="bg-white px-6 py-4 border-t shadow-xl mt-28">
+      <div class="mb-2 mt-9 flex justify-center gap-52 text-3xl">
+        <span>Sub Total:</span> <span>40€</span>
+      </div>
+
+      <div class="mb-8 flex justify-center gap-52 text-3xl">
+        <span class="flex justify-between">Tax:</span> <span>10€</span>
+
+      </div>
+
+
+
+      <div class="bg-slate-400 m-1 h-0.5 mb-10"> </div>
+
+      <div class=" flex justify-center gap-48 text-5xl font-montserrat">
+        <p>Order Total:</p>
+        <p>50€</p>
+
+      </div>
+
+
+      <div class="flex justify-center">
+        <button class="px-60 py-6 rounded-md text-4xl font-montserrat mt-7 bg-yellowApp text-darkBlue"> < Pay Now ></button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+ 
+
+
+
+
+</div>
 
 
 </template>

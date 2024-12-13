@@ -16,7 +16,8 @@
     </div> -->
 
     <div
-        class="text-center items-center py-2 px-2 rounded w-[300px] h-[260px] font-opensanz text-darkBlue flex-shrink-0">
+    class="text-center items-center py-2 px-2 rounded w-[300px] h-[260px] font-opensanz text-darkBlue flex-shrink-0 font-medium cursor-pointer"
+    @click="goToDetail">
         <img :src="event.images[2]?.url" alt="Event image" class="w-full h-36 object-cover rounded" />
         <div class="flex flex-row p-2">
             <div class="w-1/5 h-3/5">
@@ -64,6 +65,12 @@ export default {
             required: true,
         },
     },
+
+    methods: {
+    goToDetail() {
+      this.$router.push({ name: "EventDetail", params: { id: this.event.id } });
+    },
+  },
 
 };
 </script>
