@@ -6,23 +6,28 @@
     imagePath="" heightClass="h-60" />
 
 
-  <div class="results-page">
-    <h2 class="text-2xl font-bold text-center my-4">Search Results</h2>
-
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
+  
+    <div class="col-span-1">
     <!-- Include Search -->
-    <Search @search="performSearch" />
-
+    <Search @search="filterResults" />
+  </div>
+  <div class="col-span-3">
     <!-- Display results -->
     <div v-if="loading" class="loader my-4 mx-auto"></div>
     <div v-if="error" class="text-center text-red-500">{{ error }}</div>
-    <div v-else-if="results" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <!-- <h4>{{$route.params.city}}</h4> -->
-      <EventCard v-for="event in results" :key="event.id" :event="event" />
-      <!-- <p>City: {{ event.city?.name }}</p>      -->
-
+    <div v-else-if="results" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div v-if="filterRes">
+        <EventCard v-for="event in filterRes" :key="event.id" :event="event"/>
+      </div>
+      <div v-else>
+        <EventCard v-for="event in results" :key="event.id" :event="event"/>
+      </div>
+      
     </div>
     <div v-else class="text-center text-gray-500">No results found. Try a different search.</div>
   </div>
+</div>
 </template>
 
 <script>
@@ -43,6 +48,7 @@ export default {
   },
   data() {
     return {
+      filterRes: null,
       results: null,
       loading: false,
       error: "",
@@ -55,6 +61,13 @@ export default {
   //   },
 
   methods: {
+    filterResults(filtersEvents){
+      console.log(filtersEvents)
+      //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
+      this.filterRes = this.results.filter(event => event.dates.start.localDate === filtersEvents.date && event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
+      console.log(this.filterRes)
+    },
+
     performSearch(city) {
       this.loading = true;
       this.error = "";
@@ -76,7 +89,10 @@ export default {
             );
           } else {
             this.results = events;
+           
           }
+          console.log(this.results)
+          this.filterRes = null
 
           if (!this.results || this.results.length === 0) {
             this.error = "No events found.";
