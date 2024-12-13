@@ -1,8 +1,8 @@
 <template>
   <div class="border-r border-gray-300 gap-6 flex flex-col p-4 h-full">
     <h2 class="font-montserrat font-semibold text-xl">Filters</h2>
-    <input v-model="cityUser" type="text" label="City" placeholder="City"
-      class="bg-slate-200 rounded px-2 placeholder:text-darkGray h-10 font-montserrat">
+    <!-- <input v-model="cityUser" type="text" label="City" placeholder="City"
+      class="bg-slate-200 rounded px-2 placeholder:text-darkGray h-10 font-montserrat"> -->
     <input v-model="date" type="date" placeholder="Date" class="bg-slate-200 rounded px-2 h-10 text-darkGray font-montserrat">
     <select v-model="eventType" class="bg-slate-200 rounded px-2 h-10 w-full text-darkGray font-montserrat">
       <option value="0">Event type</option>
@@ -20,26 +20,19 @@ export default {
   name: "Search",
   data() {
     return {
-      cityUser: "",
        date: "",
        eventType: "",
        eventTypes: [
-        {id: 1, name: "Sport"},
-        {id: 1, name: "Movie"},
-        {id: 1, name: "Music"},
+        {id: 1, name: "Sports"},
+        {id: 2, name: "Movie"},
+        {id: 3, name: "Music"},
        ]
     }
   },
   methods: {
     emitSearch() {
-
-      if (this.cityUser.trim()) {
-        this.$emit('search', this.cityUser, this.date, this.eventType) // Emitimos la ciudad al componente padre
-         console.log("City entered:", this.cityUser, this.date, this.eventType);
-
-      } else {
-        alert("Por favor, ingresa una ciudad válida.");
-      }
+              this.$emit('search', {date:this.date, eventType:this.eventType}) // Emitimos la ciudad al componente padre
+         console.log({ date: this.date, eventType:this.eventType });
 
     }
   }
