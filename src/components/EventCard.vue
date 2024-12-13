@@ -1,5 +1,4 @@
 <template>
-   
    <RouterLink :to = "`/event/${event.id}`">
    <div class="gap-4 flex event-card shadow-md rounded p-4" @click="eventStore.eventDetail(event)">
         <div class="border w-3/5">
@@ -16,26 +15,18 @@
             </div>
             <h4 class="font-openSans text-darkGray text-sm">{{ event._embedded.venues[0].city?.name }}</h4>
         </div>
-        
-        <!-- <p>{{ event.city.name }}</p> -->
-        
         <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime.substring(0, 5) }}</h2>
-        <!-- <a :href="event.link" target="_blank" class="text-blue-500 underline mt-2 block">
-            More Details
-        </a> -->
-        <!-- <button class="border border-red-500 rounded" @click="cartStore.addItemToCart(event)">Add</button>   -->
-        </div>
-        
+        </div>  
     </div>
-
 </RouterLink> 
+<button class="border border-red-500 rounded" @click="cartStore.addItemToCart(event)">Add</button>  
  
 </template>
 
 <script>
 import { useEventStore } from '../stores/eventStore';
 import { mapStores } from 'pinia';
-
+import { useCartStore } from '../stores/cartStore';
 
 
 export default {
@@ -47,7 +38,8 @@ export default {
         },
     },
     computed: {
-        ...mapStores(useEventStore)
+        ...mapStores(useEventStore, useCartStore)
+    
     },
   mounted() {
    //console.log(this.event)
