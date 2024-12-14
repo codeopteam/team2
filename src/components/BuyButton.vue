@@ -10,6 +10,13 @@
 
     
 <script>
+
+export default{
+
+name: "BuyTicketButton"
+
+
+};
     
     
 </script>
