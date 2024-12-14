@@ -2,32 +2,41 @@
   <!-- <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
     imagePath="" /> -->
 
-  <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
-    imagePath="" heightClass="h-60" />
-
+  <Hero
+    mainText="Explore a world of events. Find what excites you!"
+    subTextBefore=""
+    highlightedText=""
+    subTextAfter=""
+    imagePath=""
+    heightClass="h-60"
+  />
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
-  
     <div class="col-span-1">
-    <!-- Include Search -->
-    <Search @search="filterResults" />
-  </div>
-  <div class="col-span-3">
-    <!-- Display results -->
-    <div v-if="loading" class="loader my-4 mx-auto"></div>
-    <div v-if="error" class="text-center text-red-500">{{ error }}</div>
-    <div v-else-if="results" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div v-if="filterRes">
-        <EventCard v-for="event in filterRes" :key="event.id" :event="event"/>
-      </div>
-      <div v-else>
-        <EventCard v-for="event in results" :key="event.id" :event="event"/>
-      </div>
-      
+      <!-- Include Search -->
+      <Search @search="filterResults" />
     </div>
-    <div v-else class="text-center text-gray-500">No results found. Try a different search.</div>
+    <div class="col-span-3">
+      <!-- Display results -->
+      <div v-if="loading" class="loader my-4 mx-auto"></div>
+      <div v-if="error" class="text-center text-red-500">{{ error }}</div>
+      <div v-else-if="results" class="grid grid-cols-1 gap-4">
+        <div class="grid gird-cols-1 md:grid-cols-2 gap-4" v-if="filterRes">
+          <EventCard
+            v-for="event in filterRes"
+            :key="event.id"
+            :event="event"
+          />
+        </div>
+        <div class="grid girs-cols-1 md:grid-cols-2 gap-4" v-else>
+          <EventCard v-for="event in results" :key="event.id" :event="event" />
+        </div>
+      </div>
+      <div v-else class="text-center text-gray-500">
+        No results found. Try a different search.
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -37,14 +46,14 @@
 import Search from "../components/Search.vue";
 import EventCard from "../components/EventCard.vue";
 import axios from "axios";
-import Hero from '../components/Hero.vue';
+import Hero from "../components/Hero.vue";
 
 export default {
   name: "Results",
   components: {
     Search,
     EventCard,
-    Hero
+    Hero,
   },
   data() {
     return {
@@ -61,11 +70,16 @@ export default {
   //   },
 
   methods: {
-    filterResults(filtersEvents){
-      console.log(filtersEvents)
+    filterResults(filtersEvents) {
+      console.log(filtersEvents);
       //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
-      this.filterRes = this.results.filter(event => event.dates.start.localDate === filtersEvents.date && event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
-      console.log(this.filterRes)
+      this.filterRes = this.results.filter(
+        (event) =>
+          event.dates.start.localDate === filtersEvents.date &&
+          event._embedded.attractions[0].classifications[0].segment.name ===
+            filtersEvents.eventType
+      );
+      console.log(this.filterRes);
     },
 
     performSearch(city) {
@@ -83,16 +97,15 @@ export default {
           // Filter results by city if provided
           if (city) {
             this.results = events.filter((event) =>
-              event._embedded.venues.some((venue) =>
-                venue.city?.name.toLowerCase() === city.toLowerCase()
+              event._embedded.venues.some(
+                (venue) => venue.city?.name.toLowerCase() === city.toLowerCase()
               )
             );
           } else {
             this.results = events;
-           
           }
-          console.log(this.results)
-          this.filterRes = null
+          console.log(this.results);
+          this.filterRes = null;
 
           if (!this.results || this.results.length === 0) {
             this.error = "No events found.";
@@ -110,7 +123,7 @@ export default {
     },
   },
   watch: {
-    '$route.params.city': {
+    "$route.params.city": {
       immediate: true,
       handler(newCity) {
         if (newCity) {
@@ -124,7 +137,6 @@ export default {
 
     // this.cartStore.getItemsFromFirebase();
     // this.cartStore.showCart()
-
   },
 };
 </script>

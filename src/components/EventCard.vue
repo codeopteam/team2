@@ -1,10 +1,13 @@
 <template>
+<div class="gap-4 flex event-card shadow-md rounded p-4">
    <RouterLink :to = "`/event/${event.id}`">
    <div class="gap-4 flex event-card shadow-md rounded p-4" @click="eventStore.eventDetail(event)">
-        <div class="border w-3/5">
+        <div class="border w-2/1">
             <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
         </div>
-        <div class="w-2/5">
+    </div>
+    </RouterLink> 
+    <div class="w-2/5">
             <h3 class="text-sm font-openSans">{{ event.name }}</h3>
         <p>{{ event.date }}</p>
         <p>{{ event.location }}</p>
@@ -13,14 +16,14 @@
                 <p>{{ new Date(event.dates.start.localDate).getDate() }}</p> <!--buscar q significa-->
                 <p>{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', {month: 'short'}) }}</p>
             </div>
-            <h4 class="font-openSans text-darkGray text-sm">{{ event._embedded.venues[0].city?.name }}</h4>
-        </div>
-        <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime.substring(0, 5) }}</h2>
         </div>  
+        <h4 class="font-openSans text-darkGray text-sm">{{ event._embedded.venues[0].city?.name }}</h4>
+       
+       <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime.substring(0, 5) }}</h2>
+       <button class= "bg-yellowApp mt-2 rounded px-2 h-8 font-montserrat" @click.stop="cartStore.addItemToCart(event)">Add</button> 
     </div>
-</RouterLink> 
-<button class="border border-red-500 rounded" @click="cartStore.addItemToCart(event)">Add</button>  
- 
+     
+</div>
 </template>
 
 <script>
@@ -50,5 +53,6 @@ export default {
 <style scoped>
 .event-card {
     background-color: #f9f9f9;
+    
 }
 </style>
