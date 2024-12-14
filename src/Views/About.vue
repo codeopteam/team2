@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="w-1/6 justify-center items-center text-center text-xs">
-      <img class="rounded-full shadow-lg " src="/public/mavita.png" alt="">
+      <img class="rounded-full shadow-lg " src="/public/yalina.png" alt="">
       <p class="text-sm">Yali</p>
       <p>La Veloz</p>
       <div class="flex justify-around items-center">

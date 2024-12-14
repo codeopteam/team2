@@ -3,7 +3,7 @@
   <div class="flex flex-col items-center justify-center gap-7">
 
     <!-- MOdal de Cart con logica init-->
-    <div v-if="!showModal"  class="bg-gray-50 w-1/2 overflow-y-auto pb-4 min-h-[60vh] flex flex-col mt-20">
+    <div v-if="!showModal" class="bg-gray-50 w-1/2 overflow-y-auto pb-4 min-h-[60vh] flex flex-col mt-20 mb-20">
       <!-- Título -->
       <div class="bg-darkBlue shadow-lg rounded-lg flex justify-between items-center p-6">
         <h2 class="text-2xl font-semibold font-montserrat text-yellowApp">Select Tickets</h2>
@@ -34,7 +34,7 @@
         <div class="flex justify-between items-center text-center mb-4">
           <div class="text-lg font-semibold w-1/2">
             <span class="mr-2">Qty:</span>
-            <span class="text-bold">1</span>
+            <span class="text-bold">{{  cartStore.items.length}}</span>
           </div>
           <div class="text-lg font-semibold w-1/2">
             <span class="mr-2">Total:</span>
@@ -56,15 +56,13 @@
 
     <!-- inicio modal Pay Now  -->
 
-    <div v-if="showModal" class="bg-gray-50 w-1/2 h-[860px] mt-20 mb-40">
+    <div v-if="showModal" class="bg-gray-50 w-1/2 min-h-[60vh] mt-20 mb-40">
       <div class=" bg-yellowApp rounded-lg shadow-lg p-6">
         <div class="flex justify-between items-center p-1">
           <h2 class="text-2xl font-semibold font-montserrat">
             < Order Sumary</h2>
         </div>
       </div>
-
-    
 
       <div class="bg-white mt-24 shadow-lg rounded-lg ml-40 mr-32">
         <div class="border-t-8 border-yellowApp">
