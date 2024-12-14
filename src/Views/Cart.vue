@@ -1,103 +1,62 @@
 <template>
 
   <div class="flex flex-col items-center justify-center gap-7">
-    <div class="border border-red-800 bg-gray-50 w- overflow-y-auto pb-4">
+
+    <!-- MOdal de Cart con logica init-->
+    <div v-if="!showModal"  class="bg-gray-50 w-1/2 overflow-y-auto pb-4 min-h-[60vh] flex flex-col mt-20">
+      <!-- Título -->
       <div class="bg-darkBlue shadow-lg rounded-lg flex justify-between items-center p-6">
-        <h2 class="text-4xl font-montserrat text-yellowApp">Select Tickets</h2>
+        <h2 class="text-2xl font-semibold font-montserrat text-yellowApp">Select Tickets</h2>
       </div>
 
-      <div class="mt-14 grid grid-cols-2 gap-4">
+      <!-- Encabezados Ticket Types y Quantity -->
+      <div class="mt-14 grid grid-cols-2 gap-4 w-auto">
         <p class="text-md font-montserrat ml-8">Ticket Types</p>
         <p class="text-md font-montserrat mr-10 text-right">Quantity</p>
       </div>
 
+      <!-- Lista de Tickets -->
       <ul v-for="(item, index) in cartStore.items"
-        class="bg-white mt-4 border-b flex justify-between shadow-lg rounded-lg">
-        <li class="flex h-32 border-l-8 border-yellowApp text-3xl font-montserrat text-left pl-8 justify-between items-center w-full"><span class="w-2/3">{{ item.name }}</span>
-
+        class="bg-white mt-4 border-b flex flex-col shadow-lg rounded-lg items-end w-auto">
+        <li
+          class="flex h-32 border-l-8 border-yellowApp text-xl font-montserrat text-left pl-8 justify-between items-center w-full">
+          <span class="w-2/3">{{ item.name }}</span>
           <div class="ml-auto pr-8">
-            <button class="border border-orange-600 rounded-md px-1 bg-orange-600" @click="cartStore.deleteItem(index)"> x
+            <button class="border border-orange-600 rounded-md px-1 bg-orange-600" @click="cartStore.deleteItem(index)">
+              x
             </button>
           </div>
         </li>
       </ul>
 
-      <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl font-montserrat">
-        <div class="flex justify-between text-center mb-4">
-          <span class=" text-3xl">
-            <span class=" ml-72">Qty:</span>
-            <span class="text-darkBlue"> 1 </span>
-          </span>
-          <p class="text-3xl">Total: <b class="text-darkBlue mr-60 font-montserrat">40€</b> </p>
+      <!-- Contenedor Final en la parte inferior -->
+      <div class="bg-white px-6 py-4 border-t shadow-xl font-montserrat mt-auto w-auto">
+        <div class="flex justify-between items-center text-center mb-4">
+          <div class="text-lg font-semibold w-1/2">
+            <span class="mr-2">Qty:</span>
+            <span class="text-bold">1</span>
+          </div>
+          <div class="text-lg font-semibold w-1/2">
+            <span class="mr-2">Total:</span>
+            <span class="text-bold font-bold">200</span>
+          </div>
         </div>
 
         <div class="flex justify-center">
-          <button class="bg-darkBlue text-yellowApp px-60 py-6 rounded-md text-4xl font-montserrat mt-7">Proceed
-            ></button>
+          <button class="bg-darkBlue text-yellowApp px-60 py-6 rounded-md text-xl font-montserrat mt-7" @click="showModal = true">
+            Proceed >
+          </button>
         </div>
       </div>
 
-    
+
     </div>
-    <!-- Modal init Proceed -->
-
-    <div class="border border-red-800 bg-gray-50 w-[882px] h-[860px] mb-44">
-      <div class="bg-darkBlue rounded-lg shadow-lg p-6">
-        <div class="flex justify-between items-center p-1">
-          <h2 class="text-4xl font-montserrat text-yellowApp">Select Tickets</h2>
-        </div>
-      </div>
-
-      <div class="mt-14 grid grid-cols-2 gap-4">
-        <p class="text-md font-montserrat ml-8">Ticket Types</p>
-        <p class="text-md font-montserrat mr-10 text-right">Quantity</p>
-      </div>
-
-      <!-- ----- -->
-      <div class="bg-white mt-4 border-b flex justify-between shadow-lg rounded-lg">
-        <div class="flex items-center gap-2 border-l-8 border-yellowApp">
-        </div>
-
-        <div class=" p-6 ">
-          <p class="text-4xl font-montserrat text-left -ml-72">Standard Ticket</p>
-          <p class="text-2xl font-montserrat mt-2 pb-4 -ml-72">40€</p>
-        </div>
-
-        <div class="flex items-center gap-4 justify-center ml-12 mr-8">
-          <button
-            class="w-14 h-14 border rounded-full text-3xl font-montserrat flex justify-center items-center leading-none">-</button>
-          <span class="text-5xl font-openSanz">1</span>
-          <button
-            class="w-14 h-14 border rounded-full text-3xl font-montserrat flex justify-center items-center leading-none">+</button>
-        </div>
-      </div>
-      <!-- ----- -->
-
-
-      <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl font-montserrat">
-        <div class="flex justify-between text-center mb-4">
-          <span class=" text-3xl">
-            <span class=" ml-72">Qty:</span>
-            <span class="text-darkBlue"> 1 </span>
-          </span>
-          <p class="text-3xl">Total: <b class="text-darkBlue mr-60 font-montserrat">40€</b> </p>
-        </div>
-
-        <div class="flex justify-center">
-          <button class="bg-darkBlue text-yellowApp px-60 py-6 rounded-md text-4xl font-montserrat mt-7">Proceed
-            ></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fin modal Proceed  -->
-
+    <!-- MOdal de Cart con logica end-->
 
 
     <!-- inicio modal Pay Now  -->
 
-
-    <div class="border border-red-800 container bg-gray-50 w-[882px] h-[860px]">
+    <div v-if="showModal" class="container bg-gray-50 w-[882px] h-[860px] mt-20">
       <div class=" bg-yellowApp rounded-lg shadow-lg p-6">
         <div class="flex justify-between items-center p-1">
           <h2 class="text-4xl font-montserrat">
@@ -105,10 +64,7 @@
         </div>
       </div>
 
-      <!-- <div class="mt-14 grid grid-cols-2 gap-4">
-      <p class="text-md font-montserrat ml-8">Ticket Types</p>
-      <p class="text-md font-montserrat mr-10 text-right">Quantity</p>
-    </div> -->
+    
 
       <div class="bg-white mt-24 shadow-lg rounded-lg ml-40 mr-32">
         <div class="border-t-8 border-yellowApp">
@@ -169,11 +125,6 @@
 
 
 
-
-
-
-
-
   </div>
 
 
@@ -186,6 +137,11 @@ import { mapStores } from 'pinia';
 
 export default {
   name: "Cart",
+  data() {
+    return {
+      showModal: false,
+    }
+  },
   computed: {
     ...mapStores(useCartStore)
 
