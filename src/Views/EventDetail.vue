@@ -96,20 +96,21 @@
       </div>
     </div> -->
 
-    <!-- <div class="flex items-center justify-center w-full py-12">
-      <div class="w-11/12 border border-red-950 h-96">
-        <p>Tags</p>
+    <div class="flex items-center justify-center py-6">
+      <div class="w-11/12 ms-6">
+        <img src="../../public/Tags.png" alt="Tags" class="w-8/12">
       </div>
-    </div> -->
+    </div>
 
-    <div class="flex items-center justify-center w-full py-12">
-      <div class="w-11/12 border border-red-950 h-96">
-        <p>Other Events you may like</p>
+    <div class="flex items-center justify-center py-12">
+      <div>
+        <img src="../../public/Other events you may like.png" alt="suggested events"/>
+        <!-- <p>Other Events you may like</p>
         <div class="w-full flex">
           <div class="w-1/3 h-80 border border-orange-600"></div>
           <div class="w-1/3 h-80 border border-orange-600"></div>
           <div class="w-1/3 h-80 border border-orange-600"></div>
-        </div>
+        </div> -->
       </div>
     </div>
 
