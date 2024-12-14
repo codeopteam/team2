@@ -56,10 +56,10 @@
 
     <!-- inicio modal Pay Now  -->
 
-    <div v-if="showModal" class="container bg-gray-50 w-[882px] h-[860px] mt-20">
+    <div v-if="showModal" class="bg-gray-50 w-1/2 h-[860px] mt-20 mb-40">
       <div class=" bg-yellowApp rounded-lg shadow-lg p-6">
         <div class="flex justify-between items-center p-1">
-          <h2 class="text-4xl font-montserrat">
+          <h2 class="text-2xl font-semibold font-montserrat">
             < Order Sumary</h2>
         </div>
       </div>
@@ -70,7 +70,7 @@
         <div class="border-t-8 border-yellowApp">
 
           <div>
-            <p class="text-4xl font-montserrat text-center mt-8">Standard Ticket</p>
+            <p class="text-2xl font-montserrat text-center mt-8">Standard Ticket</p>
             <div class="ml-5 mt-11">
               <p class="text-2xl font-montserrat mt-2">EvenTop</p>
 
@@ -88,7 +88,7 @@
 
       <div class="bg-white px-6 py-4 border-t shadow-xl mt-32">
 
-        <div class=" flex justify-between font-montserrat text-3xl mb-8 ml-40 mr-40 mt-8">
+        <div class=" flex justify-between font-montserrat text-2xl mb-8 ml-40 mr-40 mt-8">
 
           <div>
             <p> Sub Total:</p>
@@ -106,7 +106,7 @@
 
         <div class="bg-slate-400 m-1 h-0.5 mb-10"> </div>
 
-        <div class=" flex justify-center gap-48 text-5xl font-montserrat">
+        <div class=" flex justify-center gap-48 text-3xl font-montserrat">
           <p>Order Total:</p>
           <p>50€</p>
 
@@ -114,7 +114,7 @@
 
 
         <div class="flex justify-center">
-          <button class="px-60 py-6 rounded-md text-4xl font-montserrat mt-7 bg-yellowApp text-darkBlue">
+          <button class="px-60 py-6 rounded-md text-2xl font-montserrat mt-7 bg-yellowApp text-darkBlue">
             < Pay Now>
           </button>
         </div>
