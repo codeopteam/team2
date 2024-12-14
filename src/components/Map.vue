@@ -1,5 +1,5 @@
 <template>
-    <div id="map" class="h-80 p-1"></div>
+    <div id="map" class="p-1 h-72"></div>
 </template>
 
 <script>
