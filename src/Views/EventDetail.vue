@@ -28,8 +28,8 @@
         <div>
           <div class="flex justify-end self-start mb-8">
             <button class="flex items-end" @click="interested = !interested">
-              <img v-if="interested" src="../../public/Interested Button2.png" alt="Start Icon" class="w-12">
-              <img v-else src="../../public/Interested Button.png" alt="Start Icon" class="w-12">
+              <img v-if="interested" src="../../public/Interested Button.png" alt="Start Icon" class="w-12">
+              <img v-else src="../../public/Interested Button2.png" alt="Start Icon" class="w-12">
               <button>
 
               </button>
@@ -142,7 +142,7 @@ export default {
 
       this.loading = true;
       this.error = "";
-
+      this.interested = false;
       const apiKey = import.meta.env.VITE_API_KEY;
 
       let url = `https://app.ticketmaster.com/discovery/v2/events/${this.$route.params.id}.json?apikey=${apiKey}`;
@@ -164,6 +164,7 @@ export default {
         })
         .finally(() => {
           this.loading = false;
+          this.interested = false;
         });
     },
   },
