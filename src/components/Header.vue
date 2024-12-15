@@ -1,13 +1,13 @@
 <template>
   <header class="h-[65px] bg-darkBlue text-white flex items-center justify-between px-12">
-    <div class="flex items-center justify-between w-full space-x-32">
+    <div class="flex items-center justify-between w-full ">
       <div v-if="$route.path !== '/'">
         <router-link to="/">
-          <img class="h-[40px]" src="/LogoRectangular.png" alt="Logo de la pagina">
+          <img class="h-[40px] 2xl:mr-80" src="/LogoRectangular.png" alt="Logo de la pagina">
       </router-link>
       </div>
       <div v-else>
-        <img class="h-[40px]" src="/LogoRectangular.png" alt="Logo de la pagina">
+        <img class="h-[40px] 2xl:mr-80" src="/LogoRectangular.png" alt="Logo de la pagina">
       </div>
         
       <Navbar :navLeft="navLeft" :navRight="navRight"></Navbar>

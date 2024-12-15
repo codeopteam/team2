@@ -1,18 +1,18 @@
 <template>
   <nav class="flex w-full justify-between">
-    <ul class="flex space-x-8 items-center">
+    <ul class="flex items-center gap-3 lg:gap-8 ms-6 md:ms-10 lg:ms-52 xl:ms-96 ms">
       <li v-for="link in navLeft" :key="link.path">
         <router-link :to="link.path"
-          class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp" exact-active-class="active-link">
+          class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp hidden md:block " exact-active-class="active-link">
           {{ link.sectionName }}
         </router-link>
       </li>
     </ul>
 
-    <ul class="flex space-x-8 pr-8 items-center">
+    <ul class="flex pr-8 items-center gap-3 lg:gap-5">
       <li v-for="link in navRight" :key="link.path">
         <router-link :to="link.path"
-          class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp" exact-active-class="active-link">
+          class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp hidden md:block ms-2" exact-active-class="active-link">
           {{ link.sectionName }}
         </router-link>
       </li>
