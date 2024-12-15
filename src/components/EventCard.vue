@@ -9,12 +9,12 @@
     </RouterLink> 
     <div class="w-2/5 flex flex-col justify-between">
         <div>
-        <h3 class="text-base font-openSans">{{ event.name }}</h3>
+        <h3 class="text-base font-openSans mb-1">{{ event.name }}</h3>
         <p>{{ event.date }}</p>
         <p>{{ event.location }}</p>
     
-        <div class="flex gap-2 items-center">
-            <div class="flex gap-2 text-darkGray text-sm">
+        <div class="flex gap-2 items-center mb-1">
+            <div class="flex gap-2 text-darkGray text-sm ">
                 <p>{{ new Date(event.dates.start.localDate).getDate() }}</p> 
                 <p>{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', {month: 'short'}) }}</p>
             </div>
