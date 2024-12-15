@@ -44,7 +44,7 @@
     <!-- Menú desplegable (en columna) -->
     <div 
       :class="['absolute top-full -right-8 w-full bg-darkBlue bg-opacity-80', isMenuHamb ? 'flex flex-col items-center py-4 z-10 w-40 ms-24' : 'hidden']"
-      class="md:hidden"
+      class="md:hidden" @click="this.isMenuHamb = false"
     >
       <!-- Enlaces en columna -->
       <ul class="space-y-4">
