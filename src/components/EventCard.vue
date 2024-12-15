@@ -1,13 +1,13 @@
 <template>
-<div class="gap-4 flex event-card shadow-md rounded p-4">
+<div class="gap-4 flex flex-row md:flex-col xl:flex-row bg-[#f9f9f9] shadow-md rounded p-4">
    <RouterLink :to = "`/event/${event.id}`">
-   <div class="gap-4 flex event-card rounded" @click="eventStore.eventDetail(event)">
+   <div class="gap-4 flex bg-[#f9f9f9] rounded" @click="eventStore.eventDetail(event)">
         <div class="border w-[300px] relative">  <!--w-2/1 -->
-            <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-cover rounded" />
+            <img :src="event.images[2]?.url" alt="Event image" class="w-full h-40 object-contain md:object-cover rounded" />
         </div>
     </div>
     </RouterLink> 
-    <div class="w-2/5 flex flex-col justify-between">
+    <div class="w-auto lg:w-2/5 flex flex-col justify-between">
         <div>
         <h3 class="text-base font-openSans mb-1">{{ event.name }}</h3>
         <p>{{ event.date }}</p>
@@ -51,10 +51,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.event-card {
-    background-color: #f9f9f9;
-    
-}
-</style>
