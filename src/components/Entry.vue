@@ -20,7 +20,7 @@
 </template>
 <script>
 import axios from 'axios';
-import Header from '../components/Header.vue';
+import Header from '@/components/Header.vue';
 import Search from '../components/Search.vue';
 export default {
     name: "Home",

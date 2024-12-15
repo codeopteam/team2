@@ -26,7 +26,7 @@
 // import { mapStores } from 'pinia';
 
 import axios from 'axios';
-import Header from '../components/Header.vue';
+import Header from '@/components/Header.vue';
 import Search from '../components/Search.vue';
 import Hero from '../components/Hero.vue';
 import GalleryCard from '../components/GalleryCard.vue';
