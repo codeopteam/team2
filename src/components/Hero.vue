@@ -10,7 +10,7 @@
         <input
           type="text"
           v-model="inputCityUser"
-          class="mt-8 mb-8 rounded-md bg-[url('../../Lupa.png')] bg-no-repeat bg-[left_14px_center] bg-[length:25px_25px] pl-14 w-full p-3 placeholder:text-2xl placeholder:text-[#636363]"
+          class="mt-8 mb-8 rounded-md bg-[url('/Lupa.png')] bg-no-repeat bg-[left_14px_center] bg-[length:25px_25px] pl-14 w-full p-3 placeholder:text-2xl placeholder:text-[#636363]"
           placeholder="City"
           @keydown.enter="handleKeyDown"
         />
