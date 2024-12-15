@@ -57,7 +57,7 @@
       </div>
 
       <div class="flex flex-col">
-        <h3 class="text-white font-montserrat text-xl mb-4"> Follow Us</h3>
+        <h3 class="text-white font-montserrat text-xl mb-4 ms-4 md:ms-0"> Follow Us</h3>
 
         <ul class="space-y-2 text-xs font-light">
 
@@ -74,17 +74,17 @@
       <div class="flex flex-col">
   <h3 class="text-white font-montserrat text-xl mb-4">Download the App</h3>
 
-  <div class="flex items-center border border-gray-500 rounded p-2 mb-4">
+  <div class="flex flex-col lg:flex-row items-center border border-gray-500 rounded p-2 mb-4">
     <img src="/logoGooglePlay.png" alt="Google Play" class="w-12 h-auto ml-2 mr-4">
-    <div>
+    <div class="text-center mt-1 lg:mt-0">
       <p class="text-white text-sm">Get it on</p>
       <p class="text-white text-lg font-monserrat">Google Play</p>
     </div>
   </div>
 
-  <div class="flex items-center border border-gray-500 rounded p-2">
+  <div class="flex flex-col lg:flex-row items-center border border-gray-500 rounded p-2">
     <img src="/logoAppel.png" alt="App Store" class="w-6 h-auto ml-4 mr-8">
-    <div>
+    <div class="text-center mt-1 lg:mt-0">
       <p class="text-white text-sm">Download on the</p>
       <p class="text-white text-lg font-monserrat">App Store</p>
     </div>
