@@ -2,7 +2,7 @@
     <div>
 
       <Hero class="pt-20" mainText="Don't miss out!" subTextBefore="Explore the" highlightedText="vibrant events"
-        subTextAfter="happening in Spain." imagePath="/Hero.png" heightClass="h-96" />
+        subTextAfter="happening in Spain." imagePath="/Hero.png" />
     </div>
 
     <div class="flex justify-center my-2">
@@ -11,7 +11,7 @@
     <h2 class="text-center mb-4 font-bold font-montserrat">Events</h2>
     
     <div class="text-center mb-4">
-      <div v-if="galleryDefault" class="px-48 grid grid-cols-1 md:grid-cols-3 justify-center items-center">
+      <div v-if="galleryDefault" class="px-48 grid grid-cols-1 md:grid-cols-2 md:px-20 lg:grid-cols-3 justify-center items-center">
         <div v-for="event in galleryDefault._embedded.events" :key="event.id"
           class="flex items-center justify-center">
           <GalleryCard :event="event" />

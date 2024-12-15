@@ -7,8 +7,7 @@
     subTextBefore=""
     highlightedText=""
     subTextAfter=""
-    imagePath=""
-    heightClass="h-60"
+    imagePath=""    
   />
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
