@@ -4,8 +4,10 @@
   </div>
 </template>
 
+
+
 <script>
-import Layout from "./views/Layout.vue";
+import Layout from './views/Layout.vue';
 import { useCartStore } from './stores/cartStore';
 import { mapStores } from 'pinia';
 export default {
