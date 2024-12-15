@@ -80,13 +80,13 @@ export default {
           event.name.toLowerCase().includes(filters.eventName.toLowerCase());
         const matchesDate =
           filters.date === "" || event.dates.start.localDate === filters.date;
-        const matchesEventType =
-          filters.eventType === "" ||
-          event._embedded.attractions[0].classifications[0].segment.name ===
-            filters.eventType;
+        // const matchesEventType =
+        //   filters.eventType === "" ||
+        //   event._embedded.attractions[0].classifications[0].segment.name ===
+        //     filters.eventType;
 
         // Filtramos el evento si coincide con todos los criterios
-        return matchesEventName && matchesDate && matchesEventType;
+        return matchesEventName && matchesDate;
       });
 
 //DESCOMENTAR----------
