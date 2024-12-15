@@ -65,7 +65,7 @@ export default {
             required: true,
         },
     },
-
+    
     methods: {
     goToDetail() {
       this.$router.push({ name: "EventDetail", params: { id: this.event.id } });

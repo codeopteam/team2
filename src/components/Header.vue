@@ -13,7 +13,7 @@
       <Navbar :navLeft="navLeft" :navRight="navRight"></Navbar>
     </div>
 
-    <Button></Button>
+    <!-- <Button></Button> -->
   </header>
 </template>
 
@@ -21,12 +21,12 @@
 <script>
 
 import Navbar from '../components/Navbar.vue'
-import Button from '../components/Button.vue';
+// import Button from '../components/Button.vue';
 
 export default {
   components: {
     Navbar,
-    Button,
+    // Button,
   },
   data() {
     return {
