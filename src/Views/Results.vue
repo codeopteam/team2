@@ -32,9 +32,12 @@
           <EventCard v-for="event in results" :key="event.id" :event="event" />
         </div>
       </div>
-      <div v-else class="text-center text-gray-500">
-        No results found. Try a different search.
+      <div v-if="filterRes && filterRes.length === 0" class="text-center text-red-500 mt-4">
+        No results found. Try again with different filters or search terms.
       </div>
+      <!-- <div v-else class="text-center text-gray-500">
+        No results found. Try a different search.
+      </div> -->
     </div>
   </div>
 </template>
@@ -70,16 +73,45 @@ export default {
   //   },
 
   methods: {
-    filterResults(filtersEvents) {
-      console.log(filtersEvents);
-      //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
-      this.filterRes = this.results.filter(
-        (event) =>
-          event.dates.start.localDate === filtersEvents.date &&
+        // Filtrar los resultados según los filtros
+        filterResults(filters) {
+      this.filterRes = this.results.filter((event) => {
+        const matchesEventName =
+          event.name.toLowerCase().includes(filters.eventName.toLowerCase());
+        const matchesDate =
+          filters.date === "" || event.dates.start.localDate === filters.date;
+        const matchesEventType =
+          filters.eventType === "" ||
           event._embedded.attractions[0].classifications[0].segment.name ===
-            filtersEvents.eventType
-      );
-      console.log(this.filterRes);
+            filters.eventType;
+
+        // Filtramos el evento si coincide con todos los criterios
+        return matchesEventName && matchesDate && matchesEventType;
+      });
+
+//DESCOMENTAR----------
+    // filterResults(filtersEvents) {
+    //   console.log(filtersEvents);
+    //   //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
+    //   this.filterRes = this.results.filter(
+    //     (event) =>
+    //       event.dates.start.localDate === filtersEvents.date &&
+    //       event._embedded.attractions[0].classifications[0].segment.name ===
+    //         filtersEvents.eventType
+    //   );
+    //console.log(this.filterRes);
+//DESCOMENTAR--------------
+
+
+
+      // this.filterRes = this.results.filter(
+      //   (event) =>
+      //     event.dates.start.localDate === filtersEvents.date &&
+      //     event._embedded.attractions[0].classifications[0].segment.name ===
+      //       filtersEvents.eventType 
+      // );
+
+     
     },
 
     performSearch(city) {
