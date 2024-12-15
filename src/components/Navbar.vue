@@ -3,7 +3,7 @@
     <ul class="flex space-x-8 items-center">
       <li v-for="link in navLeft" :key="link.path">
         <router-link :to="link.path"
-          class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
+          class="text-white-600 hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp" exact-active-class="active-link">
           {{ link.sectionName }}
         </router-link>
       </li>
@@ -12,7 +12,7 @@
     <ul class="flex space-x-8 pr-8 items-center">
       <li v-for="link in navRight" :key="link.path">
         <router-link :to="link.path"
-          class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
+          class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp" exact-active-class="active-link">
           {{ link.sectionName }}
         </router-link>
       </li>
@@ -57,3 +57,9 @@ export default {
 };
 
 </script>
+
+<style>
+  .active-link {
+  border-bottom: 2px solid #FFE047;
+  }
+</style>
