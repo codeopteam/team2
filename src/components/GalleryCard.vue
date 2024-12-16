@@ -16,7 +16,7 @@
     </div> -->
 
     <div
-    class="text-center items-center shadow-md py-2 px-2 rounded w-[300px] h-[260px] font-opensanz text-darkBlue flex-shrink-0 font-medium cursor-pointer mb-8"
+    class="text-center items-center shadow-md px-2 rounded w-full h-[260px] font-opensanz text-darkBlue flex-shrink-0 font-medium cursor-pointer mb-8"
     @click="goToDetail">
         <img :src="event.images[2]?.url" alt="Event image" class="w-full h-36 object-cover rounded" />
         <div class="flex flex-row p-2">
