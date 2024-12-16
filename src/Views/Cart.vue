@@ -57,63 +57,6 @@
 <!-- Modal de Cart con lógica end -->
 
 
-<!-- Modal para modificar -->
-<div v-if="!showModal" class="bg-gray-50 w-[882px] h-[860px] mb-44">
-      <div class="bg-darkBlue rounded-lg shadow-lg p-6">
-        <div class="flex justify-between items-center p-1">
-          <h2 class="text-4xl font-montserrat text-yellowApp">Select Tickets</h2>
-        </div>
-      </div>
-
-      <div class="mt-14 grid grid-cols-2 gap-4">
-        <p class="text-md font-montserrat ml-8">Ticket Types</p>
-        <p class="text-md font-montserrat mr-10 text-right">Quantity</p>
-      </div>
-
-      <!-- ----- -->
-      <div class="bg-white mt-4 border-b flex justify-between shadow-lg rounded-lg">
-        <div class="flex items-center gap-2 border-l-8 border-yellowApp">
-        </div>
-
-        <div class=" p-6 ">
-          <p class="text-4xl font-montserrat text-left -ml-72">Standard Ticket</p>
-          <p class="text-2xl font-montserrat mt-2 pb-4 -ml-72">40€</p>
-        </div>
-
-        <div class="flex items-center gap-4 justify-center ml-12 mr-8">
-          <button
-            class="w-14 h-14 border rounded-full text-3xl font-montserrat flex justify-center items-center leading-none">-</button>
-          <span class="text-5xl font-openSanz">1</span>
-          <button
-            class="w-14 h-14 border rounded-full text-3xl font-montserrat flex justify-center items-center leading-none">+</button>
-        </div>
-      </div>
-      <!-- ----- -->
-
-
-      <div class="bg-white px-6 py-4 border-t mt-96 shadow-xl font-montserrat">
-        <div class="flex justify-between text-center mb-4">
-          <span class=" text-3xl">
-            <span class=" ml-72">Qty:</span>
-            <span class="text-darkBlue"> 1 </span>
-          </span>
-          <p class="text-3xl">Total: <b class="text-darkBlue mr-60 font-montserrat">40€</b> </p>
-        </div>
-
-        <div class="flex justify-center">
-          <button class="bg-darkBlue text-yellowApp px-60 py-6 rounded-md text-4xl font-montserrat mt-7">Proceed
-            ></button>
-        </div>
-      </div>
-    </div>
-
- 
-<!-- Modal para modificar -->
-
-
-
-
-
 <!-- Inicio modal Pay Now -->
 <div 
   v-if="showModal" 
@@ -161,7 +104,7 @@
       <router-link to="/pay">
       <button
         class="px-4 md:px-8 lg:px-16 rounded-md text-md text-center font-montserrat bg-yellowApp w-full md:w-auto max-w-full text-darkBlue flex items-center justify-center h-12 flex-row gap-4">
-        <img src="/bag.png" alt="">Pay Now
+        <img src="/bag.png" alt="Shop Icon" class="h-7">Pay Now
       </button>
     </router-link>
     </div>
