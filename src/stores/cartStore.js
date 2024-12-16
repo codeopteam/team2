@@ -1,6 +1,26 @@
 import { defineStore } from "pinia";
 import { updateCart, getCart } from "../firebase";
 
+// function changeFormat(event){
+//     let item = {
+//         name: event.name,
+//         sales: {
+//             public: {
+//                 startDateTime: "",
+//                 endDateTime: ""
+//             }
+//         },
+//         dates: {
+//             start: {
+//                 localDate: "",
+//                 localTime: ""
+//             }
+//         },
+//         images: []
+//     };
+//     return item; 
+// }
+
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
@@ -10,7 +30,6 @@ export const useCartStore = defineStore('cart', {
     actions: {
         addItemToCart(item) {
             console.log(item)
-            
 
             this.items.push(item)
             console.log(this.items)
