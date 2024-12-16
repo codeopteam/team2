@@ -21,8 +21,6 @@
               Date(`${eventDetailresp.dates.start.localDate}T${eventDetailresp.dates.start.localTime}`).toLocaleTimeString('en-EN',
                 { hour: '2-digit', minute: '2-digit', hour12: false }) }}</p>
           </div>
-
-
         </div>
 
         <div>
@@ -43,8 +41,11 @@
           <div class="w-60 flex">
             <div>
               <router-link to="/cart">
-                <BuyTicketButton class="mb-7 ms-4"></BuyTicketButton>
+                <BuyTicketButton class="mb-7 ms-4" ></BuyTicketButton>
               </router-link>
+              <BuyTicketButton class="mb-7 ms-4" @click.stop="cartStore.addItemToCart(eventDetailresp)"></BuyTicketButton>
+              
+
               <h6 class="text-xl font-semibold my-3 ms-6">Ticket Information</h6>
               <div class="flex ms-4">
                 <img src="/ion_ticketBlue.png" alt="Ticket Icon" class="w-5">
@@ -120,6 +121,9 @@
 </template>
 
 <script>
+import { useEventStore } from '../stores/eventStore';
+import { mapStores } from 'pinia';
+import { useCartStore } from '../stores/cartStore';
 
 import axios from "axios";
 import Map from "../components/Map.vue";
@@ -127,6 +131,11 @@ import BuyTicketButton from "../components/BuyButton.vue";
 
 export default {
   name: "EventDetail",
+  
+    computed: {
+        ...mapStores(useEventStore, useCartStore)
+    
+    },
 
   data() {
     return {
