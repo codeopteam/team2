@@ -1,12 +1,12 @@
 <template>
-<div class="flex justify-center items-center h-96 gap-9 flex-col lg:flex-row">
-    <div v-for="(person, index) in people" :key="index" class="w-1/6 justify-center items-center text-center text-xs">
+  <div class="flex justify-center items-center h-auto my-10 gap-5 flex-col md:flex-row">
+    <div v-for="(person, index) in people" :key="index" class="w-40 justify-center items-center text-center text-xs">
       <img class="rounded-full shadow-lg" :src="person.image" alt="">
       <p class="text-sm">{{ person.name }}</p>
       <p>{{ person.description }}</p>
       <div class="flex justify-around items-center">
         <a :href="person.links.linkedin" target="_blank">
-          <img class="rounded w-6" src="/linkedIn-logo2.gif" alt="">
+          <img class="rounded w-5" src="/linkedIn-logo2.gif" alt="">
         </a>
         <a :href="person.links.github" target="_blank">
           <img class="rounded w-6" src="/github-logo.gif" alt="">
@@ -15,6 +15,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
