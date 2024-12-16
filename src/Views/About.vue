@@ -23,7 +23,7 @@ export default {
       people: [
         {
           name: "Zora",
-          description: "Meditativa",
+          description: "La Meditativa",
           image: "/zoraida.jpeg",
           links: {
             linkedin: "https://www.linkedin.com/in/zoraida-moreno/",
