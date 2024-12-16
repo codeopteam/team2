@@ -60,11 +60,16 @@
             {{ link.sectionName }}
           </router-link>
         </li>
-
+        <router-link to="/">
+        <li class="mt-3">
+          <button @click="logout"
+            class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
+            Logout
+          </button>
+        </li>
+      </router-link>
       </ul>
-
     </div>
-
   </nav>
 </template>
 
@@ -88,6 +93,11 @@ export default {
     showLinks() {
       // Alternar la visibilidad del menú
       this.isMenuHamb = !this.isMenuHamb;
+      
+    },
+    logout() {
+      // Lógica de logout (puedes redirigir o llamar a una API)
+      console.log("Logged out!");
     },
   },
   computed: {
