@@ -9,7 +9,6 @@
       <div v-else>
         <img class="h-[40px] 2xl:mr-80" src="/LogoRectangular.png" alt="Logo de la pagina">
       </div>
-        
       <Navbar :navLeft="navLeft" :navRight="navRight"></Navbar>
     </div>
 

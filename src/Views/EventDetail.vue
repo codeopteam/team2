@@ -41,9 +41,9 @@
           <div class="w-60 flex">
             <div>
               <router-link to="/cart">
-                <BuyTicketButton class="mb-7 ms-4" ></BuyTicketButton>
+                <BuyTicketButton label="Buy Tickets" icon="/ion_ticketBlue.png" customClasses="bg-yellowApp text-darkBlue" class="mb-7 ms-4"></BuyTicketButton>
               </router-link>
-              <BuyTicketButton class="mb-7 ms-4" @click.stop="cartStore.addItemToCart(eventDetailresp)"></BuyTicketButton>
+              <BuyTicketButton label="Add to Cart" icon="/bag.png" customClasses="bg-darkBlue text-white gap-3" class="mb-7 ms-4" @click.stop="cartStore.addItemToCart(eventDetailresp)"></BuyTicketButton>
               
 
               <h6 class="text-xl font-semibold my-3 ms-6">Ticket Information</h6>
