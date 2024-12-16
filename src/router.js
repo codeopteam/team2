@@ -10,6 +10,7 @@ import Register from "./Views/Register.vue";
 import Contact from "./Views/Contact.vue";
 import Cart from "./Views/Cart.vue";
 import NotFound from "./Views/NotFound.vue"
+import PaySucces from "./Views/PaySucces.vue";
 
 const routes = [
   {
@@ -52,6 +53,11 @@ const routes = [
     path: "/cart",
     name: "Cart",
     component: Cart,
+  },
+  {
+    path: "/pay",
+    name: "PaySucces",
+    component: PaySucces,
   },
   {
     path: "/:pathMatch(.*)*", 
