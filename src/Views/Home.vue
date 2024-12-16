@@ -11,7 +11,7 @@
 
   <div class="text-center mb-4">
     <div v-if="galleryDefault"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[10px] max-w-screen-lg mx-auto w-9/12">
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[10px] max-w-screen-lg mx-auto w-9/12">
       <div v-for="event in galleryDefault._embedded.events" :key="event.id" class="flex items-center justify-center">
         <GalleryCard :event="event" />
       </div>

@@ -39,7 +39,7 @@ export default {
         // Añade un marcador de ejemplo
         L.marker([this.latitude, this.longitude])
             .addTo(this.map)
-            .bindPopup("Hola!")
+            .bindPopup("Here!")
             .openPopup();  
         } else {
             console.error("Coordenadas no válidas para inicializar el mapa.");
