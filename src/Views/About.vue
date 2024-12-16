@@ -16,7 +16,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -43,7 +42,7 @@ export default {
         {
           name: "Ale",
           description: "El Paciente",
-          image: "/mavita.png",
+          image: "/gastly.gif",
           links: {
             linkedin: "https://www.linkedin.com/in/mavafigalloz/",
             github: "https://github.com/AlejandroMurr"
@@ -60,6 +59,16 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    // Mezclar las personas aleatoriamente al montar el componente
+    this.shufflePeople();
+  },
+  methods: {
+    shufflePeople() {
+      // Método para mezclar el arreglo de personas
+      this.people = this.people.sort(() => Math.random() - 0.5);
+    }
   }
 };
 </script>
