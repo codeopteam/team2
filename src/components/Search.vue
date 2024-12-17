@@ -1,7 +1,7 @@
 <template>
   <div class="border-r border-gray-300 gap-6 flex flex-col p-4 h-full">
     <h2 class="font-montserrat font-semibold text-xl">Filters</h2>
-     <input v-model="eventName" type="text" label="City" placeholder="Event name"
+     <input v-model="eventName" type="text" label="City" placeholder="Artist or Event name"
       class="bg-slate-200 rounded px-2 placeholder:text-darkGray h-10 font-montserrat">
     <input v-model="date" type="date" placeholder="Date" class="bg-slate-200 rounded px-2 h-10 text-darkGray font-montserrat">
     <!-- <select v-model="eventType" class="bg-slate-200 rounded px-2 h-10 w-full text-darkGray font-montserrat">

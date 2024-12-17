@@ -7,8 +7,8 @@
       <div class="flex flex-col">
         <h3 class="text-white font-montserrat text-xl mb-4">Company Info</h3>
         <ul class="space-y-2 text-xs font-light">
-          <li><a href="/wip" class="hover:text-white">About Us</a></li>
-          <li><a href="/wip" class="hover:text-white">Contact Us</a></li>
+          <li><a href="/about" class="hover:text-white">About Us</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
           <li><a href="/wip" class="hover:text-white">Careers</a></li>
           <li><a href="/wip" class="hover:text-white">FAQs</a></li>
           <li><a href="/wip" class="hover:text-white">Terms of Service</a></li>
@@ -21,8 +21,8 @@
         <h3 class="text-white font-montserrat text-xl mb-4">Help</h3>
         <ul class="space-y-2 text-xs font-light">
           <li><a href="/wip" class="hover:text-white">Account Support</a></li>
-          <li><a href="/wip" class="hover:text-white">Listing Events</a></li>
-          <li><a href="/wip" class="hover:text-white">Event Ticketing</a></li>
+          <li><a href="/" class="hover:text-white">Listing Events</a></li>
+          <!-- <li><a href="/wip" class="hover:text-white">Event Ticketing</a></li> -->
           <li><a href="/wip" class="hover:text-white">Ticket Purchase Terms & Conditions</a></li>
         </ul>
       </div>
@@ -38,7 +38,6 @@
           <li><a href="/wip" class="hover:text-white">Performing Arts</a></li>
           <li><a href="/wip" class="hover:text-white">Sports & Outdoors</a></li>
           <li><a href="/wip" class="hover:text-white">Exhibitions</a></li>
-          <li><a href="/wip" class="hover:text-white">Workshops, Conferences & Classes</a></li>
         </ul>
       </div>
 

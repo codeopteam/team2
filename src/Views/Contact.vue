@@ -5,9 +5,11 @@
             <img src="/house.gif" alt="" class="flex rounded w-12 justify-center items-center">
             <p class="text-xs">Go Back Home</p>
         </button>
-
     </div>
-    <div class="w-full flex justify-center items-center">
+
+    <div class="w-full flex flex-col justify-center items-center">
+        <h3 class="text-darkBlue text-2xl mb-4 font-montserrat">Contact us</h3>
+        <h2 class="text-darkBlue text-4xl font-montserrat">codeopteam@gmail.com</h2>
         <img src="/contactus.gif" alt="">
 
     </div>
