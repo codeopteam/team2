@@ -12,22 +12,34 @@
   </div>
 
   <!-- Encabezados Ticket Types y Quantity -->
-  <div class="mt-14 grid grid-cols-2 gap-4 w-full">
-    <p class="text-sm font-montserrat ml-8">Ticket Types</p>
-    <p class="text-sm font-montserrat mr-10 text-right">Quantity</p>
+  <div class="mt-4 flex flex-col items-end w-full">
+    <div class="flex text-md font-montserrat text-left pl-8 justify-end items-center w-full">    
+    <p class="text-sm font-montserrat ml-8">Price</p>
+    <p class="text-sm font-montserrat mr-4 md:mr-8 lg:mr-10 text-right ml-10 md:ml-12 lg:ml-14">Quantity</p>
+  </div>
   </div>
 
   <!-- Lista de Tickets -->
   <ul 
     v-for="(item, index) in cartStore.items" 
+    :key="index"
     class="bg-white mt-4 border-b flex flex-col shadow-lg rounded-lg items-end w-full">
     <li
       class="flex h-20 border-l-8 border-yellowApp text-md font-montserrat text-left pl-8 justify-between items-center w-full">
       <span class="w-2/3">{{ item.name }}</span>
+      <h6>{{item.priceRanges[0].min}} €</h6>
+      <h6></h6>
       <div class="ml-auto pr-8">
-        <button class="shadow-lg rounded-xl w-6 px-1" @click="cartStore.deleteItem(index)">
+        <!-- <button class="shadow-lg rounded-xl w-6 px-1" @click="cartStore.deleteItem(index)">
           <img src="/icon _trash.png" alt="">
-        </button>
+        </button> -->
+        <div class="flex items-center">
+          <button
+            class="w-10 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.deleteItem(index)" >-</button>
+          <span class="text-xl font-openSanz">{{ item.quantity }}</span>
+          <button
+            class="w-8 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.addItemToCart(item)">+</button>
+        </div>
       </div>
     </li>
   </ul>
@@ -37,11 +49,11 @@
     <div class="flex justify-between items-center text-center mb-4">
       <div class="text-lg font-semibold w-1/2">
         <span class="mr-2">Qty:</span>
-        <span class="text-bold">{{ cartStore.items.length }}</span>
+        <span class="text-bold">{{ cartStore.cartSize }}</span>
       </div>
       <div class="text-lg font-semibold w-1/2">
         <span class="mr-2">Total:</span>
-        <span class="text-bold font-bold">200</span>
+        <span class="text-bold font-bold">{{ cartStore.getTotalPrice }} €</span>
       </div>
     </div>
 

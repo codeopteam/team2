@@ -26,12 +26,19 @@ export const useCartStore = defineStore('cart', {
     state: () => ({
         items: [],
         // showTickets: true,
+        quantity: 0,
     }),
     actions: {
         addItemToCart(item) {
             console.log(item)
 
-            this.items.push(item)
+        const existingItemIndex = this.items.findIndex(existingItem => existingItem.name === item.name)
+          
+        if (existingItemIndex !== -1) {            
+            this.items[existingItemIndex].quantity += 1
+        } else {
+            this.items.push({ ...item, quantity: 1 })
+        }            
             console.log(this.items)
             updateCart(this.items)
             // this.showCart()
@@ -50,15 +57,25 @@ export const useCartStore = defineStore('cart', {
         },
 
         deleteItem(index) {
-            this.items.splice(index, 1)
-            updateCart(this.items)
-
+            if (this.items[index].quantity > 1) {
+                this.items[index].quantity -= 1
+            } else {
+               this.items.splice(index, 1)
+                 
+            }
+        this.items = [...this.items];
+        updateCart(this.items) 
         }
     },
-    getters: {
+    getters: {       
+        getTotalPrice() {
+            return this.items.reduce((total, item) => {
+                return total + item.priceRanges[0].min * item.quantity;
+            }, 0);
+        },
         cartSize() {
-            return this.items.length
-        }
+            return this.items.reduce((sum, item) => sum + item.quantity, 0);
+        },
     }
          
 })
