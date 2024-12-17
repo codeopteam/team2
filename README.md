@@ -151,7 +151,12 @@ Este archivo proporciona toda la información esencial sobre el proyecto y sirve
 ---
 
 ## Presentación (Demo)
-- **Video**: Disponible en la carpeta `/public/video-demo.mp4`.
+
+ <video width="640" height="480" controls>
+  <source src="./frontend/public/videoMascoticos.mp4" type="video-demo/mp4">
+</video> 
+<!-- Su navegador no soporta la etiqueta de vídeo. -->
+<!-- - **Video**: Disponible en la carpeta `/public/video-demo.mp4`. -->
 - **PDF del Proyecto**: Disponible en la carpeta `/public/project-documentation.pdf`.
 - **Presentación**: [Enlace a la presentación](./public/presentation.html).
 
