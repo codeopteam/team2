@@ -29,13 +29,12 @@
               <span>{{ cartStore.cartSize }}</span>
               tickets
             </p>
-
           </router-link>
         </button>
       </li>
-
-      <Button class="mx-4 md:mx-6 hidden md:block"></Button>
-
+      <router-link to="/" >
+      <Button class="mx-4 md:ml-6 hidden md:block"></Button>
+    </router-link>
       <!-- Button hamburguer -->
       <div class="block md:hidden -me-12">
         <button @click="showLinks()" class="text-white">
