@@ -7,12 +7,12 @@
       <div class="flex flex-col">
         <h3 class="text-white font-montserrat text-xl mb-4">Company Info</h3>
         <ul class="space-y-2 text-xs font-light">
-          <li><a href="/login" class="hover:text-white">About Us</a></li>
-          <li><a href="/login" class="hover:text-white">Contact Us</a></li>
-          <li><a href="/login" class="hover:text-white">Careers</a></li>
-          <li><a href="/login" class="hover:text-white">FAQs</a></li>
-          <li><a href="/login" class="hover:text-white">Terms of Service</a></li>
-          <li><a href="/login" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="/wip" class="hover:text-white">About Us</a></li>
+          <li><a href="/wip" class="hover:text-white">Contact Us</a></li>
+          <li><a href="/wip" class="hover:text-white">Careers</a></li>
+          <li><a href="/wip" class="hover:text-white">FAQs</a></li>
+          <li><a href="/wip" class="hover:text-white">Terms of Service</a></li>
+          <li><a href="/wip" class="hover:text-white">Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -20,10 +20,10 @@
       <div class="flex flex-col">
         <h3 class="text-white font-montserrat text-xl mb-4">Help</h3>
         <ul class="space-y-2 text-xs font-light">
-          <li><a href="/login" class="hover:text-white">Account Support</a></li>
-          <li><a href="/login" class="hover:text-white">Listing Events</a></li>
-          <li><a href="/login" class="hover:text-white">Event Ticketing</a></li>
-          <li><a href="/login" class="hover:text-white">Ticket Purchase Terms & Conditions</a></li>
+          <li><a href="/wip" class="hover:text-white">Account Support</a></li>
+          <li><a href="/wip" class="hover:text-white">Listing Events</a></li>
+          <li><a href="/wip" class="hover:text-white">Event Ticketing</a></li>
+          <li><a href="/wip" class="hover:text-white">Ticket Purchase Terms & Conditions</a></li>
         </ul>
       </div>
 
@@ -31,14 +31,14 @@
       <div class="flex flex-col">
         <h3 class="text-white font-montserrat text-xl mb-4">Categories</h3>
         <ul class="space-y-2 text-xs font-light">
-          <li><a href="/login" class="hover:text-white">Concert & Gigs</a></li>
-          <li><a href="/login" class="hover:text-white">Festival & Lifestyle</a></li>
-          <li><a href="/login" class="hover:text-white">Business & Networking</a></li>
-          <li><a href="/login" class="hover:text-white">Food & Drinks</a></li>
-          <li><a href="/login" class="hover:text-white">Performing Arts</a></li>
-          <li><a href="/login" class="hover:text-white">Sports & Outdoors</a></li>
-          <li><a href="/login" class="hover:text-white">Exhibitions</a></li>
-          <li><a href="/login" class="hover:text-white">Workshops, Conferences & Classes</a></li>
+          <li><a href="/wip" class="hover:text-white">Concert & Gigs</a></li>
+          <li><a href="/wip" class="hover:text-white">Festival & Lifestyle</a></li>
+          <li><a href="/wip" class="hover:text-white">Business & Networking</a></li>
+          <li><a href="/wip" class="hover:text-white">Food & Drinks</a></li>
+          <li><a href="/wip" class="hover:text-white">Performing Arts</a></li>
+          <li><a href="/wip" class="hover:text-white">Sports & Outdoors</a></li>
+          <li><a href="/wip" class="hover:text-white">Exhibitions</a></li>
+          <li><a href="/wip" class="hover:text-white">Workshops, Conferences & Classes</a></li>
         </ul>
       </div>
 
@@ -46,10 +46,10 @@
       <div class="flex flex-col">
         <h3 class="text-white font-montserrat text-xl mb-4">Follow Us</h3>
         <ul class="space-y-2 text-xs font-light">
-          <li><a href="/login" class="hover:text-white">Facebook</a></li>
-          <li><a href="/login" class="hover:text-white">Instagram</a></li>
-          <li><a href="/login" class="hover:text-white">Twitter</a></li>
-          <li><a href="/login" class="hover:text-white">YouTube</a></li>
+          <li><a href="/wip" class="hover:text-white">Facebook</a></li>
+          <li><a href="/wip" class="hover:text-white">Instagram</a></li>
+          <li><a href="/wip" class="hover:text-white">Twitter</a></li>
+          <li><a href="/wip" class="hover:text-white">YouTube</a></li>
         </ul>
       </div>
 

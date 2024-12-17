@@ -182,7 +182,7 @@ Este archivo proporciona toda la información esencial sobre el proyecto y sirve
 
 ## Agradecimientos
 Agradecemos especialmente a:
-- **Anna Sfairopoulou** y **Felix Rodríguez**, por su guía y apoyo durante este proyecto.
+- **CodeOp** **Anna Sfairopoulou** y **Felix Rodríguez**, por su guía y apoyo durante este proyecto.
 
 ---
 

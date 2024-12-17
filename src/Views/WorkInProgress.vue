@@ -8,7 +8,7 @@
 
     </div>
     <div class="w-full flex justify-center items-center">
-        <img src="/contactus.gif" alt="">
+        <img class="w-1/3" src="/wip.gif" alt="">
 
     </div>
 </template>
@@ -24,6 +24,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -55,6 +55,22 @@
               />
             </div>
 
+
+            <div class="mb-4">
+              <label
+                class="block text-gray-700 font-medium mb-1"
+                for="fullname"
+              >
+                E-mail Address
+              </label>
+              <input
+                id="fullname"
+                type="email"
+                placeholder="Enter your e-mail"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
             <div class="mb-6 relative">
               <label class="block text-gray-700 font-medium mb-1" for="password"
                 >Password</label
