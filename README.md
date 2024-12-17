@@ -152,13 +152,16 @@ Este archivo proporciona toda la información esencial sobre el proyecto y sirve
 
 ## Presentación (Demo)
 
- <video width="640" height="480" controls>
-  <source src="./frontend/public/videoMascoticos.mp4" type="video-demo/mp4">
-</video> 
-<!-- Su navegador no soporta la etiqueta de vídeo. -->
-<!-- - **Video**: Disponible en la carpeta `/public/video-demo.mp4`. -->
-- **PDF del Proyecto**: Disponible en la carpeta `/public/project-documentation.pdf`.
-- **Presentación**: [Enlace a la presentación](./public/presentation.html).
+
+[![EvenTop Demo](https://img.youtube.com/vi/IVUCkMuaBTs/0.jpg)](https://www.youtube.com/watch?v=IVUCkMuaBTs)
+
+
+
+## Documentación
+
+- **PDF del Proyecto**: [eventop.pdf](./eventop.pdf)
+
+- **Presentación**: [Enlace a la presentación](https://www.canva.com/design/DAGZiaOtbmw/J-U_4i9iXhKtQ_p-slFsvg/edithttps://www.canva.com/design/DAGZiaOtbmw/J-U_4i9iXhKtQ_p-slFsvg/edit).
 
 ---
 
@@ -169,7 +172,7 @@ Este archivo proporciona toda la información esencial sobre el proyecto y sirve
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=fff)
 ![Leaflet](https://img.shields.io/badge/Leaflet-199900?logo=leaflet&logoColor=fff)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=fff)
-![Mapbox](https://img.shields.io/badge/Mapbox-000000?logo=mapbox&logoColor=fff)
+![OpenStreeMap](https://img.shields.io/badge/OpenStreeMap-000000?logo=mapbox&logoColor=fff)
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=fff)
 
 ---
