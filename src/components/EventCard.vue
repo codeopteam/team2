@@ -23,7 +23,7 @@
     </div> 
        <h2 class="text-darkGray font-light text-sm">{{ event.dates.start.localTime.substring(0, 5) }}</h2>
     </div>
-       <button class= "bg-yellowApp mt-2 rounded px-2 h-8 font-montserrat self-start" @click.stop="cartStore.addItemToCart(event)">Add</button> 
+       <button class= "bg-yellowApp mt-2 rounded px-2 h-8 font-montserrat self-start" @click.stop="cartStore.addItemToCart(event)">Add to cart</button> 
     </div>
 </div>
 </template>
