@@ -1,23 +1,38 @@
 <template>
   <div>
-    <Hero class="pt-20" mainText="Don't miss out!" subTextBefore="Explore the" highlightedText="vibrant events"
-      subTextAfter="happening in Spain." imagePath="/Hero.png" />
+    <Hero 
+      class="pt-20" 
+      mainText="Don't miss out!" 
+      subTextBefore="Explore the" 
+      highlightedText="vibrant events" 
+      subTextAfter="happening in Spain." 
+      imagePath="/Hero.png" 
+    />
   </div>
 
   <div class="flex justify-center my-2">
     <div v-if="loading" class="loader"></div>
   </div>
+
   <h2 class="text-center mb-4 font-bold font-montserrat">Upcoming Events</h2>
 
   <div class="text-center mb-4">
-    <div v-if="galleryDefault"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[10px] max-w-screen-lg mx-auto w-9/12">
-      <div v-for="event in limitedEvents" :key="event.id" class="flex items-center justify-center">
+    <div 
+      v-if="galleryDefault"
+      class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[10px] max-w-screen-lg mx-auto w-full px-2 md:px-4 lg:px-0"
+    >
+      <div 
+        v-for="event in limitedEvents" 
+        :key="event.id" 
+        class="flex items-center justify-center"
+      >
         <GalleryCard :event="event" />
       </div>
     </div>
   </div>
 </template>
+
+
 
 <script>
 import axios from 'axios';
