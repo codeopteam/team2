@@ -1,5 +1,5 @@
 <template>
-<div class="gap-4 flex xl:flex-row flex-col bg-[#f9f9f9] shadow-md rounded p-4">
+<div class="gap-4 flex xl:flex-row bg-[#f9f9f9] shadow-md rounded p-4 border">
    <RouterLink :to = "`/event/${event.id}`">
    <div class="gap-4 flex bg-[#f9f9f9] rounded" @click="eventStore.eventDetail(event)">
         <div class="w-[300px] relative">  <!--w-2/1 -->
