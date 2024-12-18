@@ -9,10 +9,12 @@
 
     <div class="w-full flex flex-col justify-center items-center">
         <h3 class="text-darkBlue text-2xl mb-4 font-montserrat">Contact us</h3>
-        <h2 class="text-darkBlue text-4xl font-montserrat">codeopteam@gmail.com</h2>
+        <h2 class="text-darkBlue text-4xl font-montserrat text-center break-all sm:break-normal sm:text-4xl text-2xl">
+            codeopteam@gmail.com
+        </h2>
         <img src="/contactus.gif" alt="">
-
     </div>
+
 </template>
 
 <script>
@@ -26,6 +28,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
