@@ -7,8 +7,8 @@
 ### Funcionalidades principales:
 - **Búsqueda avanzada**: Encuentra eventos por ciudad o categoría.
 - **Integración con Ticketmaster API**: Asegura datos actualizados de eventos.
-- **Mapas interactivos con Leaflet**: Localiza los lugares con facilidad.
-- **Sistema de autenticación con Firebase**: Seguridad y personalización para los usuarios.
+- **Mapas interactivos con la libería Leaflet**: Localiza los lugares con facilidad.
+- **Sistema de autenticación y base de datos con Firebase**: Seguridad y personalización para los usuarios y base de datos en tiempo real.
 - **Diseño moderno y accesible**: Creado con Figma y herramientas de diseño colaborativo.
 
 Plataforma desarrollada con un enfoque colaborativo, utilizando **Miro**, **Canva**, y **ChatGPT** para la planificación y optimización.
@@ -65,8 +65,8 @@ El Buyer Persona de Eventbrite abarca personas de 18 a 55 años, activas, sociab
 
 ## Integración de APIs
 - **Ticketmaster API**: Información sobre eventos en tiempo real.
-- **Leaflet**: Mapas dinámicos para localizar los eventos.
-- **Firebase**: Autenticación y base de datos en tiempo real.
+- **OpenStreetMap**: Cada evento renderiza en un mapa su localización.
+
 
 ---
 
