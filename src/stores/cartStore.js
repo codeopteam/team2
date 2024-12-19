@@ -60,11 +60,16 @@ export const useCartStore = defineStore('cart', {
             if (this.items[index].quantity > 1) {
                 this.items[index].quantity -= 1
             } else {
-               this.items.splice(index, 1)
-                 
+               this.items.splice(index, 1)                 
             }
         this.items = [...this.items];
         updateCart(this.items) 
+        },
+        deleteEventInCart(index) {           
+            this.items.splice(index, 1)                 
+            
+            this.items = [...this.items];
+            updateCart(this.items) 
         }
     },
     getters: {       

@@ -29,16 +29,19 @@
       <span class="w-2/3">{{ item.name }}</span>
       <h6>{{item.priceRanges[0].min}} €</h6>
       <h6></h6>
-      <div class="ml-auto pr-8">
-        <!-- <button class="shadow-lg rounded-xl w-6 px-1" @click="cartStore.deleteItem(index)">
-          <img src="/icon _trash.png" alt="">
-        </button> -->
+      <div class="ml-auto pr-8">      
         <div class="flex items-center">
           <button
-            class="w-10 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.deleteItem(index)" >-</button>
+            class="w-10 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.deleteItem(index)" >-
+            </button>
           <span class="text-xl font-openSanz">{{ item.quantity }}</span>
           <button
-            class="w-8 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.addItemToCart(item)">+</button>
+            class="w-8 h-14 border rounded-full text-2xl font-montserrat flex justify-center items-center leading-none border-none" @click="cartStore.addItemToCart(item)">+
+            </button>
+
+          <button class="shadow-lg rounded-xl w-6 px-1 ms-1" @click="cartStore.deleteEventInCart(index)">
+          <img src="/icon _trash.png" alt="Delete Icon">
+        </button>
         </div>
       </div>
     </li>
