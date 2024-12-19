@@ -23,14 +23,25 @@
         </div>
 
         <div>
-          <div class="flex justify-end self-start mb-8">
+          <div class="flex justify-evenly self-start mb-8">
             <button class="flex items-end" @click="interested = !interested">
               <img v-if="interested" src="/Interested-Button.png" alt="Start Icon" class="w-12">
               <img v-else src="/Interested-Button2.png" alt="Start Icon" class="w-12">
             </button>
-            <button>
+            <button class="">
               <img src="/Share button.png" alt="Share Icon" class="w-12 mx-2" />
             </button>
+            <div>
+              <button class="flex justify-center items-center text-xs">
+                <router-link to="/cart" class="flex flex-col items-center font-montserrat text-darkBlue">
+                  <img src="/ion_ticketBlue.png" alt="Ticket icon" class="h-6 w-6 mb-1">
+                  <p class="flex items-center gap-2">
+                    <span>{{ cartStore.cartSize }}</span>
+                    tickets
+                  </p>
+                </router-link>
+              </button>
+            </div>
           </div>
 
           <!-- section buy ticket -->
