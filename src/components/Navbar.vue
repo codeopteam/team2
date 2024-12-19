@@ -32,19 +32,19 @@
           </router-link>
         </button>
       </li>
-      <router-link to="/" >
-      <Button class="mx-4 md:ml-6 hidden md:block"></Button>
-    </router-link>
+      <router-link to="/">
+        <Button class="mx-4 md:ml-6 hidden md:block"></Button>
+      </router-link>
+
       <!-- Button hamburguer -->
-      <div class="block md:hidden -me-12">
+      <div class="block md:hidden me-4"> <!-- Ajuste aquí -->
         <button @click="showLinks()" class="text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
     </ul>
-
 
     <!-- Menú desplegable (en columna) -->
     <div
@@ -60,17 +60,18 @@
           </router-link>
         </li>
         <router-link to="/">
-        <li class="mt-3">
-          <button @click="logout"
-            class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
-            Logout
-          </button>
-        </li>
-      </router-link>
+          <li class="mt-3">
+            <button @click="logout"
+              class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
+              Logout
+            </button>
+          </li>
+        </router-link>
       </ul>
     </div>
   </nav>
 </template>
+
 
 <script>
 import { useCartStore } from "../stores/cartStore";
