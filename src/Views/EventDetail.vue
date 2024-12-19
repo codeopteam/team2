@@ -1,9 +1,13 @@
 <template>
   <div v-if="eventDetailresp" class="w-full">
-    <div class="flex items-center justify-center w-full py-12">
-      <img class="w-11/12 rounded-2xl h-96 object-cover object-top" :src="eventDetailresp.images[2]?.url"
-        alt="Event Image" />
-    </div>
+<div class="flex items-center justify-center w-full py-12">
+  <img 
+    class="w-11/12 sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-11/12 h-auto sm:h-80 md:h-96 lg:h-80 xl:h-72 2xl:h-64 rounded-2xl object-cover object-top" 
+    :src="eventDetailresp.images[2]?.url" 
+    alt="Event Image" 
+  />
+</div>
+
 
     <div class="flex items-center justify-center w-full">
       <div class="w-11/12 flex flex-col lg:flex-row justify-between">
