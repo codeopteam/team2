@@ -17,7 +17,7 @@
         class="w-full flex flex-col rounded-none md:rounded-l-[50px] h-screen bg-white justify-center items-left px-6 md:px-32"
       >
         <div>
-          <h2 class="text-3xl font-bold text-center mb-6">Create Account</h2>
+          <h2 class="text-2xl font-bold text-center mb-6 text-[#2B293D]">Login</h2>
           <div class="flex flex-col md:flex-row gap-2">
             <button
               class="flex items-center justify-center w-full md:w-1/2 py-2 mb-2 md:mb-0 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition"

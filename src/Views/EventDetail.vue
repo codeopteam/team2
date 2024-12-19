@@ -1,14 +1,13 @@
 <template>
-
-  <div v-if="eventDetailresp" class="w-full ">
+  <div v-if="eventDetailresp" class="w-full">
     <div class="flex items-center justify-center w-full py-12">
       <img class="w-11/12 rounded-2xl h-96 object-cover object-top" :src="eventDetailresp.images[2]?.url"
         alt="Event Image" />
     </div>
 
     <div class="flex items-center justify-center w-full">
-      <div class="w-11/12 flex justify-between">
-        <div>
+      <div class="w-11/12 flex flex-col lg:flex-row justify-between">
+        <div class="mb-6 lg:mb-0">
           <h3 class="text-2xl font-bold">{{ eventDetailresp.name }}</h3>
           <h4 class="font-semibold mt-2 text-xl">Date and Time</h4>
           <div class="flex gap-2 mt-2">
@@ -28,60 +27,60 @@
             <button class="flex items-end" @click="interested = !interested">
               <img v-if="interested" src="/Interested-Button.png" alt="Start Icon" class="w-12">
               <img v-else src="/Interested-Button2.png" alt="Start Icon" class="w-12">
-              
             </button>
             <button>
               <img src="/Share button.png" alt="Share Icon" class="w-12 mx-2" />
             </button>
-
-
           </div>
 
           <!-- section buy ticket -->
-          <div class="w-60 flex">
-            <div>
-              <router-link to="/cart">
-                <BuyTicketButton label="Buy Tickets" icon="/ion_ticketBlue.png" customClasses="bg-yellowApp text-darkBlue" class="mb-7 ms-4"></BuyTicketButton>
-              </router-link>
-              <BuyTicketButton label="Add to Cart" icon="/shopping_bag.png" customClasses="bg-darkBlue text-white gap-2" class="mb-7 ms-4" @click.stop="cartStore.addItemToCart(eventDetailresp)"></BuyTicketButton>
-              
+          <div class="flex flex-col lg:w-60 w-full">
+            <!-- Botón "Buy Tickets" -->
+            <router-link to="/cart">
+              <BuyTicketButton label="Buy Tickets" icon="/ion_ticketBlue.png"
+                customClasses="bg-yellowApp text-darkBlue w-full" class="mb-4 lg:mb-7"></BuyTicketButton>
+            </router-link>
+            <!-- Botón "Add to Cart" -->
+            <BuyTicketButton label="Add to Cart" icon="/shopping_bag.png"
+              customClasses="bg-darkBlue text-white gap-2 w-full" class="mb-4 lg:mb-7"
+              @click.stop="cartStore.addItemToCart(eventDetailresp)"></BuyTicketButton>
+          </div>
 
-              <h6 class="text-xl font-semibold my-3 ms-6">Ticket Information</h6>
-              <div class="flex ms-4">
-                <img src="/ion_ticketBlue.png" alt="Ticket Icon" class="w-5">
-                <h4 class="ms-2">Standard min price: {{ eventDetailresp.priceRanges[0].min }} €</h4>
-                <!-- <h4>Standard including fees: {{ eventDetailresp.priceRanges[1].min }} €</h4>          -->
+
+          <div class="flex flex-col lg:w-60 w-full">
+
+            <h6 class="text-xl font-semibold my-3 lg:ms-6">Ticket Information</h6>
+            <div class="flex lg:ms-4">
+              <img src="/ion_ticketBlue.png" alt="Ticket Icon" class="w-5">
+              <h4 class="ms-2">Standard min price: {{ eventDetailresp.priceRanges[0].min }} €</h4>
+            </div>
+          </div>
+          <!-- section buy ticket -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Section (Optional) -->
+    <div v-if="eventDetailresp" class="w-full">
+      <div class="flex flex-wrap items-center justify-center w-full">
+        <div class="w-11/12 h-auto lg:h-96">
+          <div class="w-full lg:w-5/12 h-auto lg:h-80 p-4 border rounded-lg shadow-md">
+            <h6 class="text-xl font-semibold mb-2 ms-2">Location</h6>
+            <div class="flex flex-wrap items-center">
+              <img src="/locationIcon.svg" alt="Location Icon" class="w-5 me-2 mb-2">
+              <div>
+                <h3>{{ eventDetailresp._embedded.venues[0].address?.line1 }}</h3>
+                <div class="flex flex-wrap">
+                  <h3>{{ eventDetailresp._embedded.venues[0]?.postalCode }}</h3>
+                  <h3 class="ms-2">{{ eventDetailresp._embedded.venues[0].city?.name }}</h3>
+                </div>
               </div>
             </div>
+            <Map :longitude="longitude" :latitude="latitude" class="mt-2 w-full h-64"></Map>
           </div>
-          <!-- section buy ticket -->
         </div>
       </div>
     </div>
-
-
-    <div v-if="eventDetailresp" class="w-full">
-  <div class="flex flex-wrap items-center justify-center w-full">
-    <div class="w-11/12 h-auto lg:h-96">
-      <div class="w-full lg:w-5/12 h-auto lg:h-80 p-4 border rounded-lg shadow-md">
-        <h6 class="text-xl font-semibold mb-2 ms-2">Location</h6>
-        <div class="flex flex-wrap items-center">
-          <img src="/locationIcon.svg" alt="Location Icon" class="w-5 me-2 mb-2">
-          <div>
-            <h3>{{ eventDetailresp._embedded.venues[0].address?.line1 }}</h3>
-            <div class="flex flex-wrap">
-              <h3>{{ eventDetailresp._embedded.venues[0]?.postalCode }}</h3>
-              <h3 class="ms-2">{{ eventDetailresp._embedded.venues[0].city?.name }}</h3>
-            </div>
-          </div>
-        </div>
-        <Map :longitude="longitude" :latitude="latitude" class="mt-2 w-full h-64"></Map>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
     <div class="flex items-center justify-center w-full py-8">
       <div class="w-11/12">
@@ -89,14 +88,6 @@
         <img src="/ImageNameButtons.png" alt="City Youth Movement Logo" class="w-60">
       </div>
     </div>
-
-    <!-- <div class="flex items-center justify-center w-full py-12">
-      <div class="w-11/12 border border-red-950 h-96">
-
-        <h4>More Event Details:</h4>
-       
-      </div>
-    </div> -->
 
     <div class="flex items-center justify-center py-6">
       <div class="w-11/12 ms-6">
@@ -106,20 +97,12 @@
 
     <div class="flex items-center justify-center py-12">
       <div>
-        <img src="/Other events you may like.png" alt="suggested events"/>
-        <!-- <p>Other Events you may like</p>
-        <div class="w-full flex">
-          <div class="w-1/3 h-80 border border-orange-600"></div>
-          <div class="w-1/3 h-80 border border-orange-600"></div>
-          <div class="w-1/3 h-80 border border-orange-600"></div>
-        </div> -->
+        <img src="/Other events you may like.png" alt="suggested events" />
       </div>
     </div>
-
-
-
   </div>
 </template>
+
 
 <script>
 import { useEventStore } from '../stores/eventStore';
@@ -132,11 +115,11 @@ import BuyTicketButton from "../components/BuyButton.vue";
 
 export default {
   name: "EventDetail",
-  
-    computed: {
-        ...mapStores(useEventStore, useCartStore)
-    
-    },
+
+  computed: {
+    ...mapStores(useEventStore, useCartStore)
+
+  },
 
   data() {
     return {

@@ -13,12 +13,12 @@
 
     <!-- Segundo div con fondo blanco (ocupa el ancho completo en móviles) -->
     <div class="w-full md:w-7/12 h-screen bg-darkBlue">
-      <div
-        class="w-full flex flex-col rounded-none md:rounded-l-[50px] h-screen bg-white justify-center items-left px-6 md:px-32"
-      >
+      <div class="w-full flex flex-col rounded-none md:rounded-l-[50px] h-screen bg-white justify-center items-left px-6 md:px-32">
         <div>
-          <h2 class="text-3xl font-bold text-center mb-6">Create Account</h2>
-          <div class="flex gap-2 flex-col md:flex-row">
+          <!-- Título con tamaño de texto responsivo -->
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 text-[#2B293D]">Create Account</h2>
+
+          <div class="flex flex-col md:flex-row gap-2">
             <button
               class="flex items-center justify-center w-full md:w-1/2 py-2 mb-2 md:mb-0 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition"
             >
@@ -33,12 +33,14 @@
             </button>
           </div>
 
+          <!-- Separador OR -->
           <div class="flex items-center my-6">
             <div class="flex-grow border-t border-gray-300"></div>
             <span class="mx-4 text-gray-500">OR</span>
             <div class="flex-grow border-t border-gray-300"></div>
           </div>
 
+          <!-- Formulario de creación de cuenta -->
           <form @submit.prevent="handleCreateAccount">
             <div class="mb-4">
               <label class="block text-gray-700 font-medium mb-1" for="fullname">
@@ -79,6 +81,7 @@
               </span>
             </div>
 
+            <!-- Botón de envío y mensaje de login -->
             <div class="flex flex-col">
               <button
                 type="submit"
@@ -116,6 +119,7 @@
     </div>
   </div>
 </template>
+
 
 
 
