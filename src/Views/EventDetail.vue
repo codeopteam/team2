@@ -60,26 +60,27 @@
     </div>
 
 
-    <div class="flex items-center justify-center w-full">
-      <div class="w-11/12 h-96">
-        <div src="" frameborder="0" class="w-5/12 h-80">
-          <h6 class="text-xl font-semibold mb-2 ms-2">Location</h6>
-          <div class="flex">
-            <img src="/locationIcon.svg" alt="Location Icon" class="w-5 me-2">
-            <div>
-              <h3>{{ eventDetailresp._embedded.venues[0].address?.line1 }}</h3>
-              <div class="flex">
-                <h3>{{ eventDetailresp._embedded.venues[0]?.postalCode }}</h3>
-                <h3 class="ms-2">{{ eventDetailresp._embedded.venues[0].city?.name }}</h3>
-              </div>
+    <div v-if="eventDetailresp" class="w-full">
+  <div class="flex flex-wrap items-center justify-center w-full">
+    <div class="w-11/12 h-auto lg:h-96">
+      <div class="w-full lg:w-5/12 h-auto lg:h-80 p-4 border rounded-lg shadow-md">
+        <h6 class="text-xl font-semibold mb-2 ms-2">Location</h6>
+        <div class="flex flex-wrap items-center">
+          <img src="/locationIcon.svg" alt="Location Icon" class="w-5 me-2 mb-2">
+          <div>
+            <h3>{{ eventDetailresp._embedded.venues[0].address?.line1 }}</h3>
+            <div class="flex flex-wrap">
+              <h3>{{ eventDetailresp._embedded.venues[0]?.postalCode }}</h3>
+              <h3 class="ms-2">{{ eventDetailresp._embedded.venues[0].city?.name }}</h3>
             </div>
           </div>
-          <Map :longitude="longitude" :latitude="latitude" class="mt-2"></Map>
-
         </div>
-
+        <Map :longitude="longitude" :latitude="latitude" class="mt-2 w-full h-64"></Map>
       </div>
     </div>
+  </div>
+</div>
+
 
 
     <div class="flex items-center justify-center w-full py-8">
