@@ -1,9 +1,12 @@
 <template>
   <div v-if="eventDetailresp" class="w-full">
-    <div class="flex items-center justify-center w-full py-12">
-      <img class="w-11/12 rounded-2xl h-96 object-cover object-top" :src="eventDetailresp.images[2]?.url"
-        alt="Event Image" />
+    <div class="flex items-center justify-center w-full py-6">
+      <img
+        class="w-full sm:w-10/12 md:w-11/12 lg:w-8/12 xl:w-11/12 h-auto sm:h-80 md:h-56 lg:h-80 xl:h-72 2xl:h-64 rounded-xl object-cover object-top px-4 sm:px-0"
+        :src="eventDetailresp.images[2]?.url" alt="Event Image" />
     </div>
+
+
 
     <div class="flex items-center justify-center w-full">
       <div class="w-11/12 flex flex-col lg:flex-row justify-between">
@@ -23,14 +26,25 @@
         </div>
 
         <div>
-          <div class="flex justify-end self-start mb-8">
+          <div class="flex justify-evenly self-start mb-8">
             <button class="flex items-end" @click="interested = !interested">
               <img v-if="interested" src="/Interested-Button.png" alt="Start Icon" class="w-12">
               <img v-else src="/Interested-Button2.png" alt="Start Icon" class="w-12">
             </button>
-            <button>
+            <button class="">
               <img src="/Share button.png" alt="Share Icon" class="w-12 mx-2" />
             </button>
+            <div>
+              <button class="flex justify-center items-center text-xs">
+                <router-link to="/cart" class="flex flex-col items-center font-montserrat text-darkBlue">
+                  <img src="/ion_ticketBlue.png" alt="Ticket icon" class="h-6 w-6 mb-1">
+                  <p class="flex items-center gap-2">
+                    <span>{{ cartStore.cartSize }}</span>
+                    tickets
+                  </p>
+                </router-link>
+              </button>
+            </div>
           </div>
 
           <!-- section buy ticket -->

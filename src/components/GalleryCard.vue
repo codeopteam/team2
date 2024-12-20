@@ -18,7 +18,7 @@
     <div
     class="text-center items-center shadow-md px-2 rounded w-full h-[260px] font-opensanz text-darkBlue flex-shrink-0 font-medium cursor-pointer mb-8"
     @click="goToDetail">
-        <img :src="event.images[2]?.url" alt="Event image" class="w-full h-36 object-cover rounded" />
+        <img :src="event.images[2]?.url" alt="Event image" class="w-full h-36 object-cover rounded object-top" />
         <div class="flex flex-row p-2">
             <div class="w-1/5 h-3/5">
                 <p class="text-sm text-purple font-bold">{{ new Date(event.dates.start.localDate).toLocaleString('en-EN', {
