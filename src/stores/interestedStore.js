@@ -8,8 +8,8 @@ export const useInterestedStore = defineStore('interested', {
   }),
 
   getters: {
-    interestedSize() {
-      return this.favoritesEvents.length;
+    interestedSize(state) {
+      return state.favoritesEvents.length;
     },
   },
 
@@ -26,7 +26,7 @@ export const useInterestedStore = defineStore('interested', {
           this.interested = this.favoritesEvents.length > 0;
         } catch (error) {
           console.error("Error loading interested events from Firestore:", error);
-          this.favoritesEvents = []; // Asegúrate de no mostrar datos inválidos
+          this.favoritesEvents = []; 
           this.interested = false;
         }
       },
@@ -68,7 +68,7 @@ export const useInterestedStore = defineStore('interested', {
 
       const index = this.favoritesEvents.findIndex(event => event.id === eventId);
       if (index === -1) {
-        console.warn("El evento no existe en favoritos.");
+        console.log("El evento no existe en favoritos.");
         return;
       }
 

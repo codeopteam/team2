@@ -27,7 +27,8 @@
           <router-link to="/cart" class="flex flex-col items-center font-montserrat text-yellowApp">
             <img src="/ion_ticket.png" alt="Ticket icon" class="h-6 w-6 mb-1">
             <p class="flex items-center gap-2">
-              <span>{{ cartStore.cartSize }}</span>
+              <span v-if="!isLoading">{{ cartStore.cartSize }}</span>
+              <span v-else>  </span>
               tickets
             </p>
           </router-link>
@@ -39,7 +40,8 @@
           <router-link to="/interested" class="flex flex-col items-center font-montserrat text-yellowApp">
             <img src="/Star 1.svg" alt="Ticket icon" class="h-6 w-6 mb-1">
             <p class="flex items-center gap-2">
-              <span>{{ interestedStore.interestedSize }}</span>
+              <span v-if="!isLoading">{{ interestedStore.interestedSize }}</span>
+              <span v-else>  </span>
               events
             </p>
           </router-link>
@@ -99,6 +101,7 @@ export default {
   data() {
     return {
       isMenuHamb: false, // Controla la visibilidad del menú desplegable
+      isLoading: true,
     };
   },
   components: {
@@ -117,6 +120,10 @@ export default {
   },
   computed: {
     ...mapStores(useCartStore, useInterestedStore), //interestedStore object created
+  },
+  async mounted() {
+    await this.interestedStore.loadInterestedFromFirestore();
+    this.isLoading = false; 
   },
 };
 </script>

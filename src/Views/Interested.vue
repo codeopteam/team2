@@ -10,8 +10,8 @@
           <li class="bg-darkBlue text-white mt-4 border-b flex flex-col shadow-lg rounded-lg items-end w-full">
             <div class="flex h-20 border-l-8 border-yellowApp text-md font-montserrat text-left pl-8 justify-between items-center w-full">
               <span class="w-2/3">{{ ev.name }}</span>
-              <button class="shadow-lg rounded-xl w-6 px-1 ms-1" @click="interestedStore.deleteFromInterested(ev.id)">
-                <img src="/Interested-Button.png" alt="Remove from Favorites">
+              <button class="shadow-lg rounded-xl w-8 px-1 mx-4" @click="interestedStore.deleteFromInterested(ev.id)">
+                <img src="/Interested-Button.png" alt="Star blue icon">
               </button>
             </div>
           </li>
