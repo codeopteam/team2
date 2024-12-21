@@ -15,7 +15,7 @@
           <h4 class="font-semibold mt-2 text-xl">Date and Time</h4>
           <div class="flex gap-2 mt-2">
             <img src="/calendarIcon.svg" class="w-5" alt="Calendar Icon" />
-            <p class="font-semibold mt-2 pb-2 ms-1">{{ eventDetailresp.dates.start.localDate }}</p>
+            <p class="font-semibold mt-2 pb-2 ms-1">{{ eventDetailresp.dates?.start?.localDate }}</p>
           </div>
           <div class="flex gap-2 mt-2">
             <img src="/watchIcon.svg" class="w-6" alt="Watch Icon" />
@@ -27,9 +27,11 @@
 
         <div>
           <div class="flex justify-evenly self-start mb-8">
-            <button class="flex items-end" @click="interested = !interested">
-              <img v-if="interested" src="/Interested-Button.png" alt="Start Icon" class="w-12">
-              <img v-else src="/Interested-Button2.png" alt="Start Icon" class="w-12">
+            <!-- <button class="flex items-end" @click="interested = !interested"> -->
+            <button class="flex items-end" @click="interestedStore.addToInterested(eventDetailresp)">
+              <img :src="isInterested() ? '/Interested-Button.png' : '/Interested-Button2.png'" alt="Start Icon"
+                class="w-12">
+
             </button>
             <button class="">
               <img src="/Share button.png" alt="Share Icon" class="w-12 mx-2" />
@@ -122,6 +124,7 @@
 import { useEventStore } from '../stores/eventStore';
 import { mapStores } from 'pinia';
 import { useCartStore } from '../stores/cartStore';
+import { useInterestedStore } from '../stores/interestedStore';
 
 import axios from "axios";
 import Map from "../components/Map.vue";
@@ -129,9 +132,8 @@ import BuyTicketButton from "../components/BuyButton.vue";
 
 export default {
   name: "EventDetail",
-
   computed: {
-    ...mapStores(useEventStore, useCartStore)
+    ...mapStores(useEventStore, useCartStore, useInterestedStore) //interestedStore object created
 
   },
 
@@ -140,7 +142,6 @@ export default {
       eventDetailresp: null,
       loading: false,
       error: "",
-      interested: false,
     }
   },
 
@@ -149,7 +150,7 @@ export default {
 
       this.loading = true;
       this.error = "";
-      this.interested = false;
+      this.interested = this.eventDetailresp && this.interestedStore.favoritesEvents.some(event => event.id === this.eventDetailresp.id);
       const apiKey = import.meta.env.VITE_API_KEY;
 
       let url = `https://app.ticketmaster.com/discovery/v2/events/${this.$route.params.id}.json?apikey=${apiKey}`;
@@ -171,9 +172,13 @@ export default {
         })
         .finally(() => {
           this.loading = false;
-          this.interested = false;
+          this.interested = this.eventDetailresp && this.interestedStore.favoritesEvents.some(event => event.id === this.eventDetailresp.id);;
         });
     },
+    isInterested() {
+      return this.eventDetailresp && this.interestedStore.favoritesEvents.some(event => event.id === this.eventDetailresp.id);
+    }
+
   },
   components: {
     Map,

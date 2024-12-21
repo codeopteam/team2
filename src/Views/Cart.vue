@@ -135,7 +135,7 @@
 
 <script>
 
-import { RouterLink } from 'vue-router';
+
 import { useCartStore } from '../stores/cartStore';
 import { mapStores } from 'pinia';
 

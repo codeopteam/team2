@@ -13,6 +13,7 @@ import NotFound from "./Views/NotFound.vue"
 import PaySucces from "./Views/PaySucces.vue";
 import WorkInProgress from "./views/WorkInProgress.vue";
 import Video from "./views/video.vue";
+import Interested from "./Views/Interested.vue";
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     path: "/cart",
     name: "Cart",
     component: Cart,
+  },
+  {
+    path: "/interested",
+    name: "Interested",
+    component: Interested,
   },
   {
     path: "/pay",

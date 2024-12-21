@@ -33,6 +33,18 @@
           </router-link>
         </button>
       </li>
+
+      <li>
+        <button class="flex justify-center items-center text-xs">
+          <router-link to="/interested" class="flex flex-col items-center font-montserrat text-yellowApp">
+            <img src="/Star 1.svg" alt="Ticket icon" class="h-6 w-6 mb-1">
+            <p class="flex items-center gap-2">
+              <span>{{ interestedStore.interestedSize }}</span>
+              events
+            </p>
+          </router-link>
+        </button>
+      </li>
       <router-link to="/">
         <Button class="hidden md:block"></Button>
       </router-link>
@@ -77,6 +89,7 @@
 
 <script>
 import { useCartStore } from "../stores/cartStore";
+import { useInterestedStore } from "../stores/interestedStore";
 import { mapStores } from "pinia";
 import Button from "../components/Button.vue"
 
@@ -103,7 +116,7 @@ export default {
     },
   },
   computed: {
-    ...mapStores(useCartStore),
+    ...mapStores(useCartStore, useInterestedStore), //interestedStore object created
   },
 };
 </script>
