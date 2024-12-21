@@ -84,10 +84,10 @@ export async function deleteFromInterestedFirestore(eventId) {
         const docRef = doc(dbFirestore, "interested", eventId);
         await deleteDoc(docRef);
         console.log("Event deleted from Firestore (interested)");
+
     } catch (error) {
         console.error("Error deleting event from Firestore:", error);
     }
 }
-
 
 export { db, dbFirestore };
