@@ -1,13 +1,16 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getDatabase, ref, set, get, child} from "firebase/database";
+import { getAuth,  createUserWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set, get, child } from "firebase/database";
 import { getFirestore, doc, setDoc, getDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 
 const fireBaseKey = import.meta.env.FIREBASE_api_key;
+
 
 
 const firebaseConfig = {
@@ -22,11 +25,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const auth = getAuth(app);
 // Get a reference to the database service
 const db = getDatabase(app); //realtime
 const dbFirestore = getFirestore(app); //firestore
 
+export async function registerUser(email, password) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      return userCredential.user; // Devuelve el usuario creado
+    } catch (error) {
+      throw error; // Lanza el error para que lo maneje el componente
+    }
+  }
 
 //setter method - escribir datos a la coleccion "cart" de mi DB 
 export function updateCart(cartItems) {
@@ -66,7 +77,7 @@ export async function getInterestedFirestore() {
         const querySnapshot = await getDocs(collection(dbFirestore, "interested"));
         const events = [];
         querySnapshot.forEach((doc) => {
-            events.push(doc.data());
+        events.push(doc.data());
         });
         return events;
     } catch (error) {
@@ -90,4 +101,4 @@ export async function deleteFromInterestedFirestore(eventId) {
     }
 }
 
-export { db, dbFirestore };
+export { db, dbFirestore, auth };

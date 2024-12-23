@@ -62,6 +62,7 @@
                 id="email"
                 type="email"
                 placeholder="Enter your e-mail"
+                v-model="email"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
@@ -74,6 +75,7 @@
                 id="password"
                 type="password"
                 placeholder="Enter password"
+                v-model="password"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <span class="absolute right-3 top-11 text-gray-400 cursor-pointer">
@@ -95,6 +97,14 @@
                   Log In
                 </a>
               </p>
+
+              <div v-if="error" class="text-red-500 mt-2">
+               {{ error_msg }}
+              </div>
+              <div v-if="success" class="text-green-500 mt-2">
+              Account created successfully!
+              </div>
+
             </div>
           </form>
         </div>
@@ -124,21 +134,38 @@
 
 
 <script>
+import { registerUser } from "@/firebase";
 export default {
   name: "ColorSections",
   data() {
     return {
+      //nuevo
+      email: "",
+      password: "",
+      error: false,
+      success: false,
+      errorMessage: "",     
+      //Fin nuevo
       showSuccessModal: false, 
     };
   },
   methods: {
-    handleCreateAccount() {
+    async handleCreateAccount() {
       this.showSuccessModal = true;
+      try {
+         const user = await registerUser(this.email, this.password);
+         console.log("User created successfully:", user);
+         this.success = true;
+         this.error = false;
+      } catch (error) {
+         console.error("Error creating user:", error.message);
+         this.error = true;
+         this.errorMessage = error.message;
+      }
     },
   },
 };
 </script>
-
 
 <style scoped>
 </style>
