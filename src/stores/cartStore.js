@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { updateCart, getCart } from "../firebase";
+//comment to delete
 
 // function changeFormat(event){
 //     let item = {
