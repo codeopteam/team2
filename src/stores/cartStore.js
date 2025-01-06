@@ -2,27 +2,6 @@ import { defineStore } from "pinia";
 import { updateCart, getCart } from "../firebase";
 import { useAuthStore } from "./authStore";
 
-// function changeFormat(event){
-//     let item = {
-//         name: event.name,
-//         sales: {
-//             public: {
-//                 startDateTime: "",
-//                 endDateTime: ""
-//             }
-//         },
-//         dates: {
-//             start: {
-//                 localDate: "",
-//                 localTime: ""
-//             }
-//         },
-//         images: []
-//     };
-//     return item; 
-// }
-
-
 export const useCartStore = defineStore('cart', {
     state: () => ({
         items: [],        

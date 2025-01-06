@@ -24,6 +24,7 @@
   import { useInterestedStore } from '../stores/interestedStore';
   import { mapStores } from 'pinia';
   
+  
   export default {
     name: "Interested",
     async mounted() {
@@ -31,6 +32,11 @@
     },
     computed: {
       ...mapStores(useInterestedStore),
+    },
+    methods: {
+        async deleteEvent(eventId) {
+            await this.interestedStore.deleteFromInterested(eventId);
+        },
     },
   };
   </script>  
