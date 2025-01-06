@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { updateCart, getCart } from "../firebase";
+import { useAuthStore } from "./auth
 
 // function changeFormat(event){
 //     let item = {
@@ -81,6 +82,5 @@ export const useCartStore = defineStore('cart', {
         cartSize() {
             return this.items.reduce((sum, item) => sum + item.quantity, 0);
         },
-    }
-         
+    }         
 })
