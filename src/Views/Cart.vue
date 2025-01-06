@@ -188,7 +188,7 @@ export default {
   },
   async mounted() {
     if (this.isAuthenticated) {
-      const firestoreCart = await getCartFromFirestore();
+      const firestoreCart = await getCart();
       this.cartStore.setItems(firestoreCart);
     } else {
       const realtimeCart = await getCart();
@@ -197,6 +197,4 @@ export default {
   },
 
 };
-
-
 </script>
