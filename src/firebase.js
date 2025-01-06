@@ -1,7 +1,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set, get, child , getFirestore} from "firebase/database";
+import { getDatabase, ref, set, get, child } from "firebase/database";
+import { getFirestore, doc, setDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -62,9 +63,9 @@ export async function getCart(userId) {
 
 
 // Agregar un evento a "interested" (Firestore Database)
-export async function addToInterestedFirestore(event) {
+export async function addToInterestedFirestore(event, userId) {
     try {
-        const docRef = doc(dbFirestore, "interested", event.id);  // Usa el ID del evento como documento único
+        const docRef = doc(dbFirestore, `users/${userId}/interested`, event.id);  // Usa el ID del evento como documento único
         await setDoc(docRef, event);
         console.log("Event added to Firestore (interested)");
     } catch (error) {
@@ -73,9 +74,10 @@ export async function addToInterestedFirestore(event) {
 }
 
 // Obtener todos los eventos de la colección "interested" (Firestore Database)
-export async function getInterestedFirestore() {
+export async function getInterestedFirestore(userId) {
     try {
-        const querySnapshot = await getDocs(collection(dbFirestore, "interested"));
+        const userCollection = collection(dbFirestore, `users/${userId}/interested`);
+        const querySnapshot = await getDocs(userCollection);
         const events = [];
         querySnapshot.forEach((doc) => {
         events.push(doc.data());
@@ -87,13 +89,13 @@ export async function getInterestedFirestore() {
 }
 
 // Eliminar un evento de la colección "interested" (Firestore Database)
-export async function deleteFromInterestedFirestore(eventId) {
+export async function deleteFromInterestedFirestore(eventId, userId) {
     if (!eventId) {
         console.error("Invalid eventId: cannot delete undefined event.");
         return;
       }
     try {
-        const docRef = doc(dbFirestore, "interested", eventId);
+        const docRef = doc(dbFirestore, `users/${userId}/interested`, eventId);
         await deleteDoc(docRef);
         console.log("Event deleted from Firestore (interested)");
 
