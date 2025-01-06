@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getDatabase, ref, set, get, child } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,11 +20,12 @@ const firebaseConfig = {
     appId: "1:262106920516:web:5d7bdab519dac1354d6e11"
   };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
-// Get a reference to the database service
-const db = getDatabase(app);
+const app = initializeApp(firebaseConfig); // Initialize Firebase
+
+const auth = getAuth(app);  // Inicializar autenticación
+
+const db = getDatabase(app); // Realtime Database
 
 
 //setter method - escribir datos a la coleccion "cart" de mi DB 
@@ -55,5 +57,4 @@ export async function getCart(userId) {
         console.error(error);
     } 
 }
-
-
+export { app, auth, db };

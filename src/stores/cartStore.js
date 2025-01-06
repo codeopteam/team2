@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { updateCart, getCart } from "../firebase";
-import { useAuthStore } from "./auth
+import { useAuthStore } from "./authStore";
 
 // function changeFormat(event){
 //     let item = {
@@ -25,36 +25,40 @@ import { useAuthStore } from "./auth
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
-        items: [],
-        // showTickets: true,
+        items: [],        
         quantity: 0,
     }),
     actions: {
-        addItemToCart(item) {
+        async addItemToCart(item) {
             console.log(item)
-
-        const existingItemIndex = this.items.findIndex(existingItem => existingItem.name === item.name)
+            const authStore = useAuthStore();
+            const userId = authStore.user ? authStore.user.uid : null;
+            const existingItemIndex = this.items.findIndex(existingItem => existingItem.name === item.name)
           
-        if (existingItemIndex !== -1) {            
-            this.items[existingItemIndex].quantity += 1
-        } else {
-            this.items.push({ ...item, quantity: 1 })
-        }            
-            console.log(this.items)
-            updateCart(this.items)
-            // this.showCart()
-        },
+            if (existingItemIndex !== -1) {            
+                this.items[existingItemIndex].quantity += 1
+            } else {
+                this.items.push({ ...item, quantity: 1 })
+            }    
+            
+            // Guarda en Firebase solo si el usuario está autenticado
+            if (userId) {
+               updateCart(this.items, userId)
+            } else {
+                alert("User not logged in. Cart is local only")
+            }
 
-        // showCart(){
-        //     this.showTickets= true;
-        // },
-
-        // dontShow(){
-        //     this.showTickets= false;
-        // },
+            },        
+            
 
         async getItemsFromFirebase() {
-            this.items = await getCart()
+            const authStore = useAuthStore();
+            const userId = authStore.user ? authStore.user.uid : null;
+            if (userId) {
+                this.items = await getCart(userId);
+            } else {
+                alert("User not logged in. No cart data to fetch.");
+            }       
         },
 
         deleteItem(index) {
@@ -64,13 +68,28 @@ export const useCartStore = defineStore('cart', {
                this.items.splice(index, 1)                 
             }
         this.items = [...this.items];
-        updateCart(this.items) 
+
+
+        const authStore = useAuthStore();
+        const userId = authStore.user ? authStore.user.uid : null;
+            if (userId) {
+                updateCart(this.items, userId);
+            }
         },
-        deleteEventInCart(index) {           
-            this.items.splice(index, 1)                 
-            
+
+        deleteEventInCart(index) {             
+            this.items.splice(index, 1); 
             this.items = [...this.items];
-            updateCart(this.items) 
+            const authStore = useAuthStore();
+            const userId = authStore.user ? authStore.user.uid : null;
+            
+            
+            if (userId) {
+                updateCart(this.items, userId);
+            } else {
+                // Si no está autenticado, almacenamos el carrito localmente.
+                localStorage.setItem("cart", JSON.stringify(this.items));
+            }
         }
     },
     getters: {       
