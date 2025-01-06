@@ -69,7 +69,10 @@ export const useCartStore = defineStore('cart', {
                 // Si no está autenticado, almacenamos el carrito localmente.
                 localStorage.setItem("cart", JSON.stringify(this.items));
             }
-        }
+        },
+        setItems(items) { 
+            this.items = items || [];
+          },
     },
     getters: {       
         getTotalPrice() {

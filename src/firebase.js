@@ -30,6 +30,17 @@ const db = getDatabase(app); // Realtime Database
 
 const dbFirestore = getFirestore(app); //firestore
 
+export async function registerUser(email, password) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      return userCredential.user; // Devuelve el usuario creado
+
+
+    } catch (error) {
+      throw error; // Lanza el error para que lo maneje el componente
+    }
+  }
+
 
 //setter method - escribir datos a la coleccion "cart" de mi DB 
 export function updateCart(cartItems, userId) {
