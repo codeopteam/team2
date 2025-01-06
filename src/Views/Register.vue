@@ -43,13 +43,13 @@
           <!-- Formulario de creación de cuenta -->
           <form @submit.prevent="handleCreateAccount">
             <div class="mb-4">
-              <label class="block text-gray-700 font-medium mb-1" for="fullname">
-                Full Name
+              <label class="block text-gray-700 font-medium mb-1" for="userName">
+                User Name
               </label>
               <input
-                id="fullname"
+                id="userName"
                 type="text"
-                placeholder="Enter your full name"
+                placeholder="Enter your user name"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
@@ -62,6 +62,7 @@
                 id="email"
                 type="email"
                 placeholder="Enter your e-mail"
+                v-model="email"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
@@ -74,6 +75,7 @@
                 id="password"
                 type="password"
                 placeholder="Enter password"
+                v-model="password"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <span class="absolute right-3 top-11 text-gray-400 cursor-pointer">
@@ -91,10 +93,18 @@
               </button>
               <p class="text-gray-500 text-center mt-4 text-sm">
                 Already have an account?
-                <a href="#" class="text-blue-500 font-semibold hover:underline">
+                <a href="/login" class="text-blue-500 font-semibold hover:underline">
                   Log In
                 </a>
               </p>
+
+              <div v-if="error" class="text-red-500 mt-2">
+               {{ error_msg }}
+              </div>
+              <div v-if="success" class="text-green-500 mt-2">
+              Account created successfully!
+              </div>
+
             </div>
           </form>
         </div>
@@ -124,21 +134,38 @@
 
 
 <script>
+import { registerUser } from "@/firebase";
 export default {
-  name: "ColorSections",
+  name: "Register",
   data() {
     return {
+      //nuevo
+      email: "",
+      password: "",
+      error: false,
+      success: false,
+      errorMessage: "",     
+      //Fin nuevo
       showSuccessModal: false, 
     };
   },
   methods: {
-    handleCreateAccount() {
+    async handleCreateAccount() {
       this.showSuccessModal = true;
+      try {
+         const user = await registerUser(this.email, this.password);
+         console.log("User created successfully:", user);
+         this.success = true;
+         this.error = false;
+      } catch (error) {
+         console.error("Error creating user:", error.message);
+         this.error = true;
+         this.errorMessage = error.message;
+      }
     },
   },
 };
 </script>
-
 
 <style scoped>
 </style>

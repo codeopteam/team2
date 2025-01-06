@@ -38,28 +38,30 @@
             <span class="mx-4 text-gray-500">OR</span>
             <div class="flex-grow border-t border-gray-300"></div>
           </div>
-
-          <form @submit.prevent="handleCreateAccount">
+          <!-- Formulario -->
+          <form @submit.prevent="handleLogin">
             <div class="mb-4">
-              <label class="block text-gray-700 font-medium mb-1" for="email">
+              <label class="block text-gray-700 font-medium mb-1" for="emailLogin">
                 E-mail Address
               </label>
               <input
-                id="email"
+                id="emailLogin"
                 type="email"
                 placeholder="Enter your e-mail"
+                v-model="emailLogin"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
 
             <div class="mb-6 relative">
-              <label class="block text-gray-700 font-medium mb-1" for="password">
+              <label class="block text-gray-700 font-medium mb-1" for="passwordLogin">
                 Password
               </label>
               <input
-                id="password"
+                id="passwordLogin"
                 type="password"
                 placeholder="Enter password"
+                v-model="passwordLogin"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <span class="absolute right-3 top-11 text-gray-400 cursor-pointer">
@@ -67,17 +69,22 @@
               </span>
             </div>
 
+            <!-- Mensajes de error o éxito -->
+            <div v-if="errorMessage" class="text-red-500 mb-4">
+              {{ errorMessage }}
+            </div>
+
             <div class="flex flex-col">
               <button
                 type="submit"
                 class="w-full bg-gray-800 text-white p-3 rounded-lg font-medium hover:bg-gray-900 transition"
               >
-                Create Account
+                Login
               </button>
               <p class="text-gray-500 text-center mt-4 text-sm">
-                Already have an account?
-                <a href="#" class="text-blue-500 font-semibold hover:underline">
-                  Log In
+                Have you not registered yet?
+                <a href="./register" class="text-blue-500 font-semibold hover:underline">
+                  Register
                 </a>
               </p>
             </div>
@@ -93,8 +100,8 @@
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
   >
     <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-      <h3 class="text-xl font-bold mb-4">Registro exitoso</h3>
-      <p class="text-gray-600">¡Tu cuenta se ha creado correctamente!</p>
+      <!-- <h3 class="text-xl font-bold mb-4">Registro exitoso</h3> -->
+      <!-- <p class="text-gray-600">¡Tu cuenta se ha creado correctamente!</p> -->
       <button
         @click="showSuccessModal = false"
         class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
@@ -106,16 +113,38 @@
 </template>
 
 <script>
+import { useAuthStore } from '../stores/AuthStore';
+
 export default {
-  name: "ColorSections",
+  name: "Login",
   data() {
     return {
-      showSuccessModal: false,
+      emailLogin:"",
+      passwordLogin: "",
+      errorMessage: null,
+      loading: false,     
     };
   },
   methods: {
-    handleCreateAccount() {
-      this.showSuccessModal = true;
+    async handleLogin() {
+      if (!this.emailLogin || !this.passwordLogin) {
+      console.error("Email and password are required.");
+      return;
+    }
+      const authStore = useAuthStore();
+      this.loading = true;
+      this.errorMessage = null;
+
+      try {
+        await authStore.login(this.emailLogin, this.passwordLogin); // Llamamos al método login
+        console.log("User logged in:", authStore.user); // Comprobamos el usuario logueado
+        this.$router.push("/"); // Redirige a home
+      } catch (error) {
+        console.error("Login error:", error);
+        this.errorMessage = "Invalid email or password.";
+      } finally {
+        this.loading = false;
+      }
     },
   },
 };

@@ -2,13 +2,8 @@
   <!-- <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
     imagePath="" /> -->
 
-  <Hero
-    mainText="Explore a world of events. Find what excites you!"
-    subTextBefore=""
-    highlightedText=""
-    subTextAfter=""
-    imagePath=""    
-  />
+  <Hero mainText="Explore a world of events. Find what excites you!" subTextBefore="" highlightedText="" subTextAfter=""
+    imagePath="" />
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
     <div class="col-span-1">
@@ -21,11 +16,7 @@
       <div v-if="error" class="text-center text-red-500">{{ error }}</div>
       <div v-else-if="results" class="grid grid-cols-1 gap-4">
         <div class="grid gird-cols-1 md:grid-cols-2 gap-4" v-if="filterRes">
-          <EventCard
-            v-for="event in filterRes"
-            :key="event.id"
-            :event="event"
-          />
+          <EventCard v-for="event in filterRes" :key="event.id" :event="event" />
         </div>
         <div class="grid girs-cols-1 md:grid-cols-2 gap-4" v-else>
           <EventCard v-for="event in results" :key="event.id" :event="event" />
@@ -72,8 +63,8 @@ export default {
   //   },
 
   methods: {
-        // Filtrar los resultados según los filtros
-        filterResults(filters) {
+    // Filtrar los resultados según los filtros
+    filterResults(filters) {
       this.filterRes = this.results.filter((event) => {
         const matchesEventName =
           event.name.toLowerCase().includes(filters.eventName.toLowerCase());
@@ -88,18 +79,18 @@ export default {
         return matchesEventName && matchesDate;
       });
 
-//DESCOMENTAR----------
-    // filterResults(filtersEvents) {
-    //   console.log(filtersEvents);
-    //   //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
-    //   this.filterRes = this.results.filter(
-    //     (event) =>
-    //       event.dates.start.localDate === filtersEvents.date &&
-    //       event._embedded.attractions[0].classifications[0].segment.name ===
-    //         filtersEvents.eventType
-    //   );
-    //console.log(this.filterRes);
-//DESCOMENTAR--------------
+      //DESCOMENTAR----------
+      // filterResults(filtersEvents) {
+      //   console.log(filtersEvents);
+      //   //this.filterRes = this.results.filter(event => event._embedded.attractions[0].classifications[0].segment.name === filtersEvents.eventType)
+      //   this.filterRes = this.results.filter(
+      //     (event) =>
+      //       event.dates.start.localDate === filtersEvents.date &&
+      //       event._embedded.attractions[0].classifications[0].segment.name ===
+      //         filtersEvents.eventType
+      //   );
+      //console.log(this.filterRes);
+      //DESCOMENTAR--------------
 
 
 
@@ -110,7 +101,7 @@ export default {
       //       filtersEvents.eventType 
       // );
 
-     
+
     },
 
     performSearch(city) {

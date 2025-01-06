@@ -1,10 +1,10 @@
 <template>
-  <header class="h-[65px] bg-darkBlue text-white flex items-center justify-between px-4 md:px-12">
+  <header class="h-[65px] bg-darkBlue text-white flex items-center justify-between px-4 md:px-8">
     <div class="flex items-center justify-between w-full">
       <div v-if="$route.path !== '/'">
         <router-link to="/">
           <img
-            class="h-[30px] md:h-[40px] w-auto mr-4 md:mr-80"
+            class="h-[30px] md:h-[40px] w-auto mr-4"
             src="/LogoRectangular.png"
             alt="Logo de la página"
           >
@@ -12,7 +12,7 @@
       </div>
       <div v-else>
         <img
-          class="h-[30px] md:h-[40px] w-auto mr-4 md:mr-80"
+          class="h-[30px] md:h-[40px] w-auto mr-4"
           src="/LogoRectangular.png"
           alt="Logo de la página"
         >
@@ -21,6 +21,7 @@
     </div>
   </header>
 </template>
+
 
 
 
