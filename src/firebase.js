@@ -7,11 +7,11 @@ import { getDatabase, ref, set, get, child } from "firebase/database";
 
 // Your web app's Firebase configuration
 
-const fireBaseKey = import.meta.env.FIREBASE_api_key;
+const fireBaseKey = import.meta.env.VITE_FIREBASE_api_key;
 
 
 const firebaseConfig = {
-    apiKey: "{fireBaseKey}",
+    apiKey: fireBaseKey,
     authDomain: "eventop-codeop.firebaseapp.com",
     databaseURL: "https://eventop-codeop-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "eventop-codeop",
@@ -105,71 +105,3 @@ export async function deleteFromInterestedFirestore(eventId) {
 
 
 export { app, auth, db, dbFirestore };
-
-
-
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAuth,  createUserWithEmailAndPassword } from "firebase/auth";
-// import { getDatabase, ref, set, get, child } from "firebase/database";
-// import { getFirestore, doc, setDoc, getDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
-
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-
-// const fireBaseKey = import.meta.env.VITE_FIREBASE_api_key;
-
-// const firebaseConfig = {
-//     apiKey: `${fireBaseKey}`,
-//     authDomain: "eventop-codeop.firebaseapp.com",
-//     databaseURL: "https://eventop-codeop-default-rtdb.europe-west1.firebasedatabase.app/",
-//     projectId: "eventop-codeop",
-//     storageBucket: "eventop-codeop.firebasestorage.app",
-//     messagingSenderId: "262106920516",
-//     appId: "1:262106920516:web:5d7bdab519dac1354d6e11"
-//   };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-// // Get a reference to the database service
-// const db = getDatabase(app); //realtime
-// const dbFirestore = getFirestore(app); //firestore
-
-// export async function registerUser(email, password) {
-//     try {
-//       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-//       return userCredential.user; // Devuelve el usuario creado
-
-
-//     } catch (error) {
-//       throw error; // Lanza el error para que lo maneje el componente
-//     }
-//   }
-
-// //setter method - escribir datos a la coleccion "cart" de mi DB 
-// export function updateCart(cartItems) {
-//     set(ref(db, "cart/"), cartItems);
-// }
-
-// //getter method - leer los datos de la coleccion "cart"
-// export async function getCart() {
-//     const dbRef = ref(db);
-//     try {
-//         const snapshot = await get(child(dbRef, "cart/"));
-//         if(snapshot.exists()) {
-//             return snapshot.val();
-//         } else {
-//             console.log("No data available");
-//             return []; 
-//         }
-//     } catch(error) {
-//         console.error(error);
-//     } 
-// }
-
-
-
-// export { db, dbFirestore, auth };
