@@ -19,26 +19,26 @@
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 text-[#2B293D]">Create Account</h2>
 
           <div class="flex flex-col md:flex-row gap-2">
-            <button
+            <!-- <button
               class="flex items-center justify-center w-full md:w-1/2 py-2 mb-2 md:mb-0 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition"
             >
               <img src="/googleIcon.png" alt="Google" class="w-5 h-5 mr-2" />
               Sign up with Google
-            </button>
-            <button
+            </button> -->
+            <!-- <button
               class="flex items-center justify-center w-full md:w-1/2 py-2 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition"
             >
               <img src="/facebookicon.png" alt="Facebook" class="w-5 h-5 mr-2" />
               Sign up with Facebook
-            </button>
+            </button> -->
           </div>
 
           <!-- Separador OR -->
-          <div class="flex items-center my-6">
+          <!-- <div class="flex items-center my-6">
             <div class="flex-grow border-t border-gray-300"></div>
             <span class="mx-4 text-gray-500">OR</span>
             <div class="flex-grow border-t border-gray-300"></div>
-          </div>
+          </div> -->
 
           <!-- Formulario de creación de cuenta -->
           <form @submit.prevent="handleCreateAccount">
@@ -78,9 +78,9 @@
                 v-model="password"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
-              <span class="absolute right-3 top-11 text-gray-400 cursor-pointer">
+              <!-- <span class="absolute right-3 top-11 text-gray-400 cursor-pointer">
                 👁️
-              </span>
+              </span> -->
             </div>
 
             <!-- Botón de envío y mensaje de login -->
