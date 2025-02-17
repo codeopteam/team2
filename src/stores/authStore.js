@@ -43,15 +43,14 @@ export const useAuthStore = defineStore('auth', {
         this.error = null;
         try {
             await signOut(auth);
-            console.log("SignOut ejecutado correctamente en authStore.");
+            
             this.user = null;           
             const cartStore = useCartStore();
             const interestedStore = useInterestedStore();
           
             cartStore.clearCart();
-            interestedStore.clearInterested();
-    
-            console.log("Usuario deslogueado, datos limpiados.");
+            interestedStore.clearInterested();    
+          
         } catch (error) {
             this.error = error.message;
             console.error("Error en authStore.logout():", error);
@@ -62,8 +61,7 @@ export const useAuthStore = defineStore('auth', {
         this.error = null;
         try {
           return new Promise((resolve) => {
-            onAuthStateChanged(auth, async (user) => {
-              console.log("Estado de autenticación cambiado:", user);
+            onAuthStateChanged(auth, async (user) => {             
               this.user = user;
       
               const cartStore = useCartStore();

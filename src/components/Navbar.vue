@@ -12,7 +12,7 @@
     </ul>
 
     <!-- Right Links -->
-    <ul class="flex items-center gap-3 lg:gap-4">
+    <ul class="flex items-center gap-3 lg:gap-4 ms-2">
       <li v-for="link in navRight" :key="link.path">
         <router-link :to="link.path"
           class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp hidden md:block">
@@ -124,11 +124,9 @@ export default {
       this.isMenuHamb = !this.isMenuHamb;
 
     },
-    async logout() {
-        console.log("Intentando cerrar sesión...");
+    async logout() {        
         try {
-            await this.authStore.logout();
-            console.log("Usuario deslogueado exitosamente.");
+            await this.authStore.logout();           
             this.$router.push("/");
             setTimeout(() => {
                window.location.reload(); // Forzar recarga de la página
