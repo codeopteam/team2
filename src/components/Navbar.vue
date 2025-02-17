@@ -56,8 +56,9 @@
         </button>
       </li>
 
-      <router-link to="/">
-        <Button class="hidden md:block"></Button>
+    <!-- Button logout de la navbar fuera del menú hamburguesa -->
+      <router-link to="/" @click="logout">
+        <Button class="hidden md:block"></Button>  
       </router-link>
 
       <!-- Button hamburguer -->
@@ -84,11 +85,11 @@
           </router-link>
         </li>
         <li class="mt-3 text-center">
-          <button @click="logout"
-            class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
-            Logout
-          </button>
-        </li>
+   <button @click="logout"
+     class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
+     Logout
+   </button>
+</li>
       </ul>
     </div>
 
@@ -123,14 +124,25 @@ export default {
       this.isMenuHamb = !this.isMenuHamb;
 
     },
-   async logout() {
-    try {
-        await this.authStore.logout(); 
-        console.log("Usuario deslogueado exitosamente.");
-      } catch (error) {
-        console.error("Error al desloguearse:", error);
-      }
+    async logout() {
+        console.log("Intentando cerrar sesión...");
+        try {
+            await this.authStore.logout();
+            console.log("Usuario deslogueado exitosamente.");
+            this.$router.push("/");
+            setTimeout(() => {
+               window.location.reload(); // Forzar recarga de la página
+            }, 100);
+        } catch (error) {
+            console.error("Error al desloguearse:", error);
+        }
     },
+    watchUserChange() {
+        this.$watch(() => this.authStore.user, (newUser) => {
+            console.log("Cambio en usuario detectado:", newUser);
+        });
+    },
+    
   },
   computed: {
     ...mapStores(useCartStore, useInterestedStore, useAuthStore), //interestedStore object created
@@ -142,6 +154,7 @@ export default {
     },
   },
   async mounted() {
+    this.watchUserChange(); // Llamar a la función para observar cambios en el usuario
     await this.interestedStore.loadInterestedFromFirestore();
     await this.authStore.fetchUser()
     this.isLoading = false;

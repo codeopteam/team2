@@ -41,17 +41,22 @@ export const useAuthStore = defineStore('auth', {
       },
       async logout() {
         this.error = null;
-        
         try {
-            await signOut(auth).then( () => {
-             this.user = null; 
-            //  this.user = null; 
-            });
-                     
+            await signOut(auth);
+            console.log("SignOut ejecutado correctamente en authStore.");
+            this.user = null;           
+            const cartStore = useCartStore();
+            const interestedStore = useInterestedStore();
+          
+            cartStore.clearCart();
+            interestedStore.clearInterested();
+    
+            console.log("Usuario deslogueado, datos limpiados.");
         } catch (error) {
-          this.error = error.message;
+            this.error = error.message;
+            console.error("Error en authStore.logout():", error);
         }
-      },
+    },      
       async fetchUser() {
         this.loading = true;
         this.error = null;
@@ -61,13 +66,17 @@ export const useAuthStore = defineStore('auth', {
               console.log("Estado de autenticación cambiado:", user);
               this.user = user;
       
-              if (user) {
-                // Sincronizar datos relacionados
-                const cartStore = useCartStore();
-                const interestedStore = useInterestedStore();
+              const cartStore = useCartStore();
+              const interestedStore = useInterestedStore();
       
+              if (user) {
+                // Si el usuario está autenticado, cargar datos
                 await cartStore.getItemsFromFirebase();
                 await interestedStore.loadInterestedFromFirestore();
+              } else {
+                // Si el usuario cierra sesión, limpiar datos
+                cartStore.clearCart();
+                interestedStore.clearInterested();
               }
       
               resolve(user);
@@ -78,7 +87,7 @@ export const useAuthStore = defineStore('auth', {
           console.error("Error en fetchUser:", error);
           this.error = error.message;
         }
-      }
+      },      
     },
 
 });

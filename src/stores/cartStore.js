@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
-import { updateCart, getCart } from "../firebase";
+import { updateCart, getCart, auth } from "../firebase";
 import { useAuthStore } from "./authStore";
+
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
@@ -9,7 +10,11 @@ export const useCartStore = defineStore('cart', {
     }),
     actions: {
         async addItemToCart(item) {
-            console.log(item)
+            const user = auth.currentUser;
+        if(!user) {
+            alert("No user logged in. Cannot add to interested events.");
+            return;
+        }           
             const authStore = useAuthStore();
             const userId = authStore.user ? authStore.user.uid : null;
             const existingItemIndex = this.items.findIndex(existingItem => existingItem.name === item.name)
@@ -35,10 +40,8 @@ export const useCartStore = defineStore('cart', {
             const userId = authStore.user ? authStore.user.uid : null;
             
             if (userId) {
-                this.items = await getCart(userId);
-                console.log("Carrito sincronizado desde Firebase:", this.items);
-            } else {      
-                console.log("No hay usuario. Carrito local vacío.");          
+                this.items = await getCart(userId);                
+            } else {                       
                 this.items = [];
             }       
         },
@@ -81,6 +84,10 @@ export const useCartStore = defineStore('cart', {
         setItems(items) { 
             this.items = items || [];
           },
+          clearCart() {
+            this.cart = []; // O el nombre de la variable que almacena los ítems del carrito
+          },
+            
     },
     getters: {       
         getTotalPrice() {

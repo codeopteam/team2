@@ -14,7 +14,7 @@ export const useInterestedStore = defineStore('interested', {
   },
 
   actions: {
-    // Método para cargar todos los eventos "interested" desde Firestore
+     // Método para cargar todos los eventos "interested" desde Firestore
     async loadInterestedFromFirestore() {
         const user = auth.currentUser;
         if (!user) {
@@ -99,5 +99,8 @@ export const useInterestedStore = defineStore('interested', {
         console.error("Error deleting event from Firestore:", error);
       }
     },
+    clearInterested() {
+      this.interestedEvents = []; // Asegúrate de que este es el nombre correcto de tu array
+    },    
   },
 });

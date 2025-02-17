@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import { useAuthStore } from '../stores/AuthStore';
+import { useAuthStore } from '../stores/authStore';
 
 export default {
   name: "Login",
