@@ -137,11 +137,11 @@ export default {
 
       try {
         await authStore.login(this.emailLogin, this.passwordLogin); // Llamamos al método login
-        console.log("User logged in:", authStore.user); // Comprobamos el usuario logueado
+        console.log("Usuario logueado con éxito:", authStore.user); // Comprobamos el usuario logueado
         this.$router.push("/"); // Redirige a home
       } catch (error) {
         console.error("Login error:", error);
-        this.errorMessage = "Invalid email or password.";
+        this.errorMessage = error.message;
       } finally {
         this.loading = false;
       }

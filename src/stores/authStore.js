@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, getAuth } from "firebase/auth";
 import { auth } from '../firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { useCartStore } from './cartStore'; // Ajusta la ruta según tu estructura
+import { useInterestedStore } from './interestedStore';
 
+// Inicializa Firebase Auth
+//const auth = getAuth();
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -12,6 +16,7 @@ export const useAuthStore = defineStore('auth', {
     actions: {
         async login(email, password) {
          this.loading = true;
+         this.error = null;
          try {
          const userCredential = await signInWithEmailAndPassword(auth, email, password);
          this.user = userCredential.user;   
@@ -24,6 +29,7 @@ export const useAuthStore = defineStore('auth', {
         },
       async register(email, password) {
         this.loading = true;
+        this.error = null;
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             this.user = userCredential.user;
@@ -34,22 +40,45 @@ export const useAuthStore = defineStore('auth', {
         }     
       },
       async logout() {
+        this.error = null;
+        
         try {
-            await signOut(auth);
-            this.user = null;           
+            await signOut(auth).then( () => {
+             this.user = null; 
+            //  this.user = null; 
+            });
+                     
         } catch (error) {
           this.error = error.message;
         }
       },
       async fetchUser() {
-        return new Promise(resolve => {
-            const unsubscribe = onAuthStateChanged(auth, (user) => {
-                this.user = user;
-                resolve(user);
+        this.loading = true;
+        this.error = null;
+        try {
+          return new Promise((resolve) => {
+            onAuthStateChanged(auth, async (user) => {
+              console.log("Estado de autenticación cambiado:", user);
+              this.user = user;
+      
+              if (user) {
+                // Sincronizar datos relacionados
+                const cartStore = useCartStore();
+                const interestedStore = useInterestedStore();
+      
+                await cartStore.getItemsFromFirebase();
+                await interestedStore.loadInterestedFromFirestore();
+              }
+      
+              resolve(user);
+              this.loading = false;
             });
-            unsubscribe();
-        });
-      },
+          });
+        } catch (error) {
+          console.error("Error en fetchUser:", error);
+          this.error = error.message;
+        }
+      }
     },
 
 });

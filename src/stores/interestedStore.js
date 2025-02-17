@@ -18,7 +18,7 @@ export const useInterestedStore = defineStore('interested', {
     async loadInterestedFromFirestore() {
         const user = auth.currentUser;
         if (!user) {
-            alert("No user logged in. Cannot load interested events.");
+            // alert("No user logged in. Cannot load interested events.");
             this.favoritesEvents = [];
             this.interested = false;
             return;

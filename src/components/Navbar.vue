@@ -123,9 +123,13 @@ export default {
       this.isMenuHamb = !this.isMenuHamb;
 
     },
-    logout() {
-      this.authStore.logout();
-      console.log("Logged out!");
+   async logout() {
+    try {
+        await this.authStore.logout(); 
+        console.log("Usuario deslogueado exitosamente.");
+      } catch (error) {
+        console.error("Error al desloguearse:", error);
+      }
     },
   },
   computed: {
@@ -134,7 +138,7 @@ export default {
       return this.authStore.user !== null;
     },
     userEmail() {
-      return this.authStore.user ? this.authStore.user.email : null;
+      return this.authStore.user ? this.authStore.user.email : "Guest";
     },
   },
   async mounted() {

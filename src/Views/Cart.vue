@@ -138,7 +138,7 @@
 import { useCartStore } from '../stores/cartStore';
 import { mapStores } from 'pinia';
 import { getAuth } from "firebase/auth";
-import { getCart } from "../firebase";
+import { getCart, updateCart} from "../firebase";
 
 
 export default {
@@ -158,23 +158,20 @@ export default {
   methods: {
     async saveCartData() {
       const cartData = this.cartStore.items;
+      const auth = getAuth();
+      const user = auth.currentUser
 
-      if (this.isAuthenticated) {
+      if (user) {
         // Usuario registrado
         try {
-          await saveCartData(cartData); // Guardar en Firestore
+           await updateCart(cartData, user.uid); // Guardar en Firestore
           console.log("Cart saved to Firestore");
         } catch (error) {
           console.error("Error saving cart to Firestore:", error);
         }
       } else {
-        // Usuario invitado
-        try {
-          updateCart(cartData); // Guardar en Realtime Database
-          console.log("Cart saved to Realtime Database");
-        } catch (error) {
-          console.error("Error saving cart to Realtime Database:", error);
-        }
+        // Usuario no autenticado, solo en memoria temporal
+        alert("User not authenticated. Cart is only local.");
       }
     },
     async deleteItem(index) {
@@ -185,14 +182,19 @@ export default {
       this.cartStore.addItemToCart(item);
       await this.saveCartData(); // Guardar cambios después de agregar
     },
+    async deleteEvent(index) {
+      this.cartStore.deleteEventInCart(index);
+      await this.saveCartData();  // Guarda los cambios después de eliminar
+    }
   },
   async mounted() {
-    if (this.isAuthenticated) {
-      const firestoreCart = await getCart();
+    const auth = getAuth();
+    const user = auth.currentUser; 
+    if (user) {
+      const firestoreCart = await getCart(user.uid);
       this.cartStore.setItems(firestoreCart);
     } else {
-      const realtimeCart = await getCart();
-      this.cartStore.setItems(realtimeCart);
+      this.cartStore.setItems([]);
     }
   },
 

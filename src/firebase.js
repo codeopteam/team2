@@ -1,15 +1,10 @@
 
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { getDatabase, ref, set, get, child } from "firebase/database";
 import { getFirestore, doc, setDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 
 const fireBaseKey = import.meta.env.VITE_FIREBASE_api_key;
-
 
 const firebaseConfig = {
     apiKey: fireBaseKey,
@@ -30,11 +25,21 @@ const db = getDatabase(app); // Realtime Database
 
 const dbFirestore = getFirestore(app); //firestore
 
+
+// Configurar persistencia para mantener la sesión
+setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+        // Esto asegura que la sesión de usuario se mantenga en el navegador
+        console.log("Persistence set to local");
+    })
+    .catch((error) => {
+        console.error("Error setting persistence:", error);
+    });
+
 export async function registerUser(email, password) {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       return userCredential.user; // Devuelve el usuario creado
-
 
     } catch (error) {
       throw error; // Lanza el error para que lo maneje el componente
