@@ -144,24 +144,33 @@ export default {
       password: "",
       error: false,
       success: false,
-      errorMessage: "",     
+      errorMessage: "",   
+      error_msg: "",  
       //Fin nuevo
       showSuccessModal: false, 
     };
   },
   methods: {
-    async handleCreateAccount() {
-      this.showSuccessModal = true;
+    async handleCreateAccount() {     
       try {
          const user = await registerUser(this.email, this.password);
          console.log("User created successfully:", user);
          this.success = true;
          this.error = false;
+         this.showSuccessModal = true;
+
+        setTimeout(() => {
+         this.$router.push("/");
+        }, 1000);
+
       } catch (error) {
          console.error("Error creating user:", error.message);
          this.error = true;
          this.errorMessage = error.message;
+         this.error_msg = error.message; 
+         this.showSuccessModal = false;
       }
+      
     },
   },
 };
