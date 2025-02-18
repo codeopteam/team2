@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { getAuth, setPersistence, browserLocalPersistence, createUserWithEmailAndPassword } from "firebase/auth";
 import { getDatabase, ref, set, get, child } from "firebase/database";
 import { getFirestore, doc, setDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
 
@@ -119,7 +119,5 @@ export async function deleteFromInterestedFirestore(eventId, userId) {
         console.error("Error deleting event from Firestore:", error);
     }
 }
-
-
 
 export { app, auth, db, dbFirestore };
