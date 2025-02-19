@@ -56,9 +56,11 @@
         </button>
       </li>
 
+
+      
     <!-- Button logout de la navbar fuera del menú hamburguesa -->
-      <router-link to="/" @click="logout">
-        <Button class="hidden md:block"></Button>  
+      <router-link to="/" @click="logout">       
+        <Button :class="isLoged ? 'hidden md:block' : 'hidden'"></Button>  
       </router-link>
 
       <!-- Button hamburguer -->
@@ -85,9 +87,8 @@
           </router-link>
         </li>
         <li class="mt-3 text-center">
-   <button @click="logout"
-     class="text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp">
-     Logout
+   <button @click="logout" :class="isLoged ? 'md:block text-white hover:border-b-2 font-montserrat tracking-wide hover:border-yellowApp' : 'hidden'"
+>Logout
    </button>
 </li>
       </ul>
