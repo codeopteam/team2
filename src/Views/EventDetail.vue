@@ -64,12 +64,20 @@
 
 
           <div class="flex flex-col lg:w-60 w-full">
+  <h6 class="text-xl font-semibold my-3 lg:ms-6">Ticket Information</h6>
+  <div class="flex lg:ms-4" v-if="eventDetailresp.priceRanges?.length > 0">
+    <img src="/ion_ticketBlue.png" alt="Ticket Icon" class="w-5">
+    <h4 class="ms-2">
+      Standard price:
+    <span v-if="eventDetailresp.priceRanges[0].min">From {{ eventDetailresp.priceRanges[0].min }} €</span>
+    <span v-if="eventDetailresp.priceRanges[0].max">to {{ eventDetailresp.priceRanges[0].max }} €</span>
+    </h4>
+  </div>
+  <div class="lg:ms-4" v-else>
+    <p>No pricing information available.</p>
+  </div>
 
-            <h6 class="text-xl font-semibold my-3 lg:ms-6">Ticket Information</h6>
-            <div class="flex lg:ms-4">
-              <img src="/ion_ticketBlue.png" alt="Ticket Icon" class="w-5">
-              <h4 class="ms-2">Standard min price: {{ eventDetailresp.priceRanges[0].min }} €</h4>
-            </div>
+  
           </div>
           <!-- section buy ticket -->
         </div>
@@ -79,8 +87,8 @@
     <!-- Location Section (Optional) -->
     <div v-if="eventDetailresp" class="w-full">
       <div class="flex flex-wrap items-center justify-center w-full">
-        <div class="w-11/12 h-auto lg:h-96">
-          <div class="w-full lg:w-5/12 h-auto lg:h-80 p-4 border rounded-lg shadow-md">
+        <div class="w-11/12 h-auto">
+          <div class="w-full lg:w-5/12 h-auto p-4 border rounded-lg shadow-md">
             <h6 class="text-xl font-semibold mb-2 ms-2">Location</h6>
             <div class="flex flex-wrap items-center">
               <img src="/locationIcon.svg" alt="Location Icon" class="w-5 me-2 mb-2">
